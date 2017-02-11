@@ -1,26 +1,8 @@
 TILED_MAP_INFO_FILE_PARSER_H	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMapInfoFileParser.h	/^#define TILED_MAP_INFO_FILE_PARSER_H$/;"	macro	line:2
-TiledMapInfoFileParser	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMapInfoFileParser.h	/^class TiledMapInfoFileParser :public cocos2d::Ref$/;"	class	line:15
-TiledMapInfo	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMapInfoFileParser.h	/^class TiledMapInfo :public cocos2d::Ref$/;"	class	line:60
-TiledLayerInfo	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMapInfoFileParser.h	/^class TiledLayerInfo :public cocos2d::Ref$/;"	class	line:91
-TilesheetInfo	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMapInfoFileParser.h	/^class TilesheetInfo :public cocos2d::Ref$/;"	class	line:106
-_numTileType	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMapInfoFileParser.h	/^	size_t _numTileType;$/;"	member	line:128	class:TilesheetInfo
-_textureRects	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMapInfoFileParser.h	/^	cocos2d::Rect* _textureRects;$/;"	member	line:134	class:TilesheetInfo
-TiledMapInfoFileParser	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMapInfoFileParser.cpp	/^TiledMapInfoFileParser::TiledMapInfoFileParser()$/;"	function	line:13	class:TiledMapInfoFileParser	signature:()
-~TiledMapInfoFileParser	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMapInfoFileParser.cpp	/^TiledMapInfoFileParser::~TiledMapInfoFileParser()$/;"	function	line:16	class:TiledMapInfoFileParser	signature:()
-init	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMapInfoFileParser.cpp	/^bool TiledMapInfoFileParser::init()$/;"	function	line:19	class:TiledMapInfoFileParser	signature:()
-parseTiledLayerInfoFile	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMapInfoFileParser.cpp	/^void TiledMapInfoFileParser::parseTiledLayerInfoFile(TiledLayerInfo *tiledLayerInfo)$/;"	function	line:27	class:TiledMapInfoFileParser	signature:(TiledLayerInfo *tiledLayerInfo)
-parseTilesheetFile	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMapInfoFileParser.cpp	/^void TiledMapInfoFileParser::parseTilesheetFile(const cocos2d::Vector<TilesheetInfo*>& tilesheetInfos)$/;"	function	line:32	class:TiledMapInfoFileParser	signature:(const cocos2d::Vector<TilesheetInfo*>& tilesheetInfos)
-create	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMapInfoFileParser.cpp	/^TiledMapInfoFileParser* TiledMapInfoFileParser::create()$/;"	function	line:40	class:TiledMapInfoFileParser	signature:()
-parseOriginFile	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMapInfoFileParser.cpp	/^void TiledMapInfoFileParser::parseOriginFile($/;"	function	line:54	class:TiledMapInfoFileParser	signature:( std::string file, TiledMapInfo* tiledMapInfo, const cocos2d::Vector<TiledLayerInfo*>& tiledLayerInfos, const cocos2d::Vector<TilesheetInfo*>& tilesheetInfos)
-TiledMapInfo	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMapInfoFileParser.cpp	/^TiledMapInfo::TiledMapInfo()$/;"	function	line:88	class:TiledMapInfo	signature:()
-~TiledMapInfo	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMapInfoFileParser.cpp	/^TiledMapInfo::~TiledMapInfo()$/;"	function	line:94	class:TiledMapInfo	signature:()
-init	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMapInfoFileParser.cpp	/^bool TiledMapInfo::init()$/;"	function	line:97	class:TiledMapInfo	signature:()
-create	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMapInfoFileParser.cpp	/^TiledMapInfo* TiledMapInfo::create()$/;"	function	line:105	class:TiledMapInfo	signature:()
-TiledLayerInfo	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMapInfoFileParser.cpp	/^TiledLayerInfo::TiledLayerInfo()$/;"	function	line:125	class:TiledLayerInfo	signature:()
-~TiledLayerInfo	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMapInfoFileParser.cpp	/^TiledLayerInfo::~TiledLayerInfo()$/;"	function	line:128	class:TiledLayerInfo	signature:()
-init	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMapInfoFileParser.cpp	/^bool TiledLayerInfo::init()$/;"	function	line:131	class:TiledLayerInfo	signature:()
-create	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMapInfoFileParser.cpp	/^TiledLayerInfo* TiledLayerInfo::create()$/;"	function	line:139	class:TiledLayerInfo	signature:()
-TilesheetInfo	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMapInfoFileParser.cpp	/^TilesheetInfo::TilesheetInfo()$/;"	function	line:159	class:TilesheetInfo	signature:()
-~TilesheetInfo	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMapInfoFileParser.cpp	/^TilesheetInfo::~TilesheetInfo()$/;"	function	line:165	class:TilesheetInfo	signature:()
-initWithN	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMapInfoFileParser.cpp	/^bool TilesheetInfo::initWithN(size_t n)$/;"	function	line:170	class:TilesheetInfo	signature:(size_t n)
-createWithN	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMapInfoFileParser.cpp	/^TilesheetInfo* TilesheetInfo::createWithN(size_t n)$/;"	function	line:181	class:TilesheetInfo	signature:(size_t n)
+TiledMapInfoFileParser	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMapInfoFileParser.h	/^class TiledMapInfoFileParser :public cocos2d::Ref$/;"	class	line:16
+TiledMapInfo	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMapInfoFileParser.h	/^class TiledMapInfo :public cocos2d::Ref$/;"	class	line:79
+_architecture	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMapInfoFileParser.h	/^	std::vector<std::string> _architecture;$/;"	member	line:110	class:TiledMapInfo
+TiledLayerInfo	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMapInfoFileParser.h	/^class TiledLayerInfo :public cocos2d::Ref$/;"	class	line:127
+BunchedLayerInfo	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMapInfoFileParser.h	/^class BunchedLayerInfo :public cocos2d::Ref$/;"	class	line:148
+TilesheetInfo	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMapInfoFileParser.h	/^class TilesheetInfo :public cocos2d::Ref$/;"	class	line:174
+_textureRects	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMapInfoFileParser.h	/^	cocos2d::Rect* _textureRects;$/;"	member	line:202	class:TilesheetInfo
