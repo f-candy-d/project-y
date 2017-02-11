@@ -1,0 +1,21 @@
+#The map information file. Load this file when initializing a TiledMap2P5D object.
+
+#THE NAME OF THE DIRECTORY WHERE THE INFORMATION FILES OF A MAP
+	[tm2p5d]
+#THE NUMBER OF CHANKS IN A LAYER
+	50
+#THE NUMBER OF ALL TILED LAYERS
+	4
+#THE NUMBER OF BUNCHED LAYERS
+	3
+#THE ARCHITECTURE OF THE TILED MAP
+#BUNCHED LAYER 1
+<block>(2)
+	[layerA_info.dat]
+	[layerB_info.dat]
+#BUNCHED LAYER 2
+	[layerC_info.dat]
+#BUNCHED LAYER 3
+	[layerD_info.dat]
+#THE FILE NAMES OF A TILESHEET-INFORMATION
+	[tilesheet_info.dat]

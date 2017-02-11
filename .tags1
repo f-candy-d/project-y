@@ -1,0 +1,25 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	0	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+TiledMapInfoFileParser	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMapInfoFileParser.cpp	/^TiledMapInfoFileParser::TiledMapInfoFileParser()$/;"	function	line:13	class:TiledMapInfoFileParser	signature:()
+~TiledMapInfoFileParser	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMapInfoFileParser.cpp	/^TiledMapInfoFileParser::~TiledMapInfoFileParser()$/;"	function	line:16	class:TiledMapInfoFileParser	signature:()
+init	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMapInfoFileParser.cpp	/^bool TiledMapInfoFileParser::init()$/;"	function	line:19	class:TiledMapInfoFileParser	signature:()
+parseTiledLayerInfoFile	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMapInfoFileParser.cpp	/^void TiledMapInfoFileParser::parseTiledLayerInfoFile(TiledLayerInfo *tiledLayerInfo)$/;"	function	line:27	class:TiledMapInfoFileParser	signature:(TiledLayerInfo *tiledLayerInfo)
+parseTilesheetFile	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMapInfoFileParser.cpp	/^void TiledMapInfoFileParser::parseTilesheetFile(const cocos2d::Vector<TilesheetInfo*>& tilesheetInfos)$/;"	function	line:32	class:TiledMapInfoFileParser	signature:(const cocos2d::Vector<TilesheetInfo*>& tilesheetInfos)
+create	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMapInfoFileParser.cpp	/^TiledMapInfoFileParser* TiledMapInfoFileParser::create()$/;"	function	line:40	class:TiledMapInfoFileParser	signature:()
+parseOriginFile	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMapInfoFileParser.cpp	/^void TiledMapInfoFileParser::parseOriginFile($/;"	function	line:54	class:TiledMapInfoFileParser	signature:( std::string file, TiledMapInfo* tiledMapInfo, const cocos2d::Vector<TiledLayerInfo*>& tiledLayerInfos, const cocos2d::Vector<TilesheetInfo*>& tilesheetInfos)
+TiledMapInfo	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMapInfoFileParser.cpp	/^TiledMapInfo::TiledMapInfo()$/;"	function	line:88	class:TiledMapInfo	signature:()
+~TiledMapInfo	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMapInfoFileParser.cpp	/^TiledMapInfo::~TiledMapInfo()$/;"	function	line:94	class:TiledMapInfo	signature:()
+init	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMapInfoFileParser.cpp	/^bool TiledMapInfo::init()$/;"	function	line:97	class:TiledMapInfo	signature:()
+create	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMapInfoFileParser.cpp	/^TiledMapInfo* TiledMapInfo::create()$/;"	function	line:105	class:TiledMapInfo	signature:()
+TiledLayerInfo	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMapInfoFileParser.cpp	/^TiledLayerInfo::TiledLayerInfo()$/;"	function	line:125	class:TiledLayerInfo	signature:()
+~TiledLayerInfo	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMapInfoFileParser.cpp	/^TiledLayerInfo::~TiledLayerInfo()$/;"	function	line:128	class:TiledLayerInfo	signature:()
+init	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMapInfoFileParser.cpp	/^bool TiledLayerInfo::init()$/;"	function	line:131	class:TiledLayerInfo	signature:()
+create	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMapInfoFileParser.cpp	/^TiledLayerInfo* TiledLayerInfo::create()$/;"	function	line:139	class:TiledLayerInfo	signature:()
+TilesheetInfo	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMapInfoFileParser.cpp	/^TilesheetInfo::TilesheetInfo()$/;"	function	line:159	class:TilesheetInfo	signature:()
+~TilesheetInfo	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMapInfoFileParser.cpp	/^TilesheetInfo::~TilesheetInfo()$/;"	function	line:165	class:TilesheetInfo	signature:()
+initWithN	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMapInfoFileParser.cpp	/^bool TilesheetInfo::initWithN(size_t n)$/;"	function	line:170	class:TilesheetInfo	signature:(size_t n)
+createWithN	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMapInfoFileParser.cpp	/^TilesheetInfo* TilesheetInfo::createWithN(size_t n)$/;"	function	line:181	class:TilesheetInfo	signature:(size_t n)
