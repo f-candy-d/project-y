@@ -30,18 +30,21 @@ void TiledMapInfoFileParser::parseTiledLayerInfoFile(
 	TiledLayerInfo *tiledLayerInfo,std::string file)
 {
 	//Parse a tiled-layer-info file
+	log("parseTiledLayerInfoFile::Parse '%s'",file.c_str());
 }
 
 void TiledMapInfoFileParser::parseBunchedLayerInfoFile(
 	BunchedLayerInfo *bunchedLayerInfo, std::string file)
 {
 	//Parse a bunched-layer-info file
+	log("parseBunchedLayerInfoFile::Parse '%s'",file.c_str());
 }
 
 void TiledMapInfoFileParser::parseTilesheetFile(
 	const cocos2d::Map<std::string,TilesheetInfo*>& tilesheetInfos,std::string file)
 {
 	//Parse a tilesheet-info file
+	log("parseTilesheetFile::Parse '%s'",file.c_str());
 }
 
 /**
@@ -72,9 +75,7 @@ void TiledMapInfoFileParser::parseOriginFile(
 	std::string line_buff;
 	char buff[SSCANF_BUFF_LEN];
 	size_t tmp;
-
-	//Create instance
-	tiledMapInfo = TiledMapInfo::create();
+	const size_t not_match_flag = static_cast<size_t>(-1);
 
 	if(i_file_stream.eof())
 	{
@@ -82,6 +83,7 @@ void TiledMapInfoFileParser::parseOriginFile(
 		return;
 	}
 
+	log("Parse file'%s'",file.c_str());
 	while(!i_file_stream.eof())
 	{
 		//Parse the map-info file
@@ -89,62 +91,64 @@ void TiledMapInfoFileParser::parseOriginFile(
 		std::getline(i_file_stream,line_buff);
 
 		//Skip a comment
-		if(line_buff.find("#") == static_cast<size_t>(-1))
+		if(line_buff.find("#") != not_match_flag)
 			continue;
 		//The name of the directory which contains information files of a map
-		else if(line_buff.find("<Directory") != static_cast<size_t>(-1))
+		else if(line_buff.find("<Directory/>") != not_match_flag)
 		{
-			sscanf(line_buff.c_str(),"<Directory=%s/>",buff);
+			sscanf(line_buff.c_str(),"<Directory/>%s",buff);
 			tiledMapInfo->setDirectory(buff);
 		}
 		//The number of chanks in a layer
-		else if(line_buff.find("<NumOfChankInLayer") != static_cast<size_t>(-1))
+		else if(line_buff.find("<NumOfChankInLayer/>") != not_match_flag)
 		{
-			sscanf(line_buff.c_str(),"<NumOfChankInLayer=%zu/>",&tmp);
+			sscanf(line_buff.c_str(),"<NumOfChankInLayer/>%zu",&tmp);
 			tiledMapInfo->setNumChank(tmp);
 		}
 		//The number of all tiled layers
-		else if(line_buff.find("<NumOfTiledLayer") != static_cast<size_t>(-1))
+		else if(line_buff.find("<NumOfTiledLayer/>") != not_match_flag)
 		{
-			sscanf(line_buff.c_str(),"<NumOfTiledLayer=%zu/>",&tmp);
+			sscanf(line_buff.c_str(),"<NumOfTiledLayer/>%zu",&tmp);
 			tiledMapInfo->setNumTiledLayer(tmp);
 		}
 		//The number of bunched layers
-		else if(line_buff.find("<NumOfBunchedLayer") != static_cast<size_t>(-1))
+		else if(line_buff.find("<NumOfBunchedLayer/>") != not_match_flag)
 		{
-			sscanf(line_buff.c_str(),"<NumOfBunchedLayer=%zu/>",&tmp);
+			sscanf(line_buff.c_str(),"<NumOfBunchedLayer/>%zu",&tmp);
 			tiledMapInfo->setNumBunchedLayer(tmp);
 		}
 		//The name of a tiled layer information file
-		else if(line_buff.find("<TiledLayerInfoFile") != static_cast<size_t>(-1))
+		else if(line_buff.find("<TiledLayerInfoFile/>") != not_match_flag)
 		{
-			sscanf(line_buff.c_str(),"<TiledLayerInfoFile=%s/>",buff);
+			sscanf(line_buff.c_str(),"<TiledLayerInfoFile/>%s",buff);
 			TiledLayerInfo* tli = TiledLayerInfo::create();
 			parseTiledLayerInfoFile(tli,std::string(buff));
-			tiledLayerInfos.insert(tli->getName(),tli);
+			tiledLayerInfos.insert(tli->getLayerName   (),tli);
 		}
 		//The name of a bunched layer information file
-		else if(line_buff.find("<BunchedLayerInfoFile") != static_cast<size_t>(-1))
+		else if(line_buff.find("<BunchedLayerInfoFile/>") != not_match_flag)
 		{
-			sscanf(line_buff.c_str(),"<BunchedLayerInfoFile=%s/>",buff);
+			sscanf(line_buff.c_str(),"<BunchedLayerInfoFile/>%s",buff);
 			BunchedLayerInfo* bli = BunchedLayerInfo::create();
 			parseBunchedLayerInfoFile(bli,std::string(buff));
 			bunchedLayerInfos.insert(bli->getName(),bli);
 		}
 		//The name of the tilesheet information file
-		else if(line_buff.find("<TilesheetInfoFile") != static_cast<size_t>(-1))
+		else if(line_buff.find("<TilesheetInfoFile/>") != not_match_flag)
 		{
-			sscanf(line_buff.c_str(),"<TilesheetInfoFile=%s/>",buff);
+			sscanf(line_buff.c_str(),"<TilesheetInfoFile/>%s",buff);
 			parseTilesheetFile(tilesheetInfos,std::string(buff));
 		}
 		//The architecture of the map
-		else if(line_buff == "<MapArchitecture>")
+		else if(line_buff.find("<MapArchitecture>") != not_match_flag)
 		{
 			std::getline(i_file_stream,line_buff);
-			while (line_buff != "<MapArchitecture/>") {
-				if(line_buff.find("<BunchedLayer") != static_cast<size_t>(-1))
+			while (line_buff.find("<MapArchitecture/>") == not_match_flag
+			&& !i_file_stream.eof())
+			{
+				if(line_buff.find("<BunchedLayer/>") != not_match_flag)
 				{
-					sscanf(line_buff.c_str(),"<BunchedLayer=%s/>",buff);
+					sscanf(line_buff.c_str(),"<BunchedLayer/>%s",buff);
 					tiledMapInfo->getArchitecture().push_back(std::string(buff));
 				}
 				//Next line
@@ -152,6 +156,14 @@ void TiledMapInfoFileParser::parseOriginFile(
 			}
 		}
 	}
+
+	// log("HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH");
+	// log("TiledMapInfo::NumChank::%zu",tiledMapInfo->getNumChank());
+	// log("TiledMapInfo::NumTiledLayer::%zu",tiledMapInfo->getNumTiledLayer());	log("TiledMapInfo::NumBunchedLayer::%zu",tiledMapInfo->getNumBunchedLayer());	log("TiledMapInfo::Directory::%s",tiledMapInfo->getDirectory().c_str());
+	// for(auto str:tiledMapInfo->getArchitecture())
+	// {
+	// 	log("TiledMapInfo::Architecture::%s",str.c_str());
+	// }
 }
 
 /**
@@ -205,6 +217,8 @@ std::vector<std::string>& TiledMapInfo::getArchitecture()
  * Protected functions
  */
 TiledLayerInfo::TiledLayerInfo()
+:_layerName("")
+,_TerrainFileName("")
 {}
 
 TiledLayerInfo::~TiledLayerInfo()
@@ -239,6 +253,8 @@ TiledLayerInfo* TiledLayerInfo::create()
  * Protected functions
  */
 BunchedLayerInfo::BunchedLayerInfo()
+:_name("")
+,_numChildLayer(0)
 {}
 
 BunchedLayerInfo::~BunchedLayerInfo()
@@ -277,7 +293,8 @@ BunchedLayerInfo* BunchedLayerInfo::create()
  * Protected functions
  */
 TilesheetInfo::TilesheetInfo()
-:_name("")
+:_fileName("")
+,_sheetName("")
 ,_numTileType(0)
 ,_textureRects(nullptr)
 {}

@@ -1,28 +1,27 @@
 #The map information file. Load this file when initializing a TiledMap2P5D object.
 
 #THE NAME OF THE DIRECTORY WHERE THE INFORMATION FILES OF A MAP
-<Directory=tm2p5d/>
+<Directory/>tm2p5d
 #THE NUMBER OF CHANKS IN A LAYER
-<NumOfChankInLayer=25/>
-#THE NUMBER OF ALL TILED LAYERS
-<NumOfTiledLayer=4/>
-#THE NUMBER OF BUNCHED LAYERS
-<NumOfBunchedLayer=3/>
+<NumOfChankInLayer/>25
+#THE NUMBER OF ALL TILED LAYERS CONTAINED BY THE MAP
+<NumOfTiledLayer/>4
+#THE NUMBER OF BUNCHED LAYERS CONTAINED BY THE MAP
+<NumOfBunchedLayer/>3
 #THE TILED LAYER INFORMATION FILES
-<TiledLayerInfoFile=layer_A_info.dat/>
-<TiledLayerInfoFile=layer_B_info.dat/>
-<TiledLayerInfoFile=layer_C_info.dat/>
-<TiledLayerInfoFile=layer_D_info.dat/>
+<TiledLayerInfoFile/>layer_A_info.dat
+<TiledLayerInfoFile/>layer_B_info.dat
+<TiledLayerInfoFile/>layer_C_info.dat
 #THE BUNCHED LAYER INFORMATION FILES
-<BunchedLayerInfoFile=bunched_layer_0_info.dat/>
-<BunchedLayerInfoFile=bunched_layer_1_info.dat/>
-<BunchedLayerInfoFile=bunched_layer_2_info.dat/>
+<BunchedLayerInfoFile/>bunched_layer_0_info.dat
+<BunchedLayerInfoFile/>bunched_layer_1_info.dat
+<BunchedLayerInfoFile/>bunched_layer_2_info.dat
 #THE TILESHEET INFORMATION FILE
-<TilesheetInfoFile=tilesheet_info.dat/>
+<TilesheetInfoFile/>tilesheet_info.dat
 #THE ARCHITECTURE OF THE MAP
 #EACH ELEMENT IS A NAME OF A BUNCHED LAYER
 <MapArchitecture>
-	<BunchedLayer=bunched_layer_0/>
-	<BunchedLayer=bunched_layer_1/>
-	<BunchedLayer=bunched_layer_2/>
+<BunchedLayer/>bunched_layer_0
+<BunchedLayer/>bunched_layer_1
+<BunchedLayer/>bunched_layer_2
 <MapArchitecture/>

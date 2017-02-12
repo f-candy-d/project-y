@@ -90,12 +90,12 @@ private:
 	CC_SYNTHESIZE(size_t,_numChank,NumChank);
 
 	/**
-	 * The number of all tile layers.
+	 * The number of all tiled layers contained by the map.
 	 */
 	CC_SYNTHESIZE(size_t,_numTiledLayer,NumTiledLayer);
 
 	/**
-	 * The number of bunched layers.
+	 * The number of bunched layers contained by the map.
 	 */
 	CC_SYNTHESIZE(size_t,_numBunchedLayer,NumBunchedLayer);
 
@@ -135,7 +135,12 @@ private:
 	/**
 	 * The name of the tiled layer.
 	 */
-	CC_SYNTHESIZE(std::string,_name,Name);
+	CC_SYNTHESIZE(std::string,_layerName,LayerName);
+
+	/**
+	 * The name of terrain data file.
+	 */
+	CC_SYNTHESIZE(std::string,_TerrainFileName,TerrainFileName);
 
 public:
 	static TiledLayerInfo* create();
@@ -188,7 +193,12 @@ private:
 	/**
 	 * The name of a tilesheet resource file.
 	 */
-	CC_SYNTHESIZE(std::string,_name,Name);
+	CC_SYNTHESIZE(std::string,_fileName,FileName);
+
+	/**
+	 * The name of a tilesheet.
+	 */
+	CC_SYNTHESIZE(std::string,_sheetName,SheetName);
 
 	/**
 	 * The number of the tile types.

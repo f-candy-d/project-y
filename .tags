@@ -1,8 +1,29 @@
-TILED_MAP_INFO_FILE_PARSER_H	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMapInfoFileParser.h	/^#define TILED_MAP_INFO_FILE_PARSER_H$/;"	macro	line:2
-TiledMapInfoFileParser	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMapInfoFileParser.h	/^class TiledMapInfoFileParser :public cocos2d::Ref$/;"	class	line:16
-TiledMapInfo	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMapInfoFileParser.h	/^class TiledMapInfo :public cocos2d::Ref$/;"	class	line:79
-_architecture	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMapInfoFileParser.h	/^	std::vector<std::string> _architecture;$/;"	member	line:110	class:TiledMapInfo
-TiledLayerInfo	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMapInfoFileParser.h	/^class TiledLayerInfo :public cocos2d::Ref$/;"	class	line:127
-BunchedLayerInfo	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMapInfoFileParser.h	/^class BunchedLayerInfo :public cocos2d::Ref$/;"	class	line:148
-TilesheetInfo	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMapInfoFileParser.h	/^class TilesheetInfo :public cocos2d::Ref$/;"	class	line:174
-_textureRects	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMapInfoFileParser.h	/^	cocos2d::Rect* _textureRects;$/;"	member	line:202	class:TilesheetInfo
+TiledMap2P5D	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMap2P5D.cpp	/^TiledMap2P5D::TiledMap2P5D()$/;"	function	line:8	class:TiledMap2P5D	signature:()
+~TiledMap2P5D	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMap2P5D.cpp	/^TiledMap2P5D::~TiledMap2P5D()$/;"	function	line:11	class:TiledMap2P5D	signature:()
+init	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMap2P5D.cpp	/^bool TiledMap2P5D::init()$/;"	function	line:14	class:TiledMap2P5D	signature:()
+create	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMap2P5D.cpp	/^TiledMap2P5D* TiledMap2P5D::create()$/;"	function	line:27	class:TiledMap2P5D	signature:()
+designResolutionSize	/home/daichi/dev/cocos-projects/ProjectY/Classes/AppDelegate.cpp	/^static cocos2d::Size designResolutionSize = cocos2d::Size(480, 320);$/;"	variable	line:6	file:
+smallResolutionSize	/home/daichi/dev/cocos-projects/ProjectY/Classes/AppDelegate.cpp	/^static cocos2d::Size smallResolutionSize = cocos2d::Size(480, 320);$/;"	variable	line:7	file:
+mediumResolutionSize	/home/daichi/dev/cocos-projects/ProjectY/Classes/AppDelegate.cpp	/^static cocos2d::Size mediumResolutionSize = cocos2d::Size(1024, 768);$/;"	variable	line:8	file:
+largeResolutionSize	/home/daichi/dev/cocos-projects/ProjectY/Classes/AppDelegate.cpp	/^static cocos2d::Size largeResolutionSize = cocos2d::Size(2048, 1536);$/;"	variable	line:9	file:
+AppDelegate	/home/daichi/dev/cocos-projects/ProjectY/Classes/AppDelegate.cpp	/^AppDelegate::AppDelegate()$/;"	function	line:11	class:AppDelegate	signature:()
+~AppDelegate	/home/daichi/dev/cocos-projects/ProjectY/Classes/AppDelegate.cpp	/^AppDelegate::~AppDelegate()$/;"	function	line:15	class:AppDelegate	signature:()
+initGLContextAttrs	/home/daichi/dev/cocos-projects/ProjectY/Classes/AppDelegate.cpp	/^void AppDelegate::initGLContextAttrs()$/;"	function	line:21	class:AppDelegate	signature:()
+register_all_packages	/home/daichi/dev/cocos-projects/ProjectY/Classes/AppDelegate.cpp	/^static int register_all_packages()$/;"	function	line:31	file:	signature:()
+applicationDidFinishLaunching	/home/daichi/dev/cocos-projects/ProjectY/Classes/AppDelegate.cpp	/^bool AppDelegate::applicationDidFinishLaunching() {$/;"	function	line:36	class:AppDelegate	signature:()
+applicationDidEnterBackground	/home/daichi/dev/cocos-projects/ProjectY/Classes/AppDelegate.cpp	/^void AppDelegate::applicationDidEnterBackground() {$/;"	function	line:86	class:AppDelegate	signature:()
+applicationWillEnterForeground	/home/daichi/dev/cocos-projects/ProjectY/Classes/AppDelegate.cpp	/^void AppDelegate::applicationWillEnterForeground() {$/;"	function	line:94	class:AppDelegate	signature:()
+createScene	/home/daichi/dev/cocos-projects/ProjectY/Classes/HelloWorldScene.cpp	/^Scene* HelloWorld::createScene()$/;"	function	line:9	class:HelloWorld	signature:()
+init	/home/daichi/dev/cocos-projects/ProjectY/Classes/HelloWorldScene.cpp	/^bool HelloWorld::init()$/;"	function	line:25	class:HelloWorld	signature:()
+menuCloseCallback	/home/daichi/dev/cocos-projects/ProjectY/Classes/HelloWorldScene.cpp	/^void HelloWorld::menuCloseCallback(Ref* pSender)$/;"	function	line:97	class:HelloWorld	signature:(Ref* pSender)
+TILED_MAP_2P5D_DEVELOP_LAYER_H	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMap2P5DDevelopLayer.h	/^#define TILED_MAP_2P5D_DEVELOP_LAYER_H$/;"	macro	line:2
+TiledMap2P5DDevelopLayer	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMap2P5DDevelopLayer.h	/^class TiledMap2P5DDevelopLayer :public cocos2d::LayerColor$/;"	class	line:8
+CHANK_H	/home/daichi/dev/cocos-projects/ProjectY/Classes/Chank.h	/^#define CHANK_H$/;"	macro	line:2
+Chank	/home/daichi/dev/cocos-projects/ProjectY/Classes/Chank.h	/^class Chank :public cocos2d::Ref$/;"	class	line:6
+CHANK_WIDH	/home/daichi/dev/cocos-projects/ProjectY/Classes/Chank.h	/^	static const size_t CHANK_WIDH = 16;$/;"	member	line:14	class:Chank
+CHANK_HEIGHT	/home/daichi/dev/cocos-projects/ProjectY/Classes/Chank.h	/^	static const size_t CHANK_HEIGHT = 256;$/;"	member	line:15	class:Chank
+_tiles	/home/daichi/dev/cocos-projects/ProjectY/Classes/Chank.h	/^	int _tiles[CHANK_WIDH * CHANK_HEIGHT] = {-1};$/;"	member	line:39	class:Chank
+create	/home/daichi/dev/cocos-projects/ProjectY/Classes/Chank.cpp	/^Chank* Chank::create()$/;"	function	line:8	class:Chank	signature:()
+Chank	/home/daichi/dev/cocos-projects/ProjectY/Classes/Chank.cpp	/^Chank::Chank()$/;"	function	line:24	class:Chank	signature:()
+~Chank	/home/daichi/dev/cocos-projects/ProjectY/Classes/Chank.cpp	/^Chank::~Chank()$/;"	function	line:29	class:Chank	signature:()
+init	/home/daichi/dev/cocos-projects/ProjectY/Classes/Chank.cpp	/^bool Chank::init()$/;"	function	line:32	class:Chank	signature:()

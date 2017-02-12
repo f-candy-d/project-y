@@ -4,11 +4,7 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
-TILED_MAP_INFO_FILE_PARSER_H	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMapInfoFileParser.h	/^#define TILED_MAP_INFO_FILE_PARSER_H$/;"	macro	line:2
-TiledMapInfoFileParser	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMapInfoFileParser.h	/^class TiledMapInfoFileParser :public cocos2d::Ref$/;"	class	line:16
-TiledMapInfo	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMapInfoFileParser.h	/^class TiledMapInfo :public cocos2d::Ref$/;"	class	line:79
-_architecture	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMapInfoFileParser.h	/^	std::vector<std::string> _architecture;$/;"	member	line:110	class:TiledMapInfo
-TiledLayerInfo	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMapInfoFileParser.h	/^class TiledLayerInfo :public cocos2d::Ref$/;"	class	line:127
-BunchedLayerInfo	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMapInfoFileParser.h	/^class BunchedLayerInfo :public cocos2d::Ref$/;"	class	line:148
-TilesheetInfo	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMapInfoFileParser.h	/^class TilesheetInfo :public cocos2d::Ref$/;"	class	line:174
-_textureRects	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMapInfoFileParser.h	/^	cocos2d::Rect* _textureRects;$/;"	member	line:202	class:TilesheetInfo
+create	/home/daichi/dev/cocos-projects/ProjectY/Classes/Chank.cpp	/^Chank* Chank::create()$/;"	function	line:8	class:Chank	signature:()
+Chank	/home/daichi/dev/cocos-projects/ProjectY/Classes/Chank.cpp	/^Chank::Chank()$/;"	function	line:24	class:Chank	signature:()
+~Chank	/home/daichi/dev/cocos-projects/ProjectY/Classes/Chank.cpp	/^Chank::~Chank()$/;"	function	line:29	class:Chank	signature:()
+init	/home/daichi/dev/cocos-projects/ProjectY/Classes/Chank.cpp	/^bool Chank::init()$/;"	function	line:32	class:Chank	signature:()
