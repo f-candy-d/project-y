@@ -18,11 +18,12 @@ public:
 
 	/**
 	 * Create Chank class object.
-	 * @method createWithTileSize
-	 * @param  size               [The size of a tile(px)]
-	 * @return                    [A pointer of Chank class object]
+	 * @method createWithParam
+	 * @param  size            [The size of a tile(px)]
+	 * @param  index           [The index of the chank on a layer]
+	 * @return                 [A pointer of a Chank class object]
 	 */
-	static Chank* createWithTileSize(cocos2d::Size size);
+	static Chank* createWithParam(cocos2d::Size size,size_t index);
 
 	/**
 	 * Make sprites of the tile and add them to the parent SpriteBatchNode.
@@ -45,11 +46,12 @@ protected:
 
 	/**
 	 * Initialize the object. If initialization fail,return false.
-	 * @method initWithTileSize
+	 * @method initWithParam
 	 * @param  size             [The size of a tile(px)]
+	 * @param  index            [The index of the chank on a layer]
 	 * @return                  [true/false]
 	 */
-	bool initWithTileSize(cocos2d::Size size);
+	bool initWithParam(cocos2d::Size size,size_t index);
 
 private:
 	/**

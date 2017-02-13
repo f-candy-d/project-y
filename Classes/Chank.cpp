@@ -5,10 +5,10 @@ USING_NS_CC;
 /**
  * Public functions
  */
-Chank* Chank::create()
+Chank* Chank::createWithParam(cocos2d::Size size, size_t index)
 {
 	Chank* ref = new Chank();
-	if(ref->init())
+	if(ref->initWithParam(size,index))
 	{
 		ref->autorelease();
 		return ref;
@@ -18,19 +18,35 @@ Chank* Chank::create()
 	return nullptr;
 }
 
+void Chank::makeTiles(cocos2d::SpriteBatchNode *parent, TilesheetInfo *tilesheetInfo)
+{
+	
+}
+
+void Chank::eraseTiles(cocos2d::SpriteBatchNode *parent)
+{
+
+}
+
 /**
  * Protected functions
  */
 Chank::Chank()
 :_index(-1)
+,_size(0,0)
 ,_origin(0,0)
 {}
 
 Chank::~Chank()
 {}
 
-bool Chank::init()
+bool Chank::initWithParam(cocos2d::Size size,size_t index)
 {
+	//Setup params
+	_index = index;
+	_size.setSize(size.width * this->GRID_WIDTH,size.height * this->GRID_HEIGHT);
+	_origin.set(_size.width * _index,0);
+
 	return true;
 }
 
