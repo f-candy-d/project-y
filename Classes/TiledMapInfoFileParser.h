@@ -168,8 +168,20 @@ private:
 	 */
 	CC_SYNTHESIZE(size_t,_numChildLayer,NumChildLayer);
 
+	/**
+	 * This vector contains the names of TiledLayers contained by the BunchedLayer.
+	 */
+	std::vector<std::string> _architecture;
+
 public:
 	static BunchedLayerInfo* create();
+
+	/**
+	 * Return the vector '_architecture' calling by reference.
+	 * @method getArchitecture
+	 * @return [An object of std::vector.]
+	 */
+	std::vector<std::string>& getArchitecture();
 };
 
 /**

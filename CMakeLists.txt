@@ -130,9 +130,7 @@ endif( WIN32 )
 set(GAME_SRC
   Classes/AppDelegate.cpp
   Classes/HelloWorldScene.cpp
-  Classes/TiledMapInfoFileParser.cpp
   Classes/TiledMap2P5D.cpp
-  Classes/TiledMap2P5DDevelopLayer.cpp
   Classes/Chank.cpp
   ${PLATFORM_SPECIFIC_SRC}
 )
@@ -140,9 +138,7 @@ set(GAME_SRC
 set(GAME_HEADERS
   Classes/AppDelegate.h
   Classes/HelloWorldScene.h
-  Classes/TiledMapInfoFileParser.h
   Classes/TiledMap2P5D.h
-  Classes/TiledMap2P5DDevelopLayer.h
   Classes/Chank.h
   ${PLATFORM_SPECIFIC_HEADERS}
 )

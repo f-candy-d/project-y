@@ -4,7 +4,12 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
-create	/home/daichi/dev/cocos-projects/ProjectY/Classes/Chank.cpp	/^Chank* Chank::create()$/;"	function	line:8	class:Chank	signature:()
-Chank	/home/daichi/dev/cocos-projects/ProjectY/Classes/Chank.cpp	/^Chank::Chank()$/;"	function	line:24	class:Chank	signature:()
-~Chank	/home/daichi/dev/cocos-projects/ProjectY/Classes/Chank.cpp	/^Chank::~Chank()$/;"	function	line:29	class:Chank	signature:()
-init	/home/daichi/dev/cocos-projects/ProjectY/Classes/Chank.cpp	/^bool Chank::init()$/;"	function	line:32	class:Chank	signature:()
+CheapTiledLayer	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMap2P5DDevelopLayer.cpp	/^TiledMap2P5DDevelopLayer::CheapTiledLayer::CheapTiledLayer()$/;"	function	line:12	class:TiledMap2P5DDevelopLayer::CheapTiledLayer	signature:()
+~CheapTiledLayer	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMap2P5DDevelopLayer.cpp	/^TiledMap2P5DDevelopLayer::CheapTiledLayer::~CheapTiledLayer()$/;"	function	line:15	class:TiledMap2P5DDevelopLayer::CheapTiledLayer	signature:()
+initWithInfo	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMap2P5DDevelopLayer.cpp	/^bool TiledMap2P5DDevelopLayer::CheapTiledLayer::initWithInfo(TiledLayerInfo* info)$/;"	function	line:18	class:TiledMap2P5DDevelopLayer::CheapTiledLayer	signature:(TiledLayerInfo* info)
+createWithInfo	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMap2P5DDevelopLayer.cpp	/^TiledMap2P5DDevelopLayer::CheapTiledLayer* TiledMap2P5DDevelopLayer::CheapTiledLayer::createWithInfo(TiledLayerInfo* info)$/;"	function	line:30	class:TiledMap2P5DDevelopLayer::CheapTiledLayer	signature:(TiledLayerInfo* info)
+TiledMap2P5DDevelopLayer	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMap2P5DDevelopLayer.cpp	/^TiledMap2P5DDevelopLayer::TiledMap2P5DDevelopLayer()$/;"	function	line:50	class:TiledMap2P5DDevelopLayer	signature:()
+~TiledMap2P5DDevelopLayer	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMap2P5DDevelopLayer.cpp	/^TiledMap2P5DDevelopLayer::~TiledMap2P5DDevelopLayer()$/;"	function	line:54	class:TiledMap2P5DDevelopLayer	signature:()
+initWithTiledMap	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMap2P5DDevelopLayer.cpp	/^bool TiledMap2P5DDevelopLayer::initWithTiledMap(TiledMap2P5D *map)$/;"	function	line:59	class:TiledMap2P5DDevelopLayer	signature:(TiledMap2P5D *map)
+buildMapView	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMap2P5DDevelopLayer.cpp	/^void TiledMap2P5DDevelopLayer::buildMapView()$/;"	function	line:77	class:TiledMap2P5DDevelopLayer	signature:()
+createWithTiledMap	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMap2P5DDevelopLayer.cpp	/^TiledMap2P5DDevelopLayer* TiledMap2P5DDevelopLayer::createWithTiledMap(TiledMap2P5D *map)$/;"	function	line:94	class:TiledMap2P5DDevelopLayer	signature:(TiledMap2P5D *map)

@@ -35,11 +35,32 @@ private:
 	 */
 	CC_SYNTHESIZE_RETAIN(TiledMapInfo*,_tiledMapInfo,TiledMapInfo);
 
-	
-
-
 public:
 	static TiledMap2P5D* create();
+
+	/**
+	 * Return a pointer of TiledLayerInfo object in the hashed map.
+	 * @method getTiledLayerInfoByName
+	 * @param  name                    [A name of TiledLayer.]
+	 * @return                         [A pointer of TiledLayerInfo object.]
+	 */
+	TiledLayerInfo* getTiledLayerInfoByName(std::string name);
+
+	/**
+	 * Return a pointer of BunchedLayerInfo object in the hashed map.
+	 * @method getBunchedLayerInfoByName
+	 * @param  name                      [The name of BunchedLayer.]
+	 * @return                           [A pointer of BunchedLayerInfo object.]
+	 */
+	BunchedLayerInfo* getBunchedLayerInfoByName(std::string name);
+
+	/**
+	 * Return a pointer of TilesheetInfo object in the hashed map.
+	 * @method getTilesheetInfoByName
+	 * @param  name                   [The name of Tilesheet.]
+	 * @return                        [A pointer of TilesheetInfo object.]
+	 */
+	TilesheetInfo* getTilesheetInfoByName(std::string name);
 };
 
 #endif

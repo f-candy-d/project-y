@@ -285,6 +285,11 @@ BunchedLayerInfo* BunchedLayerInfo::create()
 	return nullptr;
 }
 
+std::vector<std::string>& BunchedLayerInfo::getArchitecture()
+{
+	return _architecture;
+}
+
 /**
  * Implementation of the TilesheetInfo class
  */

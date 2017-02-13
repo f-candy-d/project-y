@@ -1,7 +1,3 @@
-TiledMap2P5D	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMap2P5D.cpp	/^TiledMap2P5D::TiledMap2P5D()$/;"	function	line:8	class:TiledMap2P5D	signature:()
-~TiledMap2P5D	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMap2P5D.cpp	/^TiledMap2P5D::~TiledMap2P5D()$/;"	function	line:11	class:TiledMap2P5D	signature:()
-init	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMap2P5D.cpp	/^bool TiledMap2P5D::init()$/;"	function	line:14	class:TiledMap2P5D	signature:()
-create	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMap2P5D.cpp	/^TiledMap2P5D* TiledMap2P5D::create()$/;"	function	line:27	class:TiledMap2P5D	signature:()
 designResolutionSize	/home/daichi/dev/cocos-projects/ProjectY/Classes/AppDelegate.cpp	/^static cocos2d::Size designResolutionSize = cocos2d::Size(480, 320);$/;"	variable	line:6	file:
 smallResolutionSize	/home/daichi/dev/cocos-projects/ProjectY/Classes/AppDelegate.cpp	/^static cocos2d::Size smallResolutionSize = cocos2d::Size(480, 320);$/;"	variable	line:7	file:
 mediumResolutionSize	/home/daichi/dev/cocos-projects/ProjectY/Classes/AppDelegate.cpp	/^static cocos2d::Size mediumResolutionSize = cocos2d::Size(1024, 768);$/;"	variable	line:8	file:
@@ -16,8 +12,6 @@ applicationWillEnterForeground	/home/daichi/dev/cocos-projects/ProjectY/Classes/
 createScene	/home/daichi/dev/cocos-projects/ProjectY/Classes/HelloWorldScene.cpp	/^Scene* HelloWorld::createScene()$/;"	function	line:9	class:HelloWorld	signature:()
 init	/home/daichi/dev/cocos-projects/ProjectY/Classes/HelloWorldScene.cpp	/^bool HelloWorld::init()$/;"	function	line:25	class:HelloWorld	signature:()
 menuCloseCallback	/home/daichi/dev/cocos-projects/ProjectY/Classes/HelloWorldScene.cpp	/^void HelloWorld::menuCloseCallback(Ref* pSender)$/;"	function	line:97	class:HelloWorld	signature:(Ref* pSender)
-TILED_MAP_2P5D_DEVELOP_LAYER_H	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMap2P5DDevelopLayer.h	/^#define TILED_MAP_2P5D_DEVELOP_LAYER_H$/;"	macro	line:2
-TiledMap2P5DDevelopLayer	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMap2P5DDevelopLayer.h	/^class TiledMap2P5DDevelopLayer :public cocos2d::LayerColor$/;"	class	line:8
 CHANK_H	/home/daichi/dev/cocos-projects/ProjectY/Classes/Chank.h	/^#define CHANK_H$/;"	macro	line:2
 Chank	/home/daichi/dev/cocos-projects/ProjectY/Classes/Chank.h	/^class Chank :public cocos2d::Ref$/;"	class	line:6
 CHANK_WIDH	/home/daichi/dev/cocos-projects/ProjectY/Classes/Chank.h	/^	static const size_t CHANK_WIDH = 16;$/;"	member	line:14	class:Chank
@@ -27,3 +21,64 @@ create	/home/daichi/dev/cocos-projects/ProjectY/Classes/Chank.cpp	/^Chank* Chank
 Chank	/home/daichi/dev/cocos-projects/ProjectY/Classes/Chank.cpp	/^Chank::Chank()$/;"	function	line:24	class:Chank	signature:()
 ~Chank	/home/daichi/dev/cocos-projects/ProjectY/Classes/Chank.cpp	/^Chank::~Chank()$/;"	function	line:29	class:Chank	signature:()
 init	/home/daichi/dev/cocos-projects/ProjectY/Classes/Chank.cpp	/^bool Chank::init()$/;"	function	line:32	class:Chank	signature:()
+TILED_MAP_2P5D_H	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMap2P5D.h	/^#define TILED_MAP_2P5D_H$/;"	macro	line:2
+TiledMap2P5D	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMap2P5D.h	/^class TiledMap2P5D :public cocos2d::Node$/;"	class	line:7
+_tiledLayerInfoMap	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMap2P5D.h	/^	cocos2d::Map<std::string,TiledLayerInfo*> _tiledLayerInfoMap;$/;"	member	line:19	class:TiledMap2P5D
+_bunchedLayerInfoMap	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMap2P5D.h	/^	cocos2d::Map<std::string,BunchedLayerInfo*> _bunchedLayerInfoMap;$/;"	member	line:25	class:TiledMap2P5D
+_tilesheetInfoMap	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMap2P5D.h	/^	cocos2d::Map<std::string,TilesheetInfo*> _tilesheetInfoMap;$/;"	member	line:31	class:TiledMap2P5D
+TILED_MAP_INFO_FILE_PARSER_H	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMapInfoFileParser.h	/^#define TILED_MAP_INFO_FILE_PARSER_H$/;"	macro	line:2
+TiledMapInfoFileParser	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMapInfoFileParser.h	/^class TiledMapInfoFileParser :public cocos2d::Ref$/;"	class	line:16
+TiledMapInfo	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMapInfoFileParser.h	/^class TiledMapInfo :public cocos2d::Ref$/;"	class	line:79
+_architecture	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMapInfoFileParser.h	/^	std::vector<std::string> _architecture;$/;"	member	line:110	class:TiledMapInfo
+TiledLayerInfo	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMapInfoFileParser.h	/^class TiledLayerInfo :public cocos2d::Ref$/;"	class	line:127
+BunchedLayerInfo	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMapInfoFileParser.h	/^class BunchedLayerInfo :public cocos2d::Ref$/;"	class	line:153
+_architecture	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMapInfoFileParser.h	/^	std::vector<std::string> _architecture;$/;"	member	line:174	class:BunchedLayerInfo
+TilesheetInfo	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMapInfoFileParser.h	/^class TilesheetInfo :public cocos2d::Ref$/;"	class	line:191
+_textureRects	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMapInfoFileParser.h	/^	cocos2d::Rect* _textureRects;$/;"	member	line:224	class:TilesheetInfo
+TILED_MAP_2P5D_DEVELOP_LAYER_H	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMap2P5DDevelopLayer.h	/^#define TILED_MAP_2P5D_DEVELOP_LAYER_H$/;"	macro	line:2
+TiledMap2P5DDevelopLayer	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMap2P5DDevelopLayer.h	/^class TiledMap2P5DDevelopLayer :public cocos2d::LayerColor$/;"	class	line:9
+CheapTiledLayer	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMap2P5DDevelopLayer.h	/^	class CheapTiledLayer :public cocos2d::Ref$/;"	class	line:14	class:TiledMap2P5DDevelopLayer
+_layers	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMap2P5DDevelopLayer.h	/^	cocos2d::Vector<CheapTiledLayer*> _layers;$/;"	member	line:36	class:TiledMap2P5DDevelopLayer
+TiledMap2P5D	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMap2P5D.cpp	/^TiledMap2P5D::TiledMap2P5D()$/;"	function	line:8	class:TiledMap2P5D	signature:()
+~TiledMap2P5D	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMap2P5D.cpp	/^TiledMap2P5D::~TiledMap2P5D()$/;"	function	line:11	class:TiledMap2P5D	signature:()
+init	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMap2P5D.cpp	/^bool TiledMap2P5D::init()$/;"	function	line:14	class:TiledMap2P5D	signature:()
+create	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMap2P5D.cpp	/^TiledMap2P5D* TiledMap2P5D::create()$/;"	function	line:27	class:TiledMap2P5D	signature:()
+getTiledLayerInfoByName	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMap2P5D.cpp	/^TiledLayerInfo* TiledMap2P5D::getTiledLayerInfoByName(std::string name)$/;"	function	line:40	class:TiledMap2P5D	signature:(std::string name)
+getBunchedLayerInfoByName	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMap2P5D.cpp	/^BunchedLayerInfo* TiledMap2P5D::getBunchedLayerInfoByName(std::string name)$/;"	function	line:45	class:TiledMap2P5D	signature:(std::string name)
+getTilesheetInfoByName	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMap2P5D.cpp	/^TilesheetInfo* TiledMap2P5D::getTilesheetInfoByName(std::string name)$/;"	function	line:50	class:TiledMap2P5D	signature:(std::string name)
+SSCANF_BUFF_LEN	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMapInfoFileParser.cpp	/^const size_t SSCANF_BUFF_LEN =  64;$/;"	variable	line:6
+TiledMapInfoFileParser	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMapInfoFileParser.cpp	/^TiledMapInfoFileParser::TiledMapInfoFileParser()$/;"	function	line:15	class:TiledMapInfoFileParser	signature:()
+~TiledMapInfoFileParser	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMapInfoFileParser.cpp	/^TiledMapInfoFileParser::~TiledMapInfoFileParser()$/;"	function	line:18	class:TiledMapInfoFileParser	signature:()
+init	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMapInfoFileParser.cpp	/^bool TiledMapInfoFileParser::init()$/;"	function	line:21	class:TiledMapInfoFileParser	signature:()
+parseTiledLayerInfoFile	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMapInfoFileParser.cpp	/^void TiledMapInfoFileParser::parseTiledLayerInfoFile($/;"	function	line:29	class:TiledMapInfoFileParser	signature:( TiledLayerInfo *tiledLayerInfo,std::string file)
+parseBunchedLayerInfoFile	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMapInfoFileParser.cpp	/^void TiledMapInfoFileParser::parseBunchedLayerInfoFile($/;"	function	line:36	class:TiledMapInfoFileParser	signature:( BunchedLayerInfo *bunchedLayerInfo, std::string file)
+parseTilesheetFile	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMapInfoFileParser.cpp	/^void TiledMapInfoFileParser::parseTilesheetFile($/;"	function	line:43	class:TiledMapInfoFileParser	signature:( const cocos2d::Map<std::string,TilesheetInfo*>& tilesheetInfos,std::string file)
+create	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMapInfoFileParser.cpp	/^TiledMapInfoFileParser* TiledMapInfoFileParser::create()$/;"	function	line:53	class:TiledMapInfoFileParser	signature:()
+parseOriginFile	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMapInfoFileParser.cpp	/^void TiledMapInfoFileParser::parseOriginFile($/;"	function	line:67	class:TiledMapInfoFileParser	signature:( std::string file, TiledMapInfo* tiledMapInfo, cocos2d::Map<std::string,TiledLayerInfo*>& tiledLayerInfos, cocos2d::Map<std::string,BunchedLayerInfo*>& bunchedLayerInfos, cocos2d::Map<std::string,TilesheetInfo*>& tilesheetInfos)
+TiledMapInfo	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMapInfoFileParser.cpp	/^TiledMapInfo::TiledMapInfo()$/;"	function	line:176	class:TiledMapInfo	signature:()
+~TiledMapInfo	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMapInfoFileParser.cpp	/^TiledMapInfo::~TiledMapInfo()$/;"	function	line:183	class:TiledMapInfo	signature:()
+init	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMapInfoFileParser.cpp	/^bool TiledMapInfo::init()$/;"	function	line:186	class:TiledMapInfo	signature:()
+create	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMapInfoFileParser.cpp	/^TiledMapInfo* TiledMapInfo::create()$/;"	function	line:194	class:TiledMapInfo	signature:()
+getArchitecture	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMapInfoFileParser.cpp	/^std::vector<std::string>& TiledMapInfo::getArchitecture()$/;"	function	line:207	class:TiledMapInfo	signature:()
+TiledLayerInfo	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMapInfoFileParser.cpp	/^TiledLayerInfo::TiledLayerInfo()$/;"	function	line:219	class:TiledLayerInfo	signature:()
+~TiledLayerInfo	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMapInfoFileParser.cpp	/^TiledLayerInfo::~TiledLayerInfo()$/;"	function	line:224	class:TiledLayerInfo	signature:()
+init	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMapInfoFileParser.cpp	/^bool TiledLayerInfo::init()$/;"	function	line:227	class:TiledLayerInfo	signature:()
+create	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMapInfoFileParser.cpp	/^TiledLayerInfo* TiledLayerInfo::create()$/;"	function	line:235	class:TiledLayerInfo	signature:()
+BunchedLayerInfo	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMapInfoFileParser.cpp	/^BunchedLayerInfo::BunchedLayerInfo()$/;"	function	line:255	class:BunchedLayerInfo	signature:()
+~BunchedLayerInfo	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMapInfoFileParser.cpp	/^BunchedLayerInfo::~BunchedLayerInfo()$/;"	function	line:260	class:BunchedLayerInfo	signature:()
+init	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMapInfoFileParser.cpp	/^bool BunchedLayerInfo::init()$/;"	function	line:263	class:BunchedLayerInfo	signature:()
+create	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMapInfoFileParser.cpp	/^BunchedLayerInfo* BunchedLayerInfo::create()$/;"	function	line:275	class:BunchedLayerInfo	signature:()
+getArchitecture	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMapInfoFileParser.cpp	/^std::vector<std::string>& BunchedLayerInfo::getArchitecture()$/;"	function	line:288	class:BunchedLayerInfo	signature:()
+TilesheetInfo	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMapInfoFileParser.cpp	/^TilesheetInfo::TilesheetInfo()$/;"	function	line:300	class:TilesheetInfo	signature:()
+~TilesheetInfo	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMapInfoFileParser.cpp	/^TilesheetInfo::~TilesheetInfo()$/;"	function	line:307	class:TilesheetInfo	signature:()
+initWithN	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMapInfoFileParser.cpp	/^bool TilesheetInfo::initWithN(size_t n)$/;"	function	line:312	class:TilesheetInfo	signature:(size_t n)
+createWithN	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMapInfoFileParser.cpp	/^TilesheetInfo* TilesheetInfo::createWithN(size_t n)$/;"	function	line:323	class:TilesheetInfo	signature:(size_t n)
+CheapTiledLayer	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMap2P5DDevelopLayer.cpp	/^TiledMap2P5DDevelopLayer::CheapTiledLayer::CheapTiledLayer()$/;"	function	line:12	class:TiledMap2P5DDevelopLayer::CheapTiledLayer	signature:()
+~CheapTiledLayer	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMap2P5DDevelopLayer.cpp	/^TiledMap2P5DDevelopLayer::CheapTiledLayer::~CheapTiledLayer()$/;"	function	line:15	class:TiledMap2P5DDevelopLayer::CheapTiledLayer	signature:()
+initWithInfo	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMap2P5DDevelopLayer.cpp	/^bool TiledMap2P5DDevelopLayer::CheapTiledLayer::initWithInfo(TiledLayerInfo* info)$/;"	function	line:18	class:TiledMap2P5DDevelopLayer::CheapTiledLayer	signature:(TiledLayerInfo* info)
+createWithInfo	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMap2P5DDevelopLayer.cpp	/^TiledMap2P5DDevelopLayer::CheapTiledLayer* TiledMap2P5DDevelopLayer::CheapTiledLayer::createWithInfo(TiledLayerInfo* info)$/;"	function	line:30	class:TiledMap2P5DDevelopLayer::CheapTiledLayer	signature:(TiledLayerInfo* info)
+TiledMap2P5DDevelopLayer	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMap2P5DDevelopLayer.cpp	/^TiledMap2P5DDevelopLayer::TiledMap2P5DDevelopLayer()$/;"	function	line:50	class:TiledMap2P5DDevelopLayer	signature:()
+~TiledMap2P5DDevelopLayer	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMap2P5DDevelopLayer.cpp	/^TiledMap2P5DDevelopLayer::~TiledMap2P5DDevelopLayer()$/;"	function	line:54	class:TiledMap2P5DDevelopLayer	signature:()
+initWithTiledMap	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMap2P5DDevelopLayer.cpp	/^bool TiledMap2P5DDevelopLayer::initWithTiledMap(TiledMap2P5D *map)$/;"	function	line:59	class:TiledMap2P5DDevelopLayer	signature:(TiledMap2P5D *map)
+buildMapView	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMap2P5DDevelopLayer.cpp	/^void TiledMap2P5DDevelopLayer::buildMapView()$/;"	function	line:77	class:TiledMap2P5DDevelopLayer	signature:()
+createWithTiledMap	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMap2P5DDevelopLayer.cpp	/^TiledMap2P5DDevelopLayer* TiledMap2P5DDevelopLayer::createWithTiledMap(TiledMap2P5D *map)$/;"	function	line:94	class:TiledMap2P5DDevelopLayer	signature:(TiledMap2P5D *map)

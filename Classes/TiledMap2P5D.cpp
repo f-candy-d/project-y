@@ -36,3 +36,18 @@ TiledMap2P5D* TiledMap2P5D::create()
 	CC_SAFE_DELETE(ref);
 	return nullptr;
 }
+
+TiledLayerInfo* TiledMap2P5D::getTiledLayerInfoByName(std::string name)
+{
+	return _tiledLayerInfoMap.at(name);
+}
+
+BunchedLayerInfo* TiledMap2P5D::getBunchedLayerInfoByName(std::string name)
+{
+	return _bunchedLayerInfoMap.at(name);
+}
+
+TilesheetInfo* TiledMap2P5D::getTilesheetInfoByName(std::string name)
+{
+	return _tilesheetInfoMap.at(name);
+}
