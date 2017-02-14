@@ -1,13 +1,13 @@
 #The file of the Tiled Layer Bundler information.
 
 #THE NAME OF THE TILED LAYER BUNDLER
-<Name>
-	<@LayerName>demo_layer_bundler
-<Name/>
+<LayerName>
+	<@Name>demo_layer_bundler
+<LayerName/>
 
 #THE LAYER BUNDLER ARCHITECTURE
 #EACH ELEMENTS IS THE NAME OF A TILED LAYER
 <Architecture>
-	<@LayerName>layer_A
-	<@LayerName>layer_B
+	<@Name>layer_A
+	<@Name>layer_B
 <Architecture/>

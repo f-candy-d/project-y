@@ -19,12 +19,18 @@ const std::string REGEX_VALUE("<@*>*");
 //Value tags
 const std::string VALUE_SIZE_T("<@sizeT>");
 const std::string VALUE_PATH("<@Path>");
-const std::string VALUE_LAYER_NAME("<@LayerName>");
+const std::string VALUE_NAME("<@Name>");
+const std::string VALUE_BOOL("<@Boolean>");
+const std::string VALUE_SIZE("<@Size>");
+const std::string VALUE_RECT("<@Rect>");
 
 //Formats for sscanf()
 const std::string FORMAT_SIZE_T(VALUE_SIZE_T + std::string("%zu"));
 const std::string FORMAT_PATH(VALUE_PATH + std::string("%s"));
-const std::string FORMAT_LAYER_NAME(VALUE_LAYER_NAME + std::string("%s"));
+const std::string FORMAT_NAME(VALUE_NAME + std::string("%s"));
+const std::string FORMAT_BOOL(VALUE_BOOL + std::string("%s"));
+const std::string FORMAT_SIZE(VALUE_SIZE + std::string("%lf %lf"));
+const std::string FORMAT_RECT(VALUE_RECT + std::string("%lf %lf %lf %lf"));
 
 //Tags
 const std::string TAG_GRID_WIDTH("<GridWidth");
@@ -33,7 +39,14 @@ const std::string TAG_TILED_LAYER_INFORMATION("<TiledLayerInformation");
 const std::string TAG_TILED_LAYER_BUNDLER_INFORMATION("<TiledLayerBundlerInformation");
 const std::string TAG_TILESHEET_INFORMATION("<TilesheetInformation");
 const std::string TAG_ARCHITECTURE("<Architecture");
-const std::string TAG_NAME("<Name");
+const std::string TAG_LAYER_NAME("<LayerName");
+const std::string TAG_SHEET_NAME("<SheetName");
+const std::string TAG_VISIBLE("<Visible");
+const std::string TAG_TERRAIN("<Terrain");
+const std::string TAG_NUM_OF_TILE_TYPES("<NumOfTileTypes");
+const std::string TAG_TILE_SIZE("<TileSize");
+const std::string TAG_RESOURCE("<Resource");
+const std::string TAG_TEXTURE_RECTS("<TextureRects");
 
 /**
  * Public
@@ -163,10 +176,10 @@ bool TiledMap2P5DFileParser::parseOriginFile(
 					flag = parseTilesheetInfoFile(std::string(buff),mapTilesheetInfo);
 				}
 			}
-			else if(findStr(line_buff,VALUE_LAYER_NAME))
+			else if(findStr(line_buff,VALUE_NAME))
 			{
 				//A value type of layer-name
-				sscanf(line_buff.c_str(),FORMAT_LAYER_NAME.c_str(),buff);
+				sscanf(line_buff.c_str(),FORMAT_NAME.c_str(),buff);
 
 				if(current_tag == TAG_ARCHITECTURE)
 				{
@@ -207,8 +220,6 @@ TiledLayerBundlerInfo* TiledMap2P5DFileParser::parseTiledLayerBundlerInfoFile(
 	std::string current_tag("");
 	char buff[SSCANF_BUFF_LEN];
 	size_t tmp;
-	//If any information file couldn't be loaded,this is false.
-	bool flag = true;
 
 
 	if(i_file_stream.eof())
@@ -234,10 +245,10 @@ TiledLayerBundlerInfo* TiledMap2P5DFileParser::parseTiledLayerBundlerInfoFile(
 		//Value tag
 		else if(matchingRegex(line_buff,REGEX_VALUE))
 		{
-			if(findStr(line_buff,VALUE_LAYER_NAME))
+			if(findStr(line_buff,VALUE_NAME))
 			{
-				sscanf(line_buff.c_str(),FORMAT_LAYER_NAME.c_str(),buff);
-				if(current_tag == TAG_NAME)
+				sscanf(line_buff.c_str(),FORMAT_NAME.c_str(),buff);
+				if(current_tag == TAG_LAYER_NAME)
 				{
 					info->setName(std::string(buff));
 				}
@@ -273,13 +284,138 @@ TiledLayerBundlerInfo* TiledMap2P5DFileParser::parseTiledLayerBundlerInfoFile(
 
 TiledLayerInfo* TiledMap2P5DFileParser::parseTiledLayerInfoFile(const std::string& path)
 {
-	return nullptr;
+	std::ifstream i_file_stream(path,std::ios::in);
+	std::string line_buff;
+	std::string current_tag("");
+	char buff[SSCANF_BUFF_LEN];
+	size_t tmp;
+
+
+	if(i_file_stream.eof())
+	{
+		log("WORNIG!! >> The file '%s' has nothing to be read.",path.c_str());
+		return nullptr;
+	}
+
+	auto info = TiledLayerInfo::create();
+
+	if(info == nullptr)
+		return nullptr;
+
+	while(!i_file_stream.eof())
+	{
+		//Read line
+		std::getline(i_file_stream,line_buff);
+		deleteHeadSpace(line_buff);
+
+		//Skip a comment and empty line.
+		if(findStr(line_buff,"#") || line_buff == "\n")
+			continue;
+		//Value tag
+		else if(matchingRegex(line_buff,REGEX_VALUE))
+		{
+			if(findStr(line_buff,VALUE_NAME))
+			{
+				sscanf(line_buff.c_str(),FORMAT_NAME.c_str(),buff);
+				if(current_tag == TAG_LAYER_NAME)
+				{
+					info->setLayerName(std::string(buff));
+				}
+				else if(current_tag == TAG_SHEET_NAME)
+				{
+					info->setTilesheetName(std::string(buff));
+				}
+			}
+			else if(findStr(line_buff,VALUE_BOOL))
+			{
+				sscanf(line_buff.c_str(),FORMAT_BOOL.c_str(),buff);
+				std::string boolean = buff;
+				if(current_tag == TAG_VISIBLE)
+				{
+					info->setIsVisible((boolean == "true") ? true : false);
+				}
+			}
+			else if(findStr(line_buff,VALUE_PATH))
+			{
+				sscanf(line_buff.c_str(),FORMAT_PATH.c_str(),buff);
+				if(current_tag == TAG_TERRAIN)
+				{
+					info->setPathTerrainFile(std::string(buff));
+				}
+			}
+		}
+		//End tag
+		else if(matchingRegex(line_buff,REGEX_TAG_END))
+		{
+			current_tag.erase(current_tag.begin(),current_tag.end());
+		}
+		//Begin tag
+		else if(matchingRegex(line_buff,REGEX_TAG_BEGIN))
+		{
+			current_tag = findTagInLine(line_buff);
+		}
+	}
+
+	// DEBUG
+	log("\n**\tDEBUG OF parseTiledLayerInfoFile()\t**");
+	log("TiledLayerInfo::LayerName::%s",info->getLayerName().c_str());
+	log("TiledLayerInfo::Visible::%s",(info->getIsVisible()) ? "true" : "false");
+	log("TiledLayerInfo::Terrain::%s",info->getPathTerrainFile().c_str());
+	log("TiledLayerInfo::SheetName::%s",info->getTilesheetName().c_str());
+	log("\t**\tEND\t**\n");
+
+	return info;
 }
 
 bool TiledMap2P5DFileParser::parseTilesheetInfoFile(
 	const std::string& path,
 	cocos2d::Map<std::string,TilesheetInfo*>& mapTilesheetInfo)
 {
+	std::ifstream i_file_stream(path,std::ios::in);
+	std::string line_buff;
+	std::string current_tag("");
+	char buff[SSCANF_BUFF_LEN];
+	size_t sizeT;
+	Size size;
+	Rect rect;
+
+	return true;
+	if(i_file_stream.eof())
+	{
+		log("WORNIG!! >> The file '%s' has nothing to be read.",path.c_str());
+		return nullptr;
+	}
+
+	auto info = TiledLayerBundlerInfo::create();
+
+	if(info == nullptr)
+		return nullptr;
+
+	while(!i_file_stream.eof())
+	{
+		//Read line
+		std::getline(i_file_stream,line_buff);
+		deleteHeadSpace(line_buff);
+
+		//Skip a comment and empty line.
+		if(findStr(line_buff,"#") || line_buff == "\n")
+			continue;
+		//Value tag
+		else if(matchingRegex(line_buff,REGEX_VALUE))
+		{
+
+		}
+		//End tag
+		else if(matchingRegex(line_buff,REGEX_TAG_END))
+		{
+
+		}
+		//Begin tag
+		else if(matchingRegex(line_buff,REGEX_TAG_BEGIN))
+		{
+
+		}
+	}
 	return true;
 }
 
@@ -349,8 +485,22 @@ std::string TiledMap2P5DFileParser::findTagInLine(const std::string &line)
 		return TAG_TILED_LAYER_INFORMATION;
 	else if(findStr(line,TAG_TILED_LAYER_BUNDLER_INFORMATION))
 		return TAG_TILED_LAYER_BUNDLER_INFORMATION;
-	else if(findStr(line,TAG_NAME))
-		return TAG_NAME;
+	else if(findStr(line,TAG_LAYER_NAME))
+		return TAG_LAYER_NAME;
+	else if(findStr(line,TAG_SHEET_NAME))
+		return TAG_SHEET_NAME;
+	else if(findStr(line,TAG_TERRAIN))
+		return TAG_TERRAIN;
+	else if(findStr(line,TAG_VISIBLE))
+		return TAG_VISIBLE;
+	else if(findStr(line,TAG_TILE_SIZE))
+		return TAG_TILE_SIZE;
+	else if(findStr(line,TAG_NUM_OF_TILE_TYPES))
+		return TAG_NUM_OF_TILE_TYPES;
+	else if(findStr(line,TAG_RESOURCE))
+		return TAG_RESOURCE;
+	else if(findStr(line,TAG_TEXTURE_RECTS))
+		return TAG_TEXTURE_RECTS;
 	else
 		return std::string("");
 }

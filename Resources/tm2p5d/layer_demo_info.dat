@@ -1,0 +1,21 @@
+#The file of the Tiled Layer information.
+
+#THE NAME OF THE TILED LAYER
+<LayerName>
+	<@Name>demo_layer
+<LayerName/>
+
+#IS THE LAYER VISIBLE OR NOT
+<Visible>
+	<@Boolean>true
+<Visible/>
+
+#THE TERRAIN FILE (BINARY FILE)
+<Terrain>
+	<@Path>Resources/tm2p5d/terrain_demo_layer.dat
+<Terrain/>
+
+#THE NAME OF THE TILESHEET USING IN THIS LAYER
+<SheetName>
+	<@Name>demo_tilesheet
+<SheetName/>

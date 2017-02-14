@@ -1,0 +1,43 @@
+##Comment
+
+##Element :: Begining of a element is '(' , and end is ')'.
+(Element)
+
+##Value :: The sign '@' in front of the element indicate that the element is the any value.
+@(Value : any values...)
+
+##Object ::The sign '$' in front of the element indicate that
+## the element is the something of the object.When get this element, create new object.
+$(Object)
+
+##Write as ::
+$(TilesheetInfo
+	(TextureRects
+		@(Rect : 0,0,64,64)
+		@(Rect : 0,0,64,64))
+	(SheetName
+		@(String : demo_sheet)))
+
+##The elements will be devided as ::
+
+$(TilesheetInfo (TextureRects @(Rect : 0,0,64,64) @(Rect : 0,0,64,64)))
+							|
+							V
+##Delete all white-spaces.
+
+$(TilesheetInfo(TextureRects@(Rect:0,0,64,64)@(Rect:0,0,64,64)))
+							|
+							V
+##Divide by $,@,().
+
+$
+(TilesheetInfo
+(TextureRects
+@
+(Rect:0,0,64,64
+)
+@
+(Rect:0,0,64,64
+)
+)
+)
