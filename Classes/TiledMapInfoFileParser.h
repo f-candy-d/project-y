@@ -138,9 +138,19 @@ private:
 	CC_SYNTHESIZE(std::string,_layerName,LayerName);
 
 	/**
-	 * The name of terrain data file.
+	 * The file path to the terrain data file.
 	 */
-	CC_SYNTHESIZE(std::string,_TerrainFileName,TerrainFileName);
+	CC_SYNTHESIZE(std::string,_pathTerrainFile,PathTerrainFile);
+
+	/**
+	 * The name of a tilesheet that is used in this Tiled-Layer.
+	 */
+	CC_SYNTHESIZE(std::string,_tilesheetName,TilesheetName);
+
+	/**
+	 * The flag of what the Tiled-Layer is visible or not.
+	 */
+	CC_SYNTHESIZE(bool,_isVisible,IsVisible);
 
 public:
 	static TiledLayerInfo* create();
@@ -218,6 +228,11 @@ private:
 	CC_SYNTHESIZE(size_t,_numTileType,NumTileType);
 
 	/**
+	 * The size of a tile.
+	 */
+	CC_SYNTHESIZE(cocos2d::Size,_tileSize,TileSize);
+
+	/**
 	 * An array contains Rect objects of a tile texture on the tilesheet.
 	 * An index is tile type.
 	 */
@@ -226,6 +241,7 @@ private:
 public:
 	/**
 	 * Create TilesheetInfo object with the number of tile types.
+	 * The parameter n will be used to create array :: _textureRects.
 	 * @method createWithN
 	 * @param  n           [The number of the tile types.]
 	 * @return             [A pointer of TilesheetInfo object or nullptr.]

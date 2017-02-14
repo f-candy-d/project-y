@@ -1,5 +1,6 @@
 #include "HelloWorldScene.h"
 #include "SimpleAudioEngine.h"
+#include "TiledMap2P5DFileParser.h"
 
 USING_NS_CC;
 
@@ -72,6 +73,18 @@ bool HelloWorld::init()
 
     // add the sprite as a child to this layer
     this->addChild(sprite, 0);
+
+    //TEST
+    auto mapInfo = TiledMapInfo::create();
+    Map<std::string,TiledLayerBundlerInfo*> tlbiMap;
+    Map<std::string,TiledLayerInfo*> tliMap;
+    Map<std::string,TilesheetInfo*> tsiMap;
+    auto parser = TiledMap2P5DFileParser::createWithParams(
+        "Resources/tm2p5d/map_info.dat",
+        mapInfo,
+        tlbiMap,
+        tliMap,
+        tsiMap);
 
     return true;
 }
