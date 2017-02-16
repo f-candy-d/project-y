@@ -176,56 +176,6 @@ private:
 	void debugLogForTiledLayerBundlerInfo(TiledLayerBundlerInfo* info);
 	void debugLogForTilesheetInfo(TilesheetInfo* info);
 
-	// /**
-	//  * Parse origin file and setup TiledMapInfo class object.
-	//  * If parseing the file fail,return false.
-	//  * @method parseOriginFile
-	//  * @param  path                     [The path of the origin file]
-	//  * @param  tiledMapInfo             [A pointer of TiledMapInfo object]
-	//  * @param  mapTiledLayerBundlerInfo [Hashed map contains names of TiledLayerBundler
-	//  *                                   and pointers of TiledLayerBundlerInfo object]
-	//  * @param  mapTiledLayerInfo        [Hashed map contains names of TIledLayer
-	//  *                                   and pointers of TiledLayerInfo object]
-	//  * @param  mapTilesheetInfo         [Hashed map contains names of Tilesheet
-	//  *                                   and pointers of TilesheetInfo object]
-	//  * @return                          [true/false]
-	//  */
-	// bool parseOriginFile(
-	// 	const std::string& path,
-	// 	TiledMapInfo* tiledMapInfo,
-	// 	cocos2d::Map<std::string,TiledLayerBundlerInfo*>& mapTiledLayerBundlerInfo,
-	// 	cocos2d::Map<std::string,TiledLayerInfo*>& mapTiledLayerInfo,
-	// 	cocos2d::Map<std::string,TilesheetInfo*>& mapTilesheetInfo);
-
-	// /**
-	//  * Parse information file of TiledLayerBundler class and
-	//  * create a TiledLayerBundlerInfo class object.
-	//  * @method parseTiledLayerBundlerInfoFile
-	//  * @param  path                           [The file path]
-	//  * @return                                [A pointer of TiledLayerBundlerInfo class]
-	//  */
-	// TiledLayerBundlerInfo* parseTiledLayerBundlerInfoFile(const std::string& path);
-	//
-	// /**
-	//  * Parse information file of TiledLayer class and create a TiledLayerInfo class object.
-	//  * @method parseTiledLayerInfoFile
-	//  * @param  path                    [The file path]
-	//  * @return                         [A pointer of TiledLayerInfo class object]
-	//  */
-	// TiledLayerInfo* parseTiledLayerInfoFile(const std::string& path);
-	//
-	// /**
-	//  * Parse information file of Tilesheets and create TilesheetInfo object,
-	//  * then add them to the hashed map with tilesheet names as keys.
-	//  * @method parseTilesheetInfoFile
-	//  * @param  path                   [The file path]
-	//  * @param  mapTilesheetInfo       [Hashed map contains names of Tilesheet
-	//  *                                 and pointers of TilesheetInfo object]
-	//  * @return                        [true/false]
-	//  */
-	// bool parseTilesheetInfoFile(
-	// 	const std::string& path,cocos2d::Map<std::string,TilesheetInfo*>& mapTilesheetInfo);
-
 	/**
 	* Do matching text using the regex. This function will only be called
 	* in matchingRegex(text,regex). If you want to do matching text,
@@ -266,31 +216,6 @@ private:
 	 * @return               [ture/false]
 	 */
 	bool matchingRegex(const std::string &text,const std::string &regex);
-
-	/**
-	 * Delete whitespaces or tabs in front of the head of the string.
-	 * @method deleteHeadSpace
-	 * @param  buff            [Target string]
-	 */
-	void deleteHeadSpace(std::string& buff);
-
-	/**
-	 * Find a substring in the target string.
-	 * If find it,return true,otherwise return false.
-	 * @method findStr
-	 * @param  string    [The target string]
-	 * @param  substring [The substring searching for]
-	 * @return           [true/false]
-	 */
-	bool findStr(const std::string &string,const std::string &substring);
-
-	/**
-	 * Find a tag in the line of the information file.,and return it.
-	 * @method findTagInLine
-	 * @param  line          [A line of the information file]
-	 * @return               [A tag]
-	 */
-	std::string findTagInLine(const std::string &line);
 };
 
 
