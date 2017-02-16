@@ -1,0 +1,16 @@
+##The file of TiledMap2P5D information. Parse this file when initialize tiled map.
+
+##TiledMapInfo class
+$(TiledMapInfo
+	(GridWidth  @(sizeT : 1024))
+	(GridHeight @(sizeT :  256))
+
+	(Architecture
+		@(string : demo_layer)
+		@(string : layer_bundler1)
+		@(string : layer_bundler2)))
+
+##Parse TiledLayer, TiledLayerBundler, Tilesheet information files.
+<include>@(string : Resources/tm2p5d/layer_info.dat)
+<include>@(string : Resources/tm2p5d/layer_bundler_info.dat)
+<include>@(string : Resources/tm2p5d/tilesheet_info.dat)

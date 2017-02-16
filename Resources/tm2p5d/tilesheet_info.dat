@@ -1,0 +1,47 @@
+##The file of tilesheets information.
+
+##Demo tilesheet 1
+$(TilesheetInfo
+	(SheetName      @(string : tilesheet_1))
+	(Resource       @(string : tilesheet_1.png))
+	(TileSize       @(ccSize : 64,64))
+	(NumOfTileTypes @(sizeT  : 5))
+	(TextureRects   @(ccRect :   0, 0,64,64)
+					@(ccRect :  64, 0,64,64)
+					@(ccRect : 128, 0,64,64)
+					@(ccRect :   0,64,64,64)
+					@(ccRect :  64,64,64,64)))
+
+##Demo tilesheet 2
+$(TilesheetInfo
+	(SheetName      @(string : tilesheet_2))
+	(Resource       @(string : tilesheet_2.png))
+	(TileSize       @(ccSize : 128,128))
+	(NumOfTileTypes @(sizeT  : 3))
+	(TextureRects   @(ccRect :   0, 0,64,64)
+					@(ccRect :   0,64,64,64)
+					@(ccRect :  64,64,64,64)))
+
+##Demo tilesheet 3
+$(TilesheetInfo
+	(SheetName      @(string : tilesheet_3))
+	(Resource       @(string : tilesheet_3.png))
+	(TileSize       @(ccSize : 8,8))
+	(NumOfTileTypes @(sizeT  : 2))
+	(TextureRects   @(ccRect :   0, 0,64,64)
+					@(ccRect :  64,64,128,128)))
+
+##Demo tilesheet 4
+$(TilesheetInfo
+	(SheetName      @(string : tilesheet_4))
+	(Resource       @(string : tilesheet_4.png))
+	(TileSize       @(ccSize : 1024,1024))
+	(NumOfTileTypes @(sizeT  : 8))
+	(TextureRects   @(ccRect :   0, 0,64,64)
+					@(ccRect : 128, 0,64,64)
+					@(ccRect :   0,64,64,64)
+					@(ccRect :  64,64,64,64)
+					@(ccRect :  64, 0,64,64)
+					@(ccRect : 128, 0,64,64)
+					@(ccRect :   0,64,64,64)
+					@(ccRect :  64,64,64,64)))

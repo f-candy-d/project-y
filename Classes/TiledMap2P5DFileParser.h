@@ -58,54 +58,173 @@ protected:
 
 private:
 	/**
-	 * Parse origin file and setup TiledMapInfo class object.
-	 * If parseing the file fail,return false.
-	 * @method parseOriginFile
-	 * @param  path                     [The path of the origin file]
-	 * @param  tiledMapInfo             [A pointer of TiledMapInfo object]
-	 * @param  mapTiledLayerBundlerInfo [Hashed map contains names of TiledLayerBundler
-	 *                                   and pointers of TiledLayerBundlerInfo object]
-	 * @param  mapTiledLayerInfo        [Hashed map contains names of TIledLayer
-	 *                                   and pointers of TiledLayerInfo object]
-	 * @param  mapTilesheetInfo         [Hashed map contains names of Tilesheet
-	 *                                   and pointers of TilesheetInfo object]
-	 * @return                          [true/false]
+	 * Parse a information file. If failed to do so, return false.
+	 * @method parseWithPath
+	 * @param  path          [File path that will be parsed]
+	 * @return               [true/false]
 	 */
-	bool parseOriginFile(
-		const std::string& path,
-		TiledMapInfo* tiledMapInfo,
-		cocos2d::Map<std::string,TiledLayerBundlerInfo*>& mapTiledLayerBundlerInfo,
-		cocos2d::Map<std::string,TiledLayerInfo*>& mapTiledLayerInfo,
-		cocos2d::Map<std::string,TilesheetInfo*>& mapTilesheetInfo);
+	bool parseWithPath(std::string path);
 
 	/**
-	 * Parse information file of TiledLayerBundler class and
-	 * create a TiledLayerBundlerInfo class object.
-	 * @method parseTiledLayerBundlerInfoFile
-	 * @param  path                           [The file path]
-	 * @return                                [A pointer of TiledLayerBundlerInfo class]
+	 * Delete all white-spaces and tabs in the text.
+	 * @method deleteSpace
+	 * @param  text        [Target]
 	 */
-	TiledLayerBundlerInfo* parseTiledLayerBundlerInfoFile(const std::string& path);
+	void deleteSpace(std::string& text);
 
 	/**
-	 * Parse information file of TiledLayer class and create a TiledLayerInfo class object.
-	 * @method parseTiledLayerInfoFile
-	 * @param  path                    [The file path]
-	 * @return                         [A pointer of TiledLayerInfo class object]
+	 * Tokenize a line of the information file.
+	 * @method tokenize
+	 * @param  text     [A line will be tokenized]
+	 * @param  tokens   [Add tokens in this vector]
 	 */
-	TiledLayerInfo* parseTiledLayerInfoFile(const std::string& path);
+	void tokenize(std::string text,std::vector<std::string>& tokens);
 
 	/**
-	 * Parse information file of Tilesheets and create TilesheetInfo object,
-	 * then add them to the hashed map with tilesheet names as keys.
-	 * @method parseTilesheetInfoFile
-	 * @param  path                   [The file path]
-	 * @param  mapTilesheetInfo       [Hashed map contains names of Tilesheet
-	 *                                 and pointers of TilesheetInfo object]
-	 * @return                        [true/false]
+	 * Make a string object from the token.
+	 * @method tokenToString
+	 * @param  token        [Resource token]
+	 * @return              [String object]
 	 */
-	bool parseTilesheetInfoFile(
-		const std::string& path,cocos2d::Map<std::string,TilesheetInfo*>& mapTilesheetInfo);
+	std::string tokenToString(std::string token);
+
+	/**
+	 * Make a size_t value from the token.
+	 * @method tokenToSizeT
+	 * @param  token        [Resource]
+	 * @return              [size_t value]
+	 */
+	size_t tokenToSizeT(std::string token);
+
+	/**
+	 * Make a bool value from the token.
+	 * @method tokenToBool
+	 * @param  token       [Resource]
+	 * @return             [bool value]
+	 */
+	bool tokenToBool(std::string token);
+
+	/**
+	 * Make cocos2d::Size object from the token.
+	 * @method tokenToCCSize
+	 * @param  token         [Resource]
+	 * @return               [cocos2d::Size object]
+	 */
+	cocos2d::Size tokenToCCSize(std::string token);
+
+	/**
+	 * make cocos2d::Rect object from the token.
+	 * @method tokenToCCRect
+	 * @param  token         [Resource]
+	 * @return               [cocos2d::Rect object]
+	 */
+	cocos2d::Rect tokenToCCRect(std::string token);
+
+	/**
+	 * Make a TiledMapInfo object from tokens.
+	 * Don't add or remove any tokens and also do not break the iterator.
+	 * @method tokenToTiledMapInfo
+	 * @param  tokens              [Resource tokens]
+	 * @param  itr                 [Iterator of a token]
+	 * @return                     [TiledMapInfo object]
+	 */
+	TiledMapInfo* tokenToTiledMapInfo(
+		const std::vector<std::string>& tokens,
+		std::vector<std::string>::iterator& itr);
+
+	/**
+	 * Make a TileLayerInfo object from tokens.
+	 * Don't add or remove any tokens and also do not break the iterator.
+	 * @method tokenToTiledLayerInfo
+	 * @param  tokens              [Resource tokens]
+	 * @param  itr                 [Iterator of a token]
+	 * @return                     [TiledLayerInfo object]
+	 */
+	TiledLayerInfo* tokenToTiledLayerInfo(
+		const std::vector<std::string>& tokens,
+		std::vector<std::string>::iterator& itr);
+
+	/**
+	 * Make a TileLayerBundlerInfo object from tokens.
+	 * Don't add or remove any tokens and also do not break the iterator.
+	 * @method tokenToTiledLayerBundlerInfo
+	 * @param  tokens              [Resource tokens]
+	 * @param  itr                 [Iterator of a token]
+	 * @return                     [TiledLayerBundlerInfo object]
+	 */
+	TiledLayerBundlerInfo* tokenToTiledLayerBundlerInfo(
+		const std::vector<std::string>& tokens,
+		std::vector<std::string>::iterator& itr);
+
+	/**
+	 * Make a TilesheetInfo object from tokens.
+	 * Don't add or remove any tokens and also do not break the iterator.
+	 * @method tokenToTilesheetInfo
+	 * @param  tokens              [Resource tokens]
+	 * @param  itr                 [Iterator of a token]
+	 * @return                     [TilesheetInfo object]
+	 */
+	TilesheetInfo* tokenToTilesheetInfo(
+		const std::vector<std::string>& tokens,
+		std::vector<std::string>::iterator& itr);
+
+	/**
+	* For debug
+	*/
+	void debugLogForTiledMapInfo(TiledMapInfo* info);
+	void debugLogForTiledLayerInfo(TiledLayerInfo* info);
+	void debugLogForTiledLayerBundlerInfo(TiledLayerBundlerInfo* info);
+	void debugLogForTilesheetInfo(TilesheetInfo* info);
+
+	// /**
+	//  * Parse origin file and setup TiledMapInfo class object.
+	//  * If parseing the file fail,return false.
+	//  * @method parseOriginFile
+	//  * @param  path                     [The path of the origin file]
+	//  * @param  tiledMapInfo             [A pointer of TiledMapInfo object]
+	//  * @param  mapTiledLayerBundlerInfo [Hashed map contains names of TiledLayerBundler
+	//  *                                   and pointers of TiledLayerBundlerInfo object]
+	//  * @param  mapTiledLayerInfo        [Hashed map contains names of TIledLayer
+	//  *                                   and pointers of TiledLayerInfo object]
+	//  * @param  mapTilesheetInfo         [Hashed map contains names of Tilesheet
+	//  *                                   and pointers of TilesheetInfo object]
+	//  * @return                          [true/false]
+	//  */
+	// bool parseOriginFile(
+	// 	const std::string& path,
+	// 	TiledMapInfo* tiledMapInfo,
+	// 	cocos2d::Map<std::string,TiledLayerBundlerInfo*>& mapTiledLayerBundlerInfo,
+	// 	cocos2d::Map<std::string,TiledLayerInfo*>& mapTiledLayerInfo,
+	// 	cocos2d::Map<std::string,TilesheetInfo*>& mapTilesheetInfo);
+
+	// /**
+	//  * Parse information file of TiledLayerBundler class and
+	//  * create a TiledLayerBundlerInfo class object.
+	//  * @method parseTiledLayerBundlerInfoFile
+	//  * @param  path                           [The file path]
+	//  * @return                                [A pointer of TiledLayerBundlerInfo class]
+	//  */
+	// TiledLayerBundlerInfo* parseTiledLayerBundlerInfoFile(const std::string& path);
+	//
+	// /**
+	//  * Parse information file of TiledLayer class and create a TiledLayerInfo class object.
+	//  * @method parseTiledLayerInfoFile
+	//  * @param  path                    [The file path]
+	//  * @return                         [A pointer of TiledLayerInfo class object]
+	//  */
+	// TiledLayerInfo* parseTiledLayerInfoFile(const std::string& path);
+	//
+	// /**
+	//  * Parse information file of Tilesheets and create TilesheetInfo object,
+	//  * then add them to the hashed map with tilesheet names as keys.
+	//  * @method parseTilesheetInfoFile
+	//  * @param  path                   [The file path]
+	//  * @param  mapTilesheetInfo       [Hashed map contains names of Tilesheet
+	//  *                                 and pointers of TilesheetInfo object]
+	//  * @return                        [true/false]
+	//  */
+	// bool parseTilesheetInfoFile(
+	// 	const std::string& path,cocos2d::Map<std::string,TilesheetInfo*>& mapTilesheetInfo);
 
 	/**
 	* Do matching text using the regex. This function will only be called
@@ -302,13 +421,38 @@ protected:
 class TilesheetInfo :public cocos2d::Ref
 {
 public:
+	static TilesheetInfo* create();
+
 	/**
-	 * Create TilesheetInfo class object.
-	 * @method createWithTileTypeNum
-	 * @param  num                   [The number of kinds of tiles]
-	 * @return                       [A pointer of the TilesheetInfo class object]
+	 * Add a texture rect to _textureRects.
+	 * Cannot get _textureRects directory,so use this function
+	 * when you want to add a new texture rect.
+	 * @method addTextureRect
+	 * @param  rect           [Texture rect]
 	 */
-	static TilesheetInfo* createWithTileTypeNum(const size_t num);
+	void addTextureRect(cocos2d::Rect rect);
+
+	/**
+	 * Return the vector(_textureRects) by reference.
+	 * @method getTexturectAsVector
+	 * @return [_textureRects that is passed by reference]
+	 */
+	const std::vector<cocos2d::Rect>& getTexturectAsVector();
+
+	/**
+	 * Getter function of _numTileType.
+	 * @method getNumOfTileType
+	 * @return [_numTileType]
+	 */
+	size_t getNumOfTileType();
+
+	/**
+	 * Setter function of _numTileType.
+	 * Set capacity to the vector (_textureRects) using it.
+	 * @method setNumOfTileType
+	 * @param  num              [The number of the tile types]
+	 */
+	void setNumOfTileType(size_t num);
 
 private:
 	/**
@@ -322,32 +466,25 @@ private:
 	CC_SYNTHESIZE(std::string,_sheetName,SheetName);
 
 	/**
-	 * The number of the tile types.
-	 */
-	CC_SYNTHESIZE(size_t,_numTileType,NumTileType);
-
-	/**
 	 * The size of a tile.
 	 */
 	CC_SYNTHESIZE(cocos2d::Size,_tileSize,TileSize);
 
 	/**
+	* The number of the tile types.
+	*/
+	size_t _numTileType;
+
+	/**
 	 * An array contains Rect objects of a tile texture on the tilesheet.
 	 * An index is tile type.
 	 */
-	cocos2d::Rect* _textureRects;
+	std::vector<cocos2d::Rect> _textureRects;
 
 protected:
 	TilesheetInfo();
 	~TilesheetInfo();
-
-	/**
-	 * Initialize class object and the array :: _textureRects using the parameter num.
-	 * @method initWithTileTypeNum
-	 * @param  num                 [The number of kinds of tiles]
-	 * @return                     [true/false]
-	 */
-	bool initWithTileTypeNum(const size_t num);
+	bool init();
 };
 
 #endif

@@ -80,7 +80,7 @@ bool HelloWorld::init()
     Map<std::string,TiledLayerInfo*> tliMap;
     Map<std::string,TilesheetInfo*> tsiMap;
     auto parser = TiledMap2P5DFileParser::createWithParams(
-        "Resources/tm2p5d/map_info.dat",
+        "Resources/tm2p5d/map_info_origin.dat",
         mapInfo,
         tlbiMap,
         tliMap,

@@ -1,0 +1,24 @@
+##The file of TiledLayerBundlers information.
+
+##LayerBundler-1
+$(TiledLayerBundlerInfo
+	(LayerName
+		@(string : demo_layer_bundler_1))
+	(Architecture
+		@(string : layerA)
+		@(string : layerB)))
+
+##LayerBundler-2
+$(TiledLayerBundlerInfo
+	(LayerName
+		@(string : demo_layer_bundler_2))
+	(Architecture
+		@(string : layerC)
+		@(string : layerD)))
+
+##LayerBundler-3
+$(TiledLayerBundlerInfo
+	(LayerName
+		@(string : demo_layer_bundler_3))
+	(Architecture
+		@(string : layerB)))
