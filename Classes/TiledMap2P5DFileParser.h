@@ -58,12 +58,21 @@ protected:
 
 private:
 	/**
-	 * Parse a information file. If failed to do so, return false.
-	 * @method parseWithPath
-	 * @param  path          [File path that will be parsed]
-	 * @return               [true/false]
+	 * Parse the information file.If @parsing fail, return false.
+	 * @method parseWithArgs
+	 * @param  path                     [description]
+	 * @param  tiledMapInfo             []
+	 * @param  mapTiledLayerBundlerInfo [description]
+	 * @param  mapTiledLayerInfo        [description]
+	 * @param  mapTilesheetInfo         [description]
+	 * @return                          [description]
 	 */
-	bool parseWithPath(std::string path);
+	 bool parseWithArgs(
+		const std::string& path,
+		TiledMapInfo* tiledMapInfo,
+		cocos2d::Map<std::string,TiledLayerBundlerInfo*>& mapTiledLayerBundlerInfo,
+		cocos2d::Map<std::string,TiledLayerInfo*>& mapTiledLayerInfo,
+		cocos2d::Map<std::string,TilesheetInfo*>& mapTilesheetInfo);
 
 	/**
 	 * Delete all white-spaces and tabs in the text.
@@ -126,11 +135,12 @@ private:
 	 * @method tokenToTiledMapInfo
 	 * @param  tokens              [Resource tokens]
 	 * @param  itr                 [Iterator of a token]
-	 * @return                     [TiledMapInfo object]
+	 * @param  info                [TiledMapInfo object]
 	 */
-	TiledMapInfo* tokenToTiledMapInfo(
+	void tokenToTiledMapInfo(
 		const std::vector<std::string>& tokens,
-		std::vector<std::string>::iterator& itr);
+		std::vector<std::string>::iterator& itr,
+		TiledMapInfo* info);
 
 	/**
 	 * Make a TileLayerInfo object from tokens.

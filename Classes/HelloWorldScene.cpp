@@ -75,6 +75,7 @@ bool HelloWorld::init()
     this->addChild(sprite, 0);
 
     //TEST
+    // TiledMapInfo* mapInfo = nullptr;
     auto mapInfo = TiledMapInfo::create();
     Map<std::string,TiledLayerBundlerInfo*> tlbiMap;
     Map<std::string,TiledLayerInfo*> tliMap;

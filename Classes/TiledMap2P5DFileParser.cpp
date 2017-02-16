@@ -94,18 +94,36 @@ bool TiledMap2P5DFileParser::initWithParams(
 	cocos2d::Map<std::string,TilesheetInfo*>& mapTilesheetInfo)
 {
 	//Parse origin file.
-	return parseWithPath(origin);
+	if(!parseWithArgs(
+		origin,
+		tiledMapInfo,
+		mapTiledLayerBundlerInfo,
+		mapTiledLayerInfo,
+		mapTilesheetInfo))
+	{
+		std::cout << "WARNIG!! :: Something has been wrong in persing files." << '\n';
+		return false;
+	}
+
+	return true;
 }
 
 /**
  * Private
  */
 
-bool TiledMap2P5DFileParser::parseWithPath(std::string path)
+bool TiledMap2P5DFileParser::parseWithArgs(
+	const std::string& path,
+	TiledMapInfo* tiledMapInfo,
+	Map<std::string,TiledLayerBundlerInfo*>& mapTiledLayerBundlerInfo,
+	Map<std::string,TiledLayerInfo*>& mapTiledLayerInfo,
+	Map<std::string,TilesheetInfo*>& mapTilesheetInfo)
 {
 	std::ifstream stream(path,std::ios::in);
 	std::string line;
 	std::vector<std::string> tokens;
+
+	std::cout << "Parse file >> " << path << '\n';
 
 	if(stream.eof())
 		return false;
@@ -132,19 +150,24 @@ bool TiledMap2P5DFileParser::parseWithPath(std::string path)
 			//Create objects
 			if(*token == OBJ_TILED_MAP_INFO)
 			{
-				auto info = tokenToTiledMapInfo(tokens,++token);
+				if(tiledMapInfo == nullptr)
+					tiledMapInfo = TiledMapInfo::create();
+				tokenToTiledMapInfo(tokens,++token,tiledMapInfo);
 			}
 			else if(*token == OBJ_TILED_LAYER_INFO)
 			{
 				auto info = tokenToTiledLayerInfo(tokens,++token);
+				mapTiledLayerInfo.insert(info->getLayerName(),info);
 			}
 			else if(*token == OBJ_TILED_LAYER_BUNDLER_INFO)
 			{
 				auto info = tokenToTiledLayerBundlerInfo(tokens,++token);
+				mapTiledLayerBundlerInfo.insert(info->getName(),info);
 			}
 			else if(*token == OBJ_TILESHEET_INFO)
 			{
 				auto info = tokenToTilesheetInfo(tokens,++token);
+				mapTilesheetInfo.insert(info->getSheetName(),info);
 			}
 		}
 		//Modifier <include>
@@ -152,7 +175,13 @@ bool TiledMap2P5DFileParser::parseWithPath(std::string path)
 		{
 			//Parse additional file
 			//Recursive call
-			parseWithPath(tokenToString(*(++token)));
+			if(!parseWithArgs(
+				tokenToString(*(++token)),
+				tiledMapInfo,
+				mapTiledLayerBundlerInfo,
+				mapTiledLayerInfo,
+				mapTilesheetInfo))
+				return false;
 		}
 	}
 
@@ -244,18 +273,19 @@ Rect TiledMap2P5DFileParser::tokenToCCRect(std::string token)
 	return rect;
 }
 
-TiledMapInfo* TiledMap2P5DFileParser::tokenToTiledMapInfo(
+void TiledMap2P5DFileParser::tokenToTiledMapInfo(
 	const std::vector<std::string>& tokens,
-	std::vector<std::string>::iterator& itr)
+	std::vector<std::string>::iterator& itr,
+	TiledMapInfo* info)
 {
 	int hier;
-	auto info = TiledMapInfo::create();
 	std::string current_element("");
 
+	//To prevent release of the object while parsing the file
+	info->retain();
 
 	for(hier = 1; hier > 0 && itr != tokens.end(); ++itr)
 	{
-		// std::cout << "[" << hier << "]TOKEN IN TILEDMAPINFO >> " << *itr << '\n';
 		//Value (size_t) element
 		if(matchingRegex(*itr,RGX_VAL_SIZE_T))
 		{
@@ -291,7 +321,8 @@ TiledMapInfo* TiledMap2P5DFileParser::tokenToTiledMapInfo(
 	//debug
 	// debugLogForTiledMapInfo(info);
 
-	return info;
+	//Release
+	info->release();
 }
 
 TiledLayerInfo* TiledMap2P5DFileParser::tokenToTiledLayerInfo(
@@ -302,6 +333,10 @@ TiledLayerInfo* TiledMap2P5DFileParser::tokenToTiledLayerInfo(
 	auto info = TiledLayerInfo::create();
 	std::string current_element("");
 
+	if(info == nullptr)
+		return nullptr;
+	//To prevent release of the object while parsing the file
+	info->retain();
 
 	for(hier = 1; hier > 0 && itr != tokens.end(); ++itr)
 	{
@@ -341,6 +376,8 @@ TiledLayerInfo* TiledMap2P5DFileParser::tokenToTiledLayerInfo(
 
 	//debug
 	// debugLogForTiledLayerInfo(info);
+	//Release
+	info->release();
 
 	return info;
 }
@@ -353,6 +390,10 @@ TiledLayerBundlerInfo* TiledMap2P5DFileParser::tokenToTiledLayerBundlerInfo(
 	auto info = TiledLayerBundlerInfo::create();
 	std::string current_element("");
 
+	if(info == nullptr)
+		return nullptr;
+	//To prevent release of the object while parsing the file
+	info->retain();
 
 	for(hier = 1; hier > 0 && itr != tokens.end(); ++itr)
 	{
@@ -383,6 +424,8 @@ TiledLayerBundlerInfo* TiledMap2P5DFileParser::tokenToTiledLayerBundlerInfo(
 
 	//debug
 	// debugLogForTiledLayerBundlerInfo(info);
+	//Release
+	info->release();
 
 	return info;
 }
@@ -395,6 +438,10 @@ TilesheetInfo* TiledMap2P5DFileParser::tokenToTilesheetInfo(
 	auto info = TilesheetInfo::create();
 	std::string current_element("");
 
+	if(info == nullptr)
+		return nullptr;
+	//To prevent release of the object while parsing the file
+	info->retain();
 
 	for(hier = 1; hier > 0 && itr != tokens.end(); ++itr)
 	{
@@ -443,6 +490,8 @@ TilesheetInfo* TiledMap2P5DFileParser::tokenToTilesheetInfo(
 
 	//debug
 	// debugLogForTilesheetInfo(info);
+	//Release
+	info->release();
 
 	return info;
 }
@@ -450,7 +499,7 @@ TilesheetInfo* TiledMap2P5DFileParser::tokenToTilesheetInfo(
 void TiledMap2P5DFileParser::debugLogForTiledMapInfo(TiledMapInfo* info)
 {
 	// DEBUG
-	log("\n**\tDEBUG OF parseOriginFile()\t**");
+	log("\n**\tDEBUG LOG OF TiledMapInfo\t**");
 	log("TiledMapInfo::GridWidth::%zu",info->getMapGridWidth());
 	log("TiledMapInfo::GridHeight::%zu",info->getMapGridHeight());
 	for(auto str:info->getArchitecture())
@@ -463,7 +512,7 @@ void TiledMap2P5DFileParser::debugLogForTiledMapInfo(TiledMapInfo* info)
 void TiledMap2P5DFileParser::debugLogForTiledLayerInfo(TiledLayerInfo* info)
 {
 	// DEBUG
-	log("\n**\tDEBUG OF parseTiledLayerInfoFile()\t**");
+	log("\n**\tDEBUG LOG OF TiledLayerInfo\t**");
 	log("TiledLayerInfo::LayerName::%s",info->getLayerName().c_str());
 	log("TiledLayerInfo::Visible::%s",(info->getIsVisible()) ? "true" : "false");
 	log("TiledLayerInfo::Terrain::%s",info->getPathTerrainFile().c_str());
@@ -475,7 +524,7 @@ void TiledMap2P5DFileParser::debugLogForTiledLayerBundlerInfo(
 	TiledLayerBundlerInfo* info)
 {
 	// DEBUG
-	log("\n**\tDEBUG OF parseTiledLayerBundlerInfoFile()\t**");
+	log("\n**\tDEBUG LOG OF TiledLayerBundlerInfo\t**");
 	log("TiledLayerBundlerInfo::Name::%s",info->getName().c_str());
 	for(auto str:info->getArchitecture())
 	{
@@ -487,7 +536,7 @@ void TiledMap2P5DFileParser::debugLogForTiledLayerBundlerInfo(
 void TiledMap2P5DFileParser::debugLogForTilesheetInfo(TilesheetInfo* info)
 {
 	// DEBUG
-	log("\n**\tDEBUG OF parseTilesheetInfoFile()\t**");
+	log("\n**\tDEBUG LOG OF TilesheetInfo\t**");
 	log("TilesheetInfo::SheetName::%s",info->getSheetName().c_str());
 	log("TilesheetInfo::Resource::%s",info->getFileName().c_str());
 	log("TilesheetInfo::TileSize::%.5f,%.5f",info->getTileSize().width,info->getTileSize().height);
