@@ -2,7 +2,6 @@
 #define TILED_MAP_2P5D_H
 
 #include "../cocos2d/cocos/cocos2d.h"
-#include "TiledMapInfoFileParser.h"
 
 class TiledMap2P5D :public cocos2d::Node
 {

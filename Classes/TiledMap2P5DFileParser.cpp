@@ -2,52 +2,63 @@
 #include <fstream>
 #include <iostream>
 
-USING_NS_CC;
+using namespace cocos2d;
+
+/**
+ * TiledMap2P5DFileParser,TiledMapInfo,TiledLayerInfo,TiledLayerBundlerInfo,
+ * TilesheetInfo classes are member of the namespace TM25Component.
+ */
+namespace TM25Component {
+
+	//The following constant strings are only used in TiledMap2P5DFileParser class
+	namespace {
+
+	//For sscanf()
+	static const size_t SSCANF_BUFF_LEN =  64;
+
+	//Modifiers
+	static const std::string MOD_OBJECT("$");
+	static const std::string MOD_VALUE("@");
+	static const std::string MOD_INCLUDE("<include>");
+
+	//Object elements
+	static const std::string OBJ_TILED_MAP_INFO("$(TiledMapInfo");
+	static const std::string OBJ_TILED_LAYER_INFO("$(TiledLayerInfo");
+	static const std::string OBJ_TILED_LAYER_BUNDLER_INFO("$(TiledLayerBundlerInfo");
+	static const std::string OBJ_TILESHEET_INFO("$(TilesheetInfo");
+
+	//Elements
+	static const std::string ELM_GRID_WIDTH("(GridWidth");
+	static const std::string ELM_GRID_HEIGHT("(GridHeight");
+	static const std::string ELM_ARCHITECTURE("(Architecture");
+	static const std::string ELM_LAYER_NAME("(LayerName");
+	static const std::string ELM_SHEET_NAME("(SheetName");
+	static const std::string ELM_TERRAIN("(Terrain");
+	static const std::string ELM_VISIBLE("(Visible");
+	static const std::string ELM_RESOURCE("(Resource");
+	static const std::string ELM_TILE_SIZE("(TileSize");
+	static const std::string ELM_NUM_OF_TILE_TYPES("(NumOfTileTypes");
+	static const std::string ELM_TEXTURE_RECTS("(TextureRects");
+
+	//Value elements
+	static const std::string RGX_VAL_SIZE_T("@(sizeT:*");
+	static const std::string RGX_VAL_STRING("@(string:*");
+	static const std::string RGX_VAL_BOOL("@(bool:*");
+	static const std::string RGX_VAL_CC_RECT("@(ccRect:*");
+	static const std::string RGX_VAL_CC_SIZE("@(ccSize:*");
+
+	//Formats or sscanf()
+	static const std::string FORMAT_SIZE_T("@(sizeT:%zu)");
+	static const std::string FORMAT_STRING("@(string:%s");
+	static const std::string FORMAT_BOOL("@(bool:%s");
+	static const std::string FORMAT_CC_RECT("@(ccRect:%f,%f,%f,%f");
+	static const std::string FORMAT_CC_SIZE("@(ccSize:%f,%f");
+
+	} /* unnamed namespace */
 
 /**
  * Implementation of TiledMap2P5DFileParser class
  */
-
-//For sscanf()
-const size_t SSCANF_BUFF_LEN =  64;
-
-//Modifiers
-const std::string MOD_OBJECT("$");
-const std::string MOD_VALUE("@");
-const std::string MOD_INCLUDE("<include>");
-
-//Object elements
-const std::string OBJ_TILED_MAP_INFO("$(TiledMapInfo");
-const std::string OBJ_TILED_LAYER_INFO("$(TiledLayerInfo");
-const std::string OBJ_TILED_LAYER_BUNDLER_INFO("$(TiledLayerBundlerInfo");
-const std::string OBJ_TILESHEET_INFO("$(TilesheetInfo");
-
-//Elements
-const std::string ELM_GRID_WIDTH("(GridWidth");
-const std::string ELM_GRID_HEIGHT("(GridHeight");
-const std::string ELM_ARCHITECTURE("(Architecture");
-const std::string ELM_LAYER_NAME("(LayerName");
-const std::string ELM_SHEET_NAME("(SheetName");
-const std::string ELM_TERRAIN("(Terrain");
-const std::string ELM_VISIBLE("(Visible");
-const std::string ELM_RESOURCE("(Resource");
-const std::string ELM_TILE_SIZE("(TileSize");
-const std::string ELM_NUM_OF_TILE_TYPES("(NumOfTileTypes");
-const std::string ELM_TEXTURE_RECTS("(TextureRects");
-
-//Value elements
-const std::string RGX_VAL_SIZE_T("@(sizeT:*");
-const std::string RGX_VAL_STRING("@(string:*");
-const std::string RGX_VAL_BOOL("@(bool:*");
-const std::string RGX_VAL_CC_RECT("@(ccRect:*");
-const std::string RGX_VAL_CC_SIZE("@(ccSize:*");
-
-//Formats or sscanf()
-const std::string FORMAT_SIZE_T("@(sizeT:%zu)");
-const std::string FORMAT_STRING("@(string:%s");
-const std::string FORMAT_BOOL("@(bool:%s");
-const std::string FORMAT_CC_RECT("@(ccRect:%f,%f,%f,%f");
-const std::string FORMAT_CC_SIZE("@(ccSize:%f,%f");
 
 /**
  * Public
@@ -781,3 +792,5 @@ bool TilesheetInfo::init()
 {
 	return true;
 }
+
+} /* namespace TM25Component */

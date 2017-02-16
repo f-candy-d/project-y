@@ -4,6 +4,12 @@
 #include "../cocos2d/cocos/cocos2d.h"
 #include <string>
 
+/**
+ * TiledMap2P5DFileParser,TiledMapInfo,TiledLayerInfo,TiledLayerBundlerInfo,
+ * TilesheetInfo classes are member of the namespace TM25Component.
+ */
+namespace TM25Component {
+
 class TiledMapInfo;
 class TiledLayerBundlerInfo;
 class TiledLayerInfo;
@@ -421,5 +427,7 @@ protected:
 	~TilesheetInfo();
 	bool init();
 };
+
+} /* namespace TM25Component */
 
 #endif
