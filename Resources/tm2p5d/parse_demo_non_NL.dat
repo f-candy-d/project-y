@@ -1,6 +1,0 @@
-##Comment
-##Demo class object 1
-$(Demo(TextureRects(SheetName@(String : demo_sheet))))
-##Demo class object 2
-$(Demo(TextureRects(SheetName@(String : demo_sheet))))
-<include>@(dmodemo.dat)
