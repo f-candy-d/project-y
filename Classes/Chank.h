@@ -36,9 +36,8 @@ public:
 	 * @method makeTiles
 	 * @param  parent        [Parent SpriteBatchNode]
 	 * @param  tilesheetInfo [A pointer of TilesheetInfo class object]
-	 * @param  storeSprites  [If this is true,store sprite objects in the vector]
 	 */
-	void makeTiles(cocos2d::SpriteBatchNode* parent,TilesheetInfo* tilesheetInfo,bool storeSprites);
+	void makeTiles(cocos2d::SpriteBatchNode* parent,TilesheetInfo* tilesheetInfo);
 
 	/**
 	 * Remove all sprites of the tile from parent SpriteBatchNode.

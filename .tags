@@ -79,20 +79,6 @@ TiledMap2P5D	/home/daichi/dev/cocos.projects/ProjectY/Classes/TiledMap2P5D.cpp	/
 ~TiledMap2P5D	/home/daichi/dev/cocos.projects/ProjectY/Classes/TiledMap2P5D.cpp	/^TiledMap2P5D::~TiledMap2P5D()$/;"	function	line:14	class:TiledMap2P5D	signature:()
 initWithFile	/home/daichi/dev/cocos.projects/ProjectY/Classes/TiledMap2P5D.cpp	/^bool TiledMap2P5D::initWithFile(std::string path)$/;"	function	line:20	class:TiledMap2P5D	signature:(std::string path)
 createWithFile	/home/daichi/dev/cocos.projects/ProjectY/Classes/TiledMap2P5D.cpp	/^TiledMap2P5D* TiledMap2P5D::createWithFile(std::string path)$/;"	function	line:40	class:TiledMap2P5D	signature:(std::string path)
-CHANK_H	/home/daichi/dev/cocos.projects/ProjectY/Classes/Chank.h	/^#define CHANK_H$/;"	macro	line:2
-TM25Component	/home/daichi/dev/cocos.projects/ProjectY/Classes/Chank.h	/^namespace TM25Component {$/;"	namespace	line:9
-Chank	/home/daichi/dev/cocos.projects/ProjectY/Classes/Chank.h	/^class Chank :public cocos2d::Ref$/;"	class	line:14	namespace:TM25Component
-GRID_WIDTH	/home/daichi/dev/cocos.projects/ProjectY/Classes/Chank.h	/^	static const size_t GRID_WIDTH = 16;$/;"	member	line:22	class:TM25Component::Chank
-GRID_HEIGHT	/home/daichi/dev/cocos.projects/ProjectY/Classes/Chank.h	/^	static const size_t GRID_HEIGHT = 256;$/;"	member	line:23	class:TM25Component::Chank
-_tiles	/home/daichi/dev/cocos.projects/ProjectY/Classes/Chank.h	/^	int _tiles[GRID_WIDTH * GRID_HEIGHT] = {-1};$/;"	member	line:83	class:TM25Component::Chank
-_sprites	/home/daichi/dev/cocos.projects/ProjectY/Classes/Chank.h	/^	cocos2d::Vector<cocos2d::Sprite*> _sprites;$/;"	member	line:88	class:TM25Component::Chank
-CHANK_H	/home/daichi/dev/cocos.projects/ProjectY/Classes/Chank.h	/^#define CHANK_H$/;"	macro	line:2
-TM25Component	/home/daichi/dev/cocos.projects/ProjectY/Classes/Chank.h	/^namespace TM25Component {$/;"	namespace	line:9
-Chank	/home/daichi/dev/cocos.projects/ProjectY/Classes/Chank.h	/^class Chank :public cocos2d::Ref$/;"	class	line:14	namespace:TM25Component
-GRID_WIDTH	/home/daichi/dev/cocos.projects/ProjectY/Classes/Chank.h	/^	static const size_t GRID_WIDTH = 16;$/;"	member	line:22	class:TM25Component::Chank
-GRID_HEIGHT	/home/daichi/dev/cocos.projects/ProjectY/Classes/Chank.h	/^	static const size_t GRID_HEIGHT = 256;$/;"	member	line:23	class:TM25Component::Chank
-_tiles	/home/daichi/dev/cocos.projects/ProjectY/Classes/Chank.h	/^	int _tiles[GRID_WIDTH * GRID_HEIGHT] = {-1};$/;"	member	line:83	class:TM25Component::Chank
-_sprites	/home/daichi/dev/cocos.projects/ProjectY/Classes/Chank.h	/^	cocos2d::Vector<cocos2d::Sprite*> _sprites;$/;"	member	line:88	class:TM25Component::Chank
 TILED_MAP_2P5D_FILE_PARSER_H	/home/daichi/dev/cocos.projects/ProjectY/Classes/TiledMap2P5DFileParser.h	/^#define TILED_MAP_2P5D_FILE_PARSER_H$/;"	macro	line:2
 TM25Component	/home/daichi/dev/cocos.projects/ProjectY/Classes/TiledMap2P5DFileParser.h	/^namespace TM25Component {$/;"	namespace	line:11
 TiledMap2P5DFileParser	/home/daichi/dev/cocos.projects/ProjectY/Classes/TiledMap2P5DFileParser.h	/^class TiledMap2P5DFileParser :public cocos2d::Ref$/;"	class	line:18	namespace:TM25Component
@@ -153,3 +139,17 @@ setNumOfTileType	/home/daichi/dev/cocos.projects/ProjectY/Classes/TiledMap2P5DFi
 TilesheetInfo	/home/daichi/dev/cocos.projects/ProjectY/Classes/TiledMap2P5DFileParser.cpp	/^TilesheetInfo::TilesheetInfo()$/;"	function	line:786	class:TM25Component::TilesheetInfo	signature:()
 ~TilesheetInfo	/home/daichi/dev/cocos.projects/ProjectY/Classes/TiledMap2P5DFileParser.cpp	/^TilesheetInfo::~TilesheetInfo()$/;"	function	line:793	class:TM25Component::TilesheetInfo	signature:()
 init	/home/daichi/dev/cocos.projects/ProjectY/Classes/TiledMap2P5DFileParser.cpp	/^bool TilesheetInfo::init()$/;"	function	line:796	class:TM25Component::TilesheetInfo	signature:()
+CHANK_H	/home/daichi/dev/cocos.projects/ProjectY/Classes/Chank.h	/^#define CHANK_H$/;"	macro	line:2
+TM25Component	/home/daichi/dev/cocos.projects/ProjectY/Classes/Chank.h	/^namespace TM25Component {$/;"	namespace	line:9
+Chank	/home/daichi/dev/cocos.projects/ProjectY/Classes/Chank.h	/^class Chank :public cocos2d::Ref$/;"	class	line:14	namespace:TM25Component
+GRID_WIDTH	/home/daichi/dev/cocos.projects/ProjectY/Classes/Chank.h	/^	static const size_t GRID_WIDTH = 16;$/;"	member	line:22	class:TM25Component::Chank
+GRID_HEIGHT	/home/daichi/dev/cocos.projects/ProjectY/Classes/Chank.h	/^	static const size_t GRID_HEIGHT = 256;$/;"	member	line:23	class:TM25Component::Chank
+_tiles	/home/daichi/dev/cocos.projects/ProjectY/Classes/Chank.h	/^	int _tiles[GRID_WIDTH * GRID_HEIGHT] = {-1};$/;"	member	line:82	class:TM25Component::Chank
+_sprites	/home/daichi/dev/cocos.projects/ProjectY/Classes/Chank.h	/^	cocos2d::Vector<cocos2d::Sprite*> _sprites;$/;"	member	line:87	class:TM25Component::Chank
+TM25Component	/home/daichi/dev/cocos.projects/ProjectY/Classes/Chank.cpp	/^namespace TM25Component {$/;"	namespace	line:6	file:
+createWithParam	/home/daichi/dev/cocos.projects/ProjectY/Classes/Chank.cpp	/^Chank* Chank::createWithParam(cocos2d::Size size, size_t index)$/;"	function	line:11	class:TM25Component::Chank	signature:(cocos2d::Size size, size_t index)
+makeTiles	/home/daichi/dev/cocos.projects/ProjectY/Classes/Chank.cpp	/^void Chank::makeTiles(cocos2d::SpriteBatchNode *parent,TilesheetInfo *tilesheetInfo)$/;"	function	line:24	class:TM25Component::Chank	signature:(cocos2d::SpriteBatchNode *parent,TilesheetInfo *tilesheetInfo)
+eraseTiles	/home/daichi/dev/cocos.projects/ProjectY/Classes/Chank.cpp	/^void Chank::eraseTiles(cocos2d::SpriteBatchNode *parent)$/;"	function	line:55	class:TM25Component::Chank	signature:(cocos2d::SpriteBatchNode *parent)
+Chank	/home/daichi/dev/cocos.projects/ProjectY/Classes/Chank.cpp	/^Chank::Chank()$/;"	function	line:77	class:TM25Component::Chank	signature:()
+~Chank	/home/daichi/dev/cocos.projects/ProjectY/Classes/Chank.cpp	/^Chank::~Chank()$/;"	function	line:83	class:TM25Component::Chank	signature:()
+initWithParam	/home/daichi/dev/cocos.projects/ProjectY/Classes/Chank.cpp	/^bool Chank::initWithParam(cocos2d::Size size,size_t index)$/;"	function	line:86	class:TM25Component::Chank	signature:(cocos2d::Size size,size_t index)
