@@ -158,28 +158,28 @@ bool TiledMap2P5DFileParser::parseWithArgs(
 		//Modifier $
 		if(token->find(MOD_OBJECT) != std::string::npos)
 		{
-			//Create objects
-			if(*token == OBJ_TILED_MAP_INFO)
-			{
-				if(tiledMapInfo == nullptr)
-					tiledMapInfo = TiledMapInfo::create();
-				tokenToTiledMapInfo(tokens,++token,tiledMapInfo);
-			}
-			else if(*token == OBJ_TILED_LAYER_INFO)
-			{
-				auto info = tokenToTiledLayerInfo(tokens,++token);
-				mapTiledLayerInfo.insert(info->getLayerName(),info);
-			}
-			else if(*token == OBJ_TILED_LAYER_BUNDLER_INFO)
-			{
-				auto info = tokenToTiledLayerBundlerInfo(tokens,++token);
-				mapTiledLayerBundlerInfo.insert(info->getName(),info);
-			}
-			else if(*token == OBJ_TILESHEET_INFO)
-			{
-				auto info = tokenToTilesheetInfo(tokens,++token);
-				mapTilesheetInfo.insert(info->getSheetName(),info);
-			}
+			// //Create objects
+			// if(*token == OBJ_TILED_MAP_INFO)
+			// {
+			// 	if(tiledMapInfo == nullptr)
+			// 		tiledMapInfo = TiledMapInfo::create();
+			// 	tokenToTiledMapInfo(tokens,++token,tiledMapInfo);
+			// }
+			// else if(*token == OBJ_TILED_LAYER_INFO)
+			// {
+			// 	auto info = tokenToTiledLayerInfo(tokens,++token);
+			// 	mapTiledLayerInfo.insert(info->getLayerName(),info);
+			// }
+			// else if(*token == OBJ_TILED_LAYER_BUNDLER_INFO)
+			// {
+			// 	auto info = tokenToTiledLayerBundlerInfo(tokens,++token);
+			// 	mapTiledLayerBundlerInfo.insert(info->getName(),info);
+			// }
+			// else if(*token == OBJ_TILESHEET_INFO)
+			// {
+			// 	auto info = tokenToTilesheetInfo(tokens,++token);
+			// 	mapTilesheetInfo.insert(info->getSheetName(),info);
+			// }
 		}
 		//Modifier <include>
 		else if(*token == MOD_INCLUDE)
@@ -552,7 +552,7 @@ void TiledMap2P5DFileParser::debugLogForTilesheetInfo(TilesheetInfo* info)
 	log("TilesheetInfo::Resource::%s",info->getFileName().c_str());
 	log("TilesheetInfo::TileSize::%.5f,%.5f",info->getTileSize().width,info->getTileSize().height);
 	log("TilesheetInfo::NumOfTileTypes::%zu",info->getNumOfTileType());
-	for(auto rct:info->getTexturectAsVector())
+	for(auto rct:info->getTextureRectAsVector())
 	{
 		log("TilesheetInfo::TextureRect::%.5f,%.5f,%.5f,%.5f",rct.origin.x,rct.origin.y,rct.size.width,rct.size.height);
 	}
@@ -757,7 +757,12 @@ void TilesheetInfo::addTextureRect(Rect rect)
 	_textureRects.push_back(rect);
 }
 
-const std::vector<Rect>& TilesheetInfo::getTexturectAsVector()
+const Rect TilesheetInfo::getTextureRectForType(size_t type)
+{
+	return _textureRects.at(type);
+}
+
+const std::vector<Rect>& TilesheetInfo::getTextureRectAsVector()
 {
 	return _textureRects;
 }

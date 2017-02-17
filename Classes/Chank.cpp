@@ -1,6 +1,9 @@
 #include "Chank.h"
+#include "TiledMap2P5DFileParser.h"
 
 USING_NS_CC;
+
+namespace TM25Component {
 
 /**
  * Public functions
@@ -18,7 +21,7 @@ Chank* Chank::createWithParam(cocos2d::Size size, size_t index)
 	return nullptr;
 }
 
-void Chank::makeTiles(cocos2d::SpriteBatchNode *parent, TilesheetInfo *tilesheetInfo)
+void Chank::makeTiles(cocos2d::SpriteBatchNode *parent, TilesheetInfo *tilesheetInfo,bool storeSprites)
 {
 	
 }
@@ -53,3 +56,5 @@ bool Chank::initWithParam(cocos2d::Size size,size_t index)
 /**
  * Private functions
  */
+
+} /* namespace TM25Component */

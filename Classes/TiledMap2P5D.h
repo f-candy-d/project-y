@@ -2,64 +2,60 @@
 #define TILED_MAP_2P5D_H
 
 #include "../cocos2d/cocos/cocos2d.h"
+#include "TiledMap2P5DFileParser.h"
+
+namespace TM25Component {
+
+	class TiledMapInfo;
+	class TiledLayerBundlerInfo;
+	class TiledLayerInfo;
+	class TilesheetInfo;
+}
 
 class TiledMap2P5D :public cocos2d::Node
 {
+public:
+	/**
+	 * Create a tiled map from origin information file.
+	 * @param  path [File path to a origin informatino file]
+	 * @return      [A pointer of a tiled map object]
+	 */
+	static TiledMap2P5D* createWithFile(std::string path);
+
 protected:
 	TiledMap2P5D();
 	~TiledMap2P5D();
-	bool init();
+
+	/**
+	 * Initialize a tiled map.Parse information files in this function.
+	 * @param  path [File path to a origin informatino file]
+	 * @return      [true/false]
+	 */
+	bool initWithFile(std::string path);
 
 private:
 	/**
 	 * A hashed map which contains TiledLayerInfo class objects.
 	 * A key is a name of a tiled layer.
 	 */
-	cocos2d::Map<std::string,TiledLayerInfo*> _tiledLayerInfoMap;
+	cocos2d::Map<std::string,TM25Component::TiledLayerInfo*> _tiledLayerInfoMap;
 
 	/**
-	 * A hashed map which contains BunchedLayerInfo class objects.
+	 * A hashed map which contains TiledLayerBundlerInfo class objects.
 	 * A key is a name of a bunched layer.
 	 */
-	cocos2d::Map<std::string,BunchedLayerInfo*> _bunchedLayerInfoMap;
+	cocos2d::Map<std::string,TM25Component::TiledLayerBundlerInfo*> _TiledLayerBundlerInfoMap;
 
 	/**
 	 * A hashed map which contains TilesheetInfo class objects.
 	 * A key is a name of a tilesheet.
 	 */
-	cocos2d::Map<std::string,TilesheetInfo*> _tilesheetInfoMap;
+	cocos2d::Map<std::string,TM25Component::TilesheetInfo*> _tilesheetInfoMap;
 
 	/**
 	 * A pointer of a TiledMapInfo class object.
 	 */
-	CC_SYNTHESIZE_RETAIN(TiledMapInfo*,_tiledMapInfo,TiledMapInfo);
-
-public:
-	static TiledMap2P5D* create();
-
-	/**
-	 * Return a pointer of TiledLayerInfo object in the hashed map.
-	 * @method getTiledLayerInfoByName
-	 * @param  name                    [A name of TiledLayer.]
-	 * @return                         [A pointer of TiledLayerInfo object.]
-	 */
-	TiledLayerInfo* getTiledLayerInfoByName(std::string name);
-
-	/**
-	 * Return a pointer of BunchedLayerInfo object in the hashed map.
-	 * @method getBunchedLayerInfoByName
-	 * @param  name                      [The name of BunchedLayer.]
-	 * @return                           [A pointer of BunchedLayerInfo object.]
-	 */
-	BunchedLayerInfo* getBunchedLayerInfoByName(std::string name);
-
-	/**
-	 * Return a pointer of TilesheetInfo object in the hashed map.
-	 * @method getTilesheetInfoByName
-	 * @param  name                   [The name of Tilesheet.]
-	 * @return                        [A pointer of TilesheetInfo object.]
-	 */
-	TilesheetInfo* getTilesheetInfoByName(std::string name);
+	TM25Component::TiledMapInfo* _tiledMapInfo;
 };
 
 #endif

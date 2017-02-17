@@ -3,6 +3,12 @@
 
 #include "../cocos2d/cocos/cocos2d.h"
 
+/**
+ * Chank class is a member of the namespace TM25Component.
+ */
+namespace TM25Component {
+
+//Forward declaration
 class TilesheetInfo;
 
 class Chank :public cocos2d::Ref
@@ -30,8 +36,9 @@ public:
 	 * @method makeTiles
 	 * @param  parent        [Parent SpriteBatchNode]
 	 * @param  tilesheetInfo [A pointer of TilesheetInfo class object]
+	 * @param  storeSprites  [If this is true,store sprite objects in the vector]
 	 */
-	void makeTiles(cocos2d::SpriteBatchNode* parent,TilesheetInfo* tilesheetInfo);
+	void makeTiles(cocos2d::SpriteBatchNode* parent,TilesheetInfo* tilesheetInfo,bool storeSprites);
 
 	/**
 	 * Remove all sprites of the tile from parent SpriteBatchNode.
@@ -80,5 +87,7 @@ private:
 	 */
 	cocos2d::Vector<cocos2d::Sprite*> _sprites;
 };
+
+} /* namespace TM25Component */
 
 #endif

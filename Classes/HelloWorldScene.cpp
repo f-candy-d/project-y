@@ -1,7 +1,6 @@
 #include "HelloWorldScene.h"
 #include "SimpleAudioEngine.h"
-#include "TiledMap2P5DFileParser.h"
-
+#include "TiledMap2P5D.h"
 USING_NS_CC;
 
 Scene* HelloWorld::createScene()
@@ -75,17 +74,7 @@ bool HelloWorld::init()
     this->addChild(sprite, 0);
 
     //TEST
-    // TiledMapInfo* mapInfo = nullptr;
-    auto mapInfo = TM25Component::TiledMapInfo::create();
-    Map<std::string,TM25Component::TiledLayerBundlerInfo*> tlbiMap;
-    Map<std::string,TM25Component::TiledLayerInfo*> tliMap;
-    Map<std::string,TM25Component::TilesheetInfo*> tsiMap;
-    auto parser = TM25Component::TiledMap2P5DFileParser::createWithParams(
-        "Resources/tm2p5d/map_info_origin.dat",
-        mapInfo,
-        tlbiMap,
-        tliMap,
-        tsiMap);
+    auto tm = TiledMap2P5D::createWithFile("Resources/tm2p5d/map_info_origin.dat");
 
     return true;
 }

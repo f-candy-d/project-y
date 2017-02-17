@@ -62,7 +62,8 @@ protected:
 		cocos2d::Map<std::string,TiledLayerInfo*>& mapTiledLayerInfo,
 		cocos2d::Map<std::string,TilesheetInfo*>& mapTilesheetInfo);
 
-private:
+// private:
+public:
 	/**
 	 * Parse the information file.If @parsing fail, return false.
 	 * @method parseWithArgs
@@ -73,7 +74,7 @@ private:
 	 * @param  mapTilesheetInfo         [description]
 	 * @return                          [description]
 	 */
-	 bool parseWithArgs(
+	static bool parseWithArgs(
 		const std::string& path,
 		TiledMapInfo* tiledMapInfo,
 		cocos2d::Map<std::string,TiledLayerBundlerInfo*>& mapTiledLayerBundlerInfo,
@@ -85,7 +86,7 @@ private:
 	 * @method deleteSpace
 	 * @param  text        [Target]
 	 */
-	void deleteSpace(std::string& text);
+	static void deleteSpace(std::string& text);
 
 	/**
 	 * Tokenize a line of the information file.
@@ -93,7 +94,7 @@ private:
 	 * @param  text     [A line will be tokenized]
 	 * @param  tokens   [Add tokens in this vector]
 	 */
-	void tokenize(std::string text,std::vector<std::string>& tokens);
+	static void tokenize(std::string text,std::vector<std::string>& tokens);
 
 	/**
 	 * Make a string object from the token.
@@ -101,7 +102,7 @@ private:
 	 * @param  token        [Resource token]
 	 * @return              [String object]
 	 */
-	std::string tokenToString(std::string token);
+	static std::string tokenToString(std::string token);
 
 	/**
 	 * Make a size_t value from the token.
@@ -109,7 +110,7 @@ private:
 	 * @param  token        [Resource]
 	 * @return              [size_t value]
 	 */
-	size_t tokenToSizeT(std::string token);
+	static size_t tokenToSizeT(std::string token);
 
 	/**
 	 * Make a bool value from the token.
@@ -117,7 +118,7 @@ private:
 	 * @param  token       [Resource]
 	 * @return             [bool value]
 	 */
-	bool tokenToBool(std::string token);
+	static bool tokenToBool(std::string token);
 
 	/**
 	 * Make cocos2d::Size object from the token.
@@ -125,7 +126,7 @@ private:
 	 * @param  token         [Resource]
 	 * @return               [cocos2d::Size object]
 	 */
-	cocos2d::Size tokenToCCSize(std::string token);
+	static cocos2d::Size tokenToCCSize(std::string token);
 
 	/**
 	 * make cocos2d::Rect object from the token.
@@ -133,7 +134,7 @@ private:
 	 * @param  token         [Resource]
 	 * @return               [cocos2d::Rect object]
 	 */
-	cocos2d::Rect tokenToCCRect(std::string token);
+	static cocos2d::Rect tokenToCCRect(std::string token);
 
 	/**
 	 * Make a TiledMapInfo object from tokens.
@@ -143,7 +144,7 @@ private:
 	 * @param  itr                 [Iterator of a token]
 	 * @param  info                [TiledMapInfo object]
 	 */
-	void tokenToTiledMapInfo(
+	static void tokenToTiledMapInfo(
 		const std::vector<std::string>& tokens,
 		std::vector<std::string>::iterator& itr,
 		TiledMapInfo* info);
@@ -156,7 +157,7 @@ private:
 	 * @param  itr                 [Iterator of a token]
 	 * @return                     [TiledLayerInfo object]
 	 */
-	TiledLayerInfo* tokenToTiledLayerInfo(
+	static TiledLayerInfo* tokenToTiledLayerInfo(
 		const std::vector<std::string>& tokens,
 		std::vector<std::string>::iterator& itr);
 
@@ -168,7 +169,7 @@ private:
 	 * @param  itr                 [Iterator of a token]
 	 * @return                     [TiledLayerBundlerInfo object]
 	 */
-	TiledLayerBundlerInfo* tokenToTiledLayerBundlerInfo(
+	static TiledLayerBundlerInfo* tokenToTiledLayerBundlerInfo(
 		const std::vector<std::string>& tokens,
 		std::vector<std::string>::iterator& itr);
 
@@ -180,17 +181,17 @@ private:
 	 * @param  itr                 [Iterator of a token]
 	 * @return                     [TilesheetInfo object]
 	 */
-	TilesheetInfo* tokenToTilesheetInfo(
+	static TilesheetInfo* tokenToTilesheetInfo(
 		const std::vector<std::string>& tokens,
 		std::vector<std::string>::iterator& itr);
 
 	/**
 	* For debug
 	*/
-	void debugLogForTiledMapInfo(TiledMapInfo* info);
-	void debugLogForTiledLayerInfo(TiledLayerInfo* info);
-	void debugLogForTiledLayerBundlerInfo(TiledLayerBundlerInfo* info);
-	void debugLogForTilesheetInfo(TilesheetInfo* info);
+	static void debugLogForTiledMapInfo(TiledMapInfo* info);
+	static void debugLogForTiledLayerInfo(TiledLayerInfo* info);
+	static void debugLogForTiledLayerBundlerInfo(TiledLayerBundlerInfo* info);
+	static void debugLogForTilesheetInfo(TilesheetInfo* info);
 
 	/**
 	* Do matching text using the regex. This function will only be called
@@ -210,7 +211,7 @@ private:
 	* @param  i_rgx         [The iterator of the ragex]
 	* @return               [true/false]
 	*/
-	bool matchingRegex(
+	static bool matchingRegex(
 		const std::string &text,
 		const std::string &regex,
 		std::string::const_iterator i_txt,
@@ -231,7 +232,7 @@ private:
 	 * @param  regex         [Regex used in matching]
 	 * @return               [ture/false]
 	 */
-	bool matchingRegex(const std::string &text,const std::string &regex);
+	static bool matchingRegex(const std::string &text,const std::string &regex);
 };
 
 
@@ -375,10 +376,17 @@ public:
 
 	/**
 	 * Return the vector(_textureRects) by reference.
-	 * @method getTexturectAsVector
+	 * @method getTextureRectAsVector
 	 * @return [_textureRects that is passed by reference]
 	 */
-	const std::vector<cocos2d::Rect>& getTexturectAsVector();
+	const std::vector<cocos2d::Rect>& getTextureRectAsVector();
+
+	/**
+	 * Find a texture rect with the clue of a tile type,and return it.
+	 * @param  type   [tile type]
+	 * @return        [texture rect]
+	 */
+	const cocos2d::Rect getTextureRectForType(size_t type);
 
 	/**
 	 * Getter function of _numTileType.
@@ -428,6 +436,6 @@ protected:
 	bool init();
 };
 
-} /* namespace TM25Component */
+} /* namespace TM25Compo */
 
 #endif

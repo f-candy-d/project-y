@@ -1,4 +1,6 @@
 #include "TiledMap2P5D.h"
+#include "TiledMap2P5DFileParser.h"
+#include <iostream>
 
 USING_NS_CC;
 
@@ -6,17 +8,28 @@ USING_NS_CC;
  * Protected functions
  */
 TiledMap2P5D::TiledMap2P5D()
+:_tiledMapInfo(nullptr)
 {}
 
 TiledMap2P5D::~TiledMap2P5D()
-{}
+{
+	if(_tiledMapInfo)
+		_tiledMapInfo->release();
+}
 
-bool TiledMap2P5D::init()
+bool TiledMap2P5D::initWithFile(std::string path)
 {
 	if(!Node::init())
 	{
 		return false;
 	}
+
+	//Parse a origin file and create information objects.
+	_tiledMapInfo = TM25Component::TiledMapInfo::create();
+	_tiledMapInfo->retain();
+	if(!TM25Component::TiledMap2P5DFileParser::parseWithArgs(
+		path,_tiledMapInfo,_TiledLayerBundlerInfoMap,_tiledLayerInfoMap,_tilesheetInfoMap))
+		return false;
 
 	return true;
 }
@@ -24,10 +37,10 @@ bool TiledMap2P5D::init()
 /**
  * Public functions
  */
-TiledMap2P5D* TiledMap2P5D::create()
+TiledMap2P5D* TiledMap2P5D::createWithFile(std::string path)
 {
 	TiledMap2P5D* ref = new TiledMap2P5D();
-	if(ref->init())
+	if(ref->initWithFile(path))
 	{
 		ref->autorelease();
 		return ref;
@@ -35,19 +48,4 @@ TiledMap2P5D* TiledMap2P5D::create()
 
 	CC_SAFE_DELETE(ref);
 	return nullptr;
-}
-
-TiledLayerInfo* TiledMap2P5D::getTiledLayerInfoByName(std::string name)
-{
-	return _tiledLayerInfoMap.at(name);
-}
-
-BunchedLayerInfo* TiledMap2P5D::getBunchedLayerInfoByName(std::string name)
-{
-	return _bunchedLayerInfoMap.at(name);
-}
-
-TilesheetInfo* TiledMap2P5D::getTilesheetInfoByName(std::string name)
-{
-	return _tilesheetInfoMap.at(name);
 }
