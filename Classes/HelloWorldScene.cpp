@@ -1,6 +1,7 @@
 #include "HelloWorldScene.h"
 #include "SimpleAudioEngine.h"
 #include "TiledMap2P5D.h"
+#include <iostream>
 USING_NS_CC;
 
 Scene* HelloWorld::createScene()

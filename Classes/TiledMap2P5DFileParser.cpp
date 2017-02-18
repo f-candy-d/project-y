@@ -158,28 +158,28 @@ bool TiledMap2P5DFileParser::parseWithArgs(
 		//Modifier $
 		if(token->find(MOD_OBJECT) != std::string::npos)
 		{
-			// //Create objects
-			// if(*token == OBJ_TILED_MAP_INFO)
-			// {
-			// 	if(tiledMapInfo == nullptr)
-			// 		tiledMapInfo = TiledMapInfo::create();
-			// 	tokenToTiledMapInfo(tokens,++token,tiledMapInfo);
-			// }
-			// else if(*token == OBJ_TILED_LAYER_INFO)
-			// {
-			// 	auto info = tokenToTiledLayerInfo(tokens,++token);
-			// 	mapTiledLayerInfo.insert(info->getLayerName(),info);
-			// }
-			// else if(*token == OBJ_TILED_LAYER_BUNDLER_INFO)
-			// {
-			// 	auto info = tokenToTiledLayerBundlerInfo(tokens,++token);
-			// 	mapTiledLayerBundlerInfo.insert(info->getName(),info);
-			// }
-			// else if(*token == OBJ_TILESHEET_INFO)
-			// {
-			// 	auto info = tokenToTilesheetInfo(tokens,++token);
-			// 	mapTilesheetInfo.insert(info->getSheetName(),info);
-			// }
+			//Create objects
+			if(*token == OBJ_TILED_MAP_INFO)
+			{
+				if(tiledMapInfo == nullptr)
+					tiledMapInfo = TiledMapInfo::create();
+				tokenToTiledMapInfo(tokens,++token,tiledMapInfo);
+			}
+			else if(*token == OBJ_TILED_LAYER_INFO)
+			{
+				auto info = tokenToTiledLayerInfo(tokens,++token);
+				mapTiledLayerInfo.insert(info->getLayerName(),info);
+			}
+			else if(*token == OBJ_TILED_LAYER_BUNDLER_INFO)
+			{
+				auto info = tokenToTiledLayerBundlerInfo(tokens,++token);
+				mapTiledLayerBundlerInfo.insert(info->getName(),info);
+			}
+			else if(*token == OBJ_TILESHEET_INFO)
+			{
+				auto info = tokenToTilesheetInfo(tokens,++token);
+				mapTilesheetInfo.insert(info->getSheetName(),info);
+			}
 		}
 		//Modifier <include>
 		else if(*token == MOD_INCLUDE)
