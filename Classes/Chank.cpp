@@ -1,5 +1,6 @@
 #include "Chank.h"
 #include "TiledMap2P5DFileParser.h"
+#include <cmath>
 
 USING_NS_CC;
 
@@ -8,7 +9,7 @@ namespace TM25Component {
 /**
  * Public functions
  */
-Chank* Chank::createWithParam(cocos2d::Size size, size_t index)
+Chank* Chank::createWithParam(cocos2d::Size size, int index)
 {
 	Chank* ref = new Chank();
 	if(ref->initWithParam(size,index))
@@ -83,8 +84,11 @@ Chank::Chank()
 Chank::~Chank()
 {}
 
-bool Chank::initWithParam(cocos2d::Size size,size_t index)
+bool Chank::initWithParam(cocos2d::Size size,int index)
 {
+	if(index < 0)
+		return false;
+
 	//Setup params
 	_index = index;
 	_size.setSize(size.width * this->GRID_WIDTH,size.height * this->GRID_HEIGHT);
@@ -96,5 +100,70 @@ bool Chank::initWithParam(cocos2d::Size size,size_t index)
 /**
  * Private functions
  */
+int Chank::countDigit(u_int n)
+{
+	int digit;
+
+	if (n < 100000)
+	{
+		if (n < 1000)
+		{
+			if (n < 10)
+			digit = 1;
+			else if (n < 100)
+			digit = 2;
+			else
+			digit = 3;
+		}
+		else
+		{
+			if (n < 10000)
+			digit = 4;
+			else
+			digit = 5;
+		}
+	}
+	else
+	{
+		if (n < 10000000)
+		{
+			if (n < 1000000)
+			digit = 6;
+			else
+			digit = 7;
+		}
+		else
+		{
+			if (n < 100000000)
+			digit = 8;
+			else if (n < 1000000000)
+			digit = 9;
+			else
+			digit = 10;
+		}
+	}
+
+	return digit;
+}
+
+u_l_int Chank::makeHashOfCoordinate(u_int x, u_int y)
+{
+	int dig_y = countDigit(y);
+	return (x * (unsigned int)std::pow(10,dig_y) + y) * 10 + dig_y;
+}
+
+Vec2 Chank::decodeHashOfCoordinate(u_l_int hash)
+{
+	Vec2 vec;
+	int y_digit;
+	int pow_10_y_dg;
+
+	y_digit = hash % 10;
+	hash /= 10;
+	pow_10_y_dg = (int)std::pow(10,y_digit);
+	vec.x = hash / pow_10_y_dg;
+	vec.y = hash - vec.x * pow_10_y_dg;
+	return vec;
+}
 
 } /* namespace TM25Component */

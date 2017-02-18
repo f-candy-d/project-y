@@ -3,6 +3,9 @@
 
 #include "../cocos2d/cocos/cocos2d.h"
 
+typedef unsigned int u_int;
+typedef unsigned long int u_l_int;
+
 /**
  * Chank class is a member of the namespace TM25Component.
  */
@@ -29,7 +32,7 @@ public:
 	 * @param  index           [The index of the chank on a layer]
 	 * @return                 [A pointer of a Chank class object]
 	 */
-	static Chank* createWithParam(cocos2d::Size size,size_t index);
+	static Chank* createWithParam(cocos2d::Size size,int index);
 
 	/**
 	 * Make sprites of the tile and add them to the parent SpriteBatchNode.
@@ -57,13 +60,13 @@ protected:
 	 * @param  index            [The index of the chank on a layer]
 	 * @return                  [true/false]
 	 */
-	bool initWithParam(cocos2d::Size size,size_t index);
+	bool initWithParam(cocos2d::Size size,int index);
 
 private:
 	/**
 	 * The index of the chank.
 	 */
-	CC_SYNTHESIZE(size_t,_index,Index);
+	CC_SYNTHESIZE(int,_index,Index);
 
 	/**
 	 * The size of the chank.
@@ -85,6 +88,38 @@ private:
 	 * The array contains sprites of the tile.
 	 */
 	cocos2d::Vector<cocos2d::Sprite*> _sprites;
+
+	/**
+	 * Count the number of digits of n using binary search.
+	 * @method countDigit
+	 * @param  n         [A nutural number or zero]
+	 * @return           [The number of the digits]
+	 */
+	int countDigit(u_int n);
+
+	/**
+	 * Make a hash value of the coordinate.
+	 * For example...
+	 * (x,y) = (256,60) --- comvert... ---> 256602 (<-hash)
+	 * Put 'y' on the right of 'x',and then put the number
+	 *  of digits of 'y' on the right of 'y'.
+	 * @method makeHashOfCoordinate
+	 * @param  x                    [A x coordinate]
+	 * @param  y                    [A y coordinate]
+	 * @return                      [hash value]
+	 */
+	u_l_int makeHashOfCoordinate(u_int x,u_int y);
+
+	/**
+	 * Decode the hash value created by makeHashOfCoordinate() function
+	 *  to a coordinate (x,y) as Vec2.
+	 * The format of the hash value is >> [x][y][the number of digits of y]
+	 * @method decodeHashOfCoordinate
+	 * @param  hash                   [A hash value created by makeHashOfCoordinate()]
+	 * @return                        [A decoded coordinate]
+	 */
+	cocos2d::Vec2 decodeHashOfCoordinate(u_l_int hash);
+
 };
 
 } /* namespace TM25Component */
