@@ -98,6 +98,16 @@ private:
 	int countDigit(u_int n);
 
 	/**
+	 * Return the 'e'th power of 10 (unsigned long int).
+	 * The range of the a returned value(R) is ::
+	 * 1 <= R <= 10,000,000,000,000,000,000
+	 * @method pow10
+	 * @param  e     [0 <= e <= 20]
+	 * @return       [10^e]
+	 */
+	u_l_int pow10(u_int e);
+
+	/**
 	 * Make a hash value of the coordinate.
 	 * For example...
 	 * (x,y) = (256,60) --- comvert... ---> 256602 (<-hash)

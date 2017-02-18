@@ -1,6 +1,6 @@
 #include "Chank.h"
 #include "TiledMap2P5DFileParser.h"
-#include <cmath>
+#include <iostream>
 
 USING_NS_CC;
 
@@ -146,24 +146,39 @@ int Chank::countDigit(u_int n)
 	return digit;
 }
 
+u_l_int Chank::pow10(u_int e)
+{
+	u_l_int p10 = 1;
+
+	//The max of p10 is 10,000,000,000,000,000,000.
+	while(0 < e && e <= 20)
+	{
+		p10*=10;
+		e--;
+	}
+
+	return p10;
+}
+
 u_l_int Chank::makeHashOfCoordinate(u_int x, u_int y)
 {
-	int dig_y = countDigit(y);
-	return (x * (unsigned int)std::pow(10,dig_y) + y) * 10 + dig_y;
+	u_int dig_y = countDigit(y);
+	return (x * pow10(dig_y) + y) * 10 + dig_y;
 }
 
 Vec2 Chank::decodeHashOfCoordinate(u_l_int hash)
 {
 	Vec2 vec;
 	int y_digit;
-	int pow_10_y_dg;
+	u_l_int pow_10_y_dg;
 
 	y_digit = hash % 10;
 	hash /= 10;
-	pow_10_y_dg = (int)std::pow(10,y_digit);
+	pow_10_y_dg = pow10(y_digit);
 	vec.x = hash / pow_10_y_dg;
-	vec.y = hash - vec.x * pow_10_y_dg;
-	return vec;
+	vec.y = hash - (u_int)vec.x * pow_10_y_dg;
+
+	return std::move(vec);
 }
 
 } /* namespace TM25Component */
