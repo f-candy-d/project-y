@@ -153,9 +153,6 @@ eraseTiles	/home/daichi/dev/cocos.projects/ProjectY/Classes/Chank.cpp	/^void Cha
 Chank	/home/daichi/dev/cocos.projects/ProjectY/Classes/Chank.cpp	/^Chank::Chank()$/;"	function	line:77	class:TM25Component::Chank	signature:()
 ~Chank	/home/daichi/dev/cocos.projects/ProjectY/Classes/Chank.cpp	/^Chank::~Chank()$/;"	function	line:83	class:TM25Component::Chank	signature:()
 initWithParam	/home/daichi/dev/cocos.projects/ProjectY/Classes/Chank.cpp	/^bool Chank::initWithParam(cocos2d::Size size,size_t index)$/;"	function	line:86	class:TM25Component::Chank	signature:(cocos2d::Size size,size_t index)
-createScene	/home/daichi/dev/cocos-projects/ProjectY/Classes/HelloWorldScene.cpp	/^Scene* HelloWorld::createScene()$/;"	function	line:7	class:HelloWorld	signature:()
-init	/home/daichi/dev/cocos-projects/ProjectY/Classes/HelloWorldScene.cpp	/^bool HelloWorld::init()$/;"	function	line:23	class:HelloWorld	signature:()
-menuCloseCallback	/home/daichi/dev/cocos-projects/ProjectY/Classes/HelloWorldScene.cpp	/^void HelloWorld::menuCloseCallback(Ref* pSender)$/;"	function	line:84	class:HelloWorld	signature:(Ref* pSender)
 TILED_MAP_2P5D_FILE_PARSER_H	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMap2P5DFileParser.h	/^#define TILED_MAP_2P5D_FILE_PARSER_H$/;"	macro	line:2
 TM25Component	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMap2P5DFileParser.h	/^namespace TM25Component {$/;"	namespace	line:11
 TiledMap2P5DFileParser	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMap2P5DFileParser.h	/^class TiledMap2P5DFileParser :public cocos2d::Ref$/;"	class	line:18	namespace:TM25Component
@@ -167,25 +164,6 @@ TiledLayerInfo	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMap2P5DFile
 TilesheetInfo	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMap2P5DFileParser.h	/^class TilesheetInfo :public cocos2d::Ref$/;"	class	line:363	namespace:TM25Component
 _numTileType	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMap2P5DFileParser.h	/^	size_t _numTileType;$/;"	member	line:425	class:TM25Component::TilesheetInfo
 _textureRects	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMap2P5DFileParser.h	/^	std::vector<cocos2d::Rect> _textureRects;$/;"	member	line:431	class:TM25Component::TilesheetInfo
-TM25Component	/home/daichi/dev/cocos-projects/ProjectY/Classes/Chank.cpp	/^namespace TM25Component {$/;"	namespace	line:7	file:
-createWithParam	/home/daichi/dev/cocos-projects/ProjectY/Classes/Chank.cpp	/^Chank* Chank::createWithParam(cocos2d::Size size, int index)$/;"	function	line:12	class:TM25Component::Chank	signature:(cocos2d::Size size, int index)
-makeTiles	/home/daichi/dev/cocos-projects/ProjectY/Classes/Chank.cpp	/^void Chank::makeTiles(cocos2d::SpriteBatchNode *parent,TilesheetInfo *tilesheetInfo)$/;"	function	line:25	class:TM25Component::Chank	signature:(cocos2d::SpriteBatchNode *parent,TilesheetInfo *tilesheetInfo)
-eraseTiles	/home/daichi/dev/cocos-projects/ProjectY/Classes/Chank.cpp	/^void Chank::eraseTiles(cocos2d::SpriteBatchNode *parent)$/;"	function	line:56	class:TM25Component::Chank	signature:(cocos2d::SpriteBatchNode *parent)
-Chank	/home/daichi/dev/cocos-projects/ProjectY/Classes/Chank.cpp	/^Chank::Chank()$/;"	function	line:78	class:TM25Component::Chank	signature:()
-~Chank	/home/daichi/dev/cocos-projects/ProjectY/Classes/Chank.cpp	/^Chank::~Chank()$/;"	function	line:84	class:TM25Component::Chank	signature:()
-initWithParam	/home/daichi/dev/cocos-projects/ProjectY/Classes/Chank.cpp	/^bool Chank::initWithParam(cocos2d::Size size,int index)$/;"	function	line:87	class:TM25Component::Chank	signature:(cocos2d::Size size,int index)
-countDigit	/home/daichi/dev/cocos-projects/ProjectY/Classes/Chank.cpp	/^int Chank::countDigit(u_int n)$/;"	function	line:103	class:TM25Component::Chank	signature:(u_int n)
-makeHashOfCoordinate	/home/daichi/dev/cocos-projects/ProjectY/Classes/Chank.cpp	/^u_l_int Chank::makeHashOfCoordinate(u_int x, u_int y)$/;"	function	line:149	class:TM25Component::Chank	signature:(u_int x, u_int y)
-decodeHashOfCoordinate	/home/daichi/dev/cocos-projects/ProjectY/Classes/Chank.cpp	/^Vec2 Chank::decodeHashOfCoordinate(u_l_int hash)$/;"	function	line:155	class:TM25Component::Chank	signature:(u_l_int hash)
-CHANK_H	/home/daichi/dev/cocos-projects/ProjectY/Classes/Chank.h	/^#define CHANK_H$/;"	macro	line:2
-u_int	/home/daichi/dev/cocos-projects/ProjectY/Classes/Chank.h	/^typedef unsigned int u_int;$/;"	typedef	line:6
-u_l_int	/home/daichi/dev/cocos-projects/ProjectY/Classes/Chank.h	/^typedef unsigned long int u_l_int;$/;"	typedef	line:7
-TM25Component	/home/daichi/dev/cocos-projects/ProjectY/Classes/Chank.h	/^namespace TM25Component {$/;"	namespace	line:12
-Chank	/home/daichi/dev/cocos-projects/ProjectY/Classes/Chank.h	/^class Chank :public cocos2d::Ref$/;"	class	line:17	namespace:TM25Component
-GRID_WIDTH	/home/daichi/dev/cocos-projects/ProjectY/Classes/Chank.h	/^	static const size_t GRID_WIDTH = 16;$/;"	member	line:25	class:TM25Component::Chank
-GRID_HEIGHT	/home/daichi/dev/cocos-projects/ProjectY/Classes/Chank.h	/^	static const size_t GRID_HEIGHT = 256;$/;"	member	line:26	class:TM25Component::Chank
-_tiles	/home/daichi/dev/cocos-projects/ProjectY/Classes/Chank.h	/^	int _tiles[GRID_WIDTH * GRID_HEIGHT] = {-1};$/;"	member	line:85	class:TM25Component::Chank
-_sprites	/home/daichi/dev/cocos-projects/ProjectY/Classes/Chank.h	/^	cocos2d::Vector<cocos2d::Sprite*> _sprites;$/;"	member	line:90	class:TM25Component::Chank
 TM25Component	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMap2P5DFileParser.cpp	/^namespace TM25Component {$/;"	namespace	line:11	file:
 SSCANF_BUFF_LEN	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMap2P5DFileParser.cpp	/^	static const size_t SSCANF_BUFF_LEN =  64;$/;"	member	line:17	namespace:TM25Component::__anon1	file:
 createWithParams	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMap2P5DFileParser.cpp	/^TiledMap2P5DFileParser* TiledMap2P5DFileParser::createWithParams($/;"	function	line:67	class:TM25Component::TiledMap2P5DFileParser	signature:( const std::string& origin, TiledMapInfo* tiledMapInfo, cocos2d::Map<std::string,TiledLayerBundlerInfo*>& mapTiledLayerBundlerInfo, cocos2d::Map<std::string,TiledLayerInfo*>& mapTiledLayerInfo, cocos2d::Map<std::string,TilesheetInfo*>& mapTilesheetInfo)
@@ -235,3 +213,16 @@ setNumOfTileType	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMap2P5DFi
 TilesheetInfo	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMap2P5DFileParser.cpp	/^TilesheetInfo::TilesheetInfo()$/;"	function	line:786	class:TM25Component::TilesheetInfo	signature:()
 ~TilesheetInfo	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMap2P5DFileParser.cpp	/^TilesheetInfo::~TilesheetInfo()$/;"	function	line:793	class:TM25Component::TilesheetInfo	signature:()
 init	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledMap2P5DFileParser.cpp	/^bool TilesheetInfo::init()$/;"	function	line:796	class:TM25Component::TilesheetInfo	signature:()
+createScene	/home/daichi/dev/cocos-projects/ProjectY/Classes/HelloWorldScene.cpp	/^Scene* HelloWorld::createScene()$/;"	function	line:8	class:HelloWorld	signature:()
+init	/home/daichi/dev/cocos-projects/ProjectY/Classes/HelloWorldScene.cpp	/^bool HelloWorld::init()$/;"	function	line:24	class:HelloWorld	signature:()
+menuCloseCallback	/home/daichi/dev/cocos-projects/ProjectY/Classes/HelloWorldScene.cpp	/^void HelloWorld::menuCloseCallback(Ref* pSender)$/;"	function	line:86	class:HelloWorld	signature:(Ref* pSender)
+CHANK_H	/home/daichi/dev/cocos-projects/ProjectY/Classes/Chank.h	/^#define CHANK_H$/;"	macro	line:2
+u_int	/home/daichi/dev/cocos-projects/ProjectY/Classes/Chank.h	/^typedef unsigned int u_int;$/;"	typedef	line:6
+u_l_int	/home/daichi/dev/cocos-projects/ProjectY/Classes/Chank.h	/^typedef unsigned long int u_l_int;$/;"	typedef	line:7
+TM25Component	/home/daichi/dev/cocos-projects/ProjectY/Classes/Chank.h	/^namespace TM25Component {$/;"	namespace	line:12
+Chank	/home/daichi/dev/cocos-projects/ProjectY/Classes/Chank.h	/^class Chank :public cocos2d::Ref$/;"	class	line:17	namespace:TM25Component
+GRID_WIDTH	/home/daichi/dev/cocos-projects/ProjectY/Classes/Chank.h	/^	static const size_t GRID_WIDTH = 16;$/;"	member	line:25	class:TM25Component::Chank
+GRID_HEIGHT	/home/daichi/dev/cocos-projects/ProjectY/Classes/Chank.h	/^	static const size_t GRID_HEIGHT = 256;$/;"	member	line:26	class:TM25Component::Chank
+_haveSprites	/home/daichi/dev/cocos-projects/ProjectY/Classes/Chank.h	/^	bool _haveSprites;$/;"	member	line:86	class:TM25Component::Chank
+_tiles	/home/daichi/dev/cocos-projects/ProjectY/Classes/Chank.h	/^	int _tiles[GRID_WIDTH * GRID_HEIGHT] = {-1};$/;"	member	line:92	class:TM25Component::Chank
+_sprites	/home/daichi/dev/cocos-projects/ProjectY/Classes/Chank.h	/^	cocos2d::Vector<cocos2d::Sprite*> _sprites;$/;"	member	line:97	class:TM25Component::Chank

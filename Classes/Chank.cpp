@@ -22,7 +22,7 @@ Chank* Chank::createWithParam(cocos2d::Size size, int index)
 	return nullptr;
 }
 
-void Chank::makeTiles(cocos2d::SpriteBatchNode *parent,TilesheetInfo *tilesheetInfo)
+void Chank::makeTiles(cocos2d::SpriteBatchNode *parent,TilesheetInfo *tilesheetInfo,bool storeSprites)
 {
 	if(_sprites.size() > 0)
 		return;
@@ -31,7 +31,7 @@ void Chank::makeTiles(cocos2d::SpriteBatchNode *parent,TilesheetInfo *tilesheetI
 	{
 		for(size_t x = 0; x < GRID_WIDTH; ++x)
 		{
-			//_tiles[i] = -1 means that there is no tile on the grid.
+			//_tiles[i] = -1 means that there is no tile on the grid at (x,y).
 			if(_tiles[GRID_WIDTH * y + x] >= 0)
 			{
 				//Get a texture rect
@@ -41,13 +41,17 @@ void Chank::makeTiles(cocos2d::SpriteBatchNode *parent,TilesheetInfo *tilesheetI
 				sprite->setPosition(
 					x * tilesheetInfo->getTileSize().width,
 					y * tilesheetInfo->getTileSize().height);
-				//Set the index of this chank to the tag of a sprite
-				sprite->setTag(_index);
+				//Set a hash to the tag of a sprite
+				sprite->setTag(makeHashOfCoordinate(x,y));
 
 				parent->addChild(sprite);
 
-				//Store the sprite
-				_sprites.pushBack(sprite);
+				if(storeSprites)
+				{
+					//Store the sprite
+					_sprites.pushBack(sprite);
+					_haveSprites = true;
+				}
 			}
 		}
 	}
@@ -61,15 +65,23 @@ void Chank::eraseTiles(cocos2d::SpriteBatchNode *parent)
 	if(_sprites.size() == 0)
 		return;
 
-	Node* np = parent->getChildByTag(_index);
-	while(np)
+	Node* np;
+	for(size_t x = 0; x < GRID_WIDTH; ++x)
 	{
-		parent->removeFromParentAndCleanup(np);
-		np = parent->getChildByTag(_index);
+		for(size_t y = 0; y < GRID_HEIGHT; ++y)
+		{
+			np = parent->getChildByTag(makeHashOfCoordinate(x,y));
+			if(np)
+				parent->removeFromParentAndCleanup(np);
+		}
 	}
 
-	//Remove from the vector too
-	_sprites.clear();
+	if(_haveSprites)
+	{
+		//Remove from the vector too
+		_sprites.clear();
+		_haveSprites = false;
+	}
 }
 
 /**
@@ -79,6 +91,7 @@ Chank::Chank()
 :_index(-1)
 ,_size(0,0)
 ,_origin(0,0)
+,_haveSprites(false)
 {}
 
 Chank::~Chank()

@@ -39,8 +39,10 @@ public:
 	 * @method makeTiles
 	 * @param  parent        [Parent SpriteBatchNode]
 	 * @param  tilesheetInfo [A pointer of TilesheetInfo class object]
+	 * @param  storeSprites  [Store sprites created to the vector or not]
 	 */
-	void makeTiles(cocos2d::SpriteBatchNode* parent,TilesheetInfo* tilesheetInfo);
+	void makeTiles(
+		cocos2d::SpriteBatchNode* parent,TilesheetInfo* tilesheetInfo,bool storeSprites);
 
 	/**
 	 * Remove all sprites of the tile from parent SpriteBatchNode.
@@ -77,6 +79,11 @@ private:
 	 * The vector which locate the origin point on a map.
 	 */
 	CC_SYNTHESIZE(cocos2d::Vec2,_origin,Origin);
+
+	/**
+	 * The flag indicate that sprites of tiles are stored in the vector or not.
+	 */
+	bool _haveSprites;
 
 	/**
 	 * The array contains tile types.
