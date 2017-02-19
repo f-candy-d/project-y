@@ -58,6 +58,14 @@ public:
 	 */
 	void insertTypeAt(int index,int tpye);
 
+	/**
+	 * Re-initialize this chank and reuse it.
+	 * When load a new chank,use this function
+	 *  instead of that create new Chank object.
+	 * @param index [New index]
+	 */
+	void recycleChank(int index);
+
 protected:
 	Chank();
 	~Chank();

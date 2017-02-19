@@ -87,6 +87,11 @@ void Chank::insertTypeAt(int index,int type)
 	_tiles[index] = type;
 }
 
+void Chank::recycleChank(int index)
+{
+	
+}
+
 /**
  * Protected functions
  */
