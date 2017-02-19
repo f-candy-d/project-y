@@ -81,6 +81,11 @@ private:
 	CC_SYNTHESIZE(cocos2d::Vec2,_origin,Origin);
 
 	/**
+	 * The flag indicate that terrain data of this chank is modified or not.
+	 */
+	CC_SYNTHESIZE(bool,_isModified,IsModified);
+
+	/**
 	 * The flag indicate that sprites of tiles are stored in the vector or not.
 	 */
 	bool _haveSprites;

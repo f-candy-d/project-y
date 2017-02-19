@@ -24,11 +24,14 @@ class TiledLayer :public cocos2d::SpriteBatchNode
 public:
 	/**
 	 * Create an object.
-	 * @method createWithCapacity
-	 * @param  capacity           [The number of chanks that will be loaded]
-	 * @return                    [A pointer of the object]
+	 * @method createWithParams
+	 * @param  capacity         [The number of chanks that will be loaded in the vector]
+	 * @param  sheetInfo        [Tilesheet information]
+	 * @param  layerInfo        [TiledLayer information]
+	 * @return                  [A pointer of an object]
 	 */
-	static TiledLayer* createWithCapacity(size_t capacity);
+	static TiledLayer* createWithParams(
+		size_t capacity,TilesheetInfo* sheetInfo,TiledLayerInfo* layerInfo);
 
 	/**
 	 * Load new chank from the terrain file. Before that,save chanks that
@@ -46,12 +49,15 @@ protected:
 	~TiledLayer();
 
 	/**
-	 * Initialize the object. Create arrays using 'capacity' in this function.
-	 * @method initWithCapacity
-	 * @param  capacity         [The number of chanks that will be loaded]
+	 * Initialize an object.
+	 * @method initWithParams
+	 * @param  capacity         [The number of chanks that will be loaded in the vector]
+	 * @param  sheetInfo        [Tilesheet information]
+	 * @param  layerInfo        [TiledLayer information]
 	 * @return                  [true/false]
 	 */
-	bool initWithCapacity(size_t capacity);
+	bool initWithParams(
+		size_t capacity,TilesheetInfo* sheetInfo,TiledLayerInfo* layerInfo);
 
 private:
 	/**
@@ -62,6 +68,12 @@ private:
 
 	//Z older of this layer in the parent TiledLayerBundler.
 	CC_SYNTHESIZE(int,_zOlder,ZOlder);
+
+	/**
+	 * These iterator indicate the indexes of chanks at the left end and right end.
+	 */
+	int _iteratorBegin;
+	int _iteratorEnd;
 
 	/**
 	 * The number of chanks that will be loaded.
@@ -81,15 +93,29 @@ private:
 	/**
 	 * Save chanks to the terrain data file.
 	 * @method saveChank
-	 * @param  index     [The index of the chank that will be saved]
+	 * @param  chank     [A chank that will be saved]
 	 */
-	void saveChank(int index);
+	void saveChank(Chank* chank);
 
 	/**
 	 * Save all staged chanks to the terrain file.
 	 * @method saveAllStagedChank
 	 */
 	void saveAllStagedChank();
+
+	/**
+	 * Load terrain data from a binary data file in the chank.
+	 * @method loadTerrain
+	 * @param  chank       [A chank]
+	 */
+	void loadTerrain(Chank* chank);
+
+	/**
+	 * Save terrain data of a chank to a binary data file.
+	 * @method saveTerrain
+	 * @param  chank       [A chank]
+	 */
+	void saveTerrain(Chank* chank);
 };
 
 } /* namespace TM25Component */

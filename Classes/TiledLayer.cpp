@@ -1,6 +1,7 @@
 #include "Chank.h"
 #include "TiledMap2P5DFileParser.h"
 #include "TiledLayer.h"
+#include <fstream>
 
 USING_NS_CC;
 
@@ -9,10 +10,11 @@ namespace TM25Component {
 /**
  * Public
  */
-TiledLayer* TiledLayer::createWithCapacity(size_t capacity)
+TiledLayer* TiledLayer::createWithParams(
+	size_t capacity,TilesheetInfo* sheetInfo,TiledLayerInfo* layerInfo)
 {
 	TiledLayer* ref = new TiledLayer();
-	if(ref->initWithCapacity(capacity))
+	if(ref->initWithParams(capacity,sheetInfo,layerInfo))
 	{
 		ref->autorelease();
 		return ref;
@@ -24,7 +26,6 @@ TiledLayer* TiledLayer::createWithCapacity(size_t capacity)
 
 void TiledLayer::loadNewChank(int num,LoadDirection direction)
 {
-
 }
 
 /**
@@ -35,28 +36,39 @@ TiledLayer::TiledLayer()
 ,_layerInfo(nullptr)
 ,_zOlder(0)
 ,_capacity(0)
+,_iteratorBegin(0)
+,_iteratorEnd(0)
 ,_chanks(nullptr)
 ,_indexesOfChank(nullptr)
 {}
 
 TiledLayer::~TiledLayer()
 {
-	if(_capacity)
-		saveAllStagedChank();
+	saveAllStagedChank();
+	delete [] _chanks;
+	delete [] _indexesOfChank;
 }
 
-bool TiledLayer::initWithCapacity(size_t capacity)
+bool TiledLayer::initWithParams(
+	size_t capacity,TilesheetInfo* sheetInfo,TiledLayerInfo* layerInfo)
 {
 	if(!SpriteBatchNode::init())
 		return false;
 
-	if(capacity > 0)
-	{
-		_chanks = new Chank*[capacity]{nullptr};
-		_indexesOfChank = new int[capacity]{-1};
-	}
-
 	_capacity = capacity;
+	_iteratorBegin = 0;
+	_iteratorEnd = capacity - 1;
+	_layerInfo = layerInfo;
+	_sheetInfo = sheetInfo;
+	_indexesOfChank = new int[capacity]{-1};
+	_chanks = new Chank*[capacity];
+
+	//Load chanks for the first scene
+	for(size_t i = 0; i < capacity; ++i)
+	{
+		_chanks[i] = Chank::createWithParam(sheetInfo->getTileSize(),i);
+		loadTerrain(_chanks[i]);
+	}
 
 	return true;
 }
@@ -64,11 +76,20 @@ bool TiledLayer::initWithCapacity(size_t capacity)
 /**
  * Private
  */
-void TiledLayer::saveChank(int index)
+void TiledLayer::saveChank(Chank* chank)
 {
 }
 
 void TiledLayer::saveAllStagedChank()
+{
+}
+
+void TiledLayer::loadTerrain(TM25Component::Chank *chank)
+{
+
+}
+
+void TiledLayer::saveTerrain(TM25Component::Chank *chank)
 {
 
 }

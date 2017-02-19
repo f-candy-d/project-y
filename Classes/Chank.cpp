@@ -89,6 +89,7 @@ Chank::Chank()
 :_index(-1)
 ,_size(0,0)
 ,_origin(0,0)
+,_isModified(false)
 ,_haveSprites(false)
 {}
 

@@ -4,11 +4,13 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
-TM25Component	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledLayer.cpp	/^namespace TM25Component {$/;"	namespace	line:7	file:
-createWithCapacity	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledLayer.cpp	/^TiledLayer* TiledLayer::createWithCapacity(size_t capacity)$/;"	function	line:12	class:TM25Component::TiledLayer	signature:(size_t capacity)
-loadNewChank	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledLayer.cpp	/^void TiledLayer::loadNewChank(int num,LoadDirection direction)$/;"	function	line:25	class:TM25Component::TiledLayer	signature:(int num,LoadDirection direction)
-TiledLayer	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledLayer.cpp	/^TiledLayer::TiledLayer()$/;"	function	line:33	class:TM25Component::TiledLayer	signature:()
-~TiledLayer	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledLayer.cpp	/^TiledLayer::~TiledLayer()$/;"	function	line:42	class:TM25Component::TiledLayer	signature:()
-initWithCapacity	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledLayer.cpp	/^bool TiledLayer::initWithCapacity(size_t capacity)$/;"	function	line:48	class:TM25Component::TiledLayer	signature:(size_t capacity)
-saveChank	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledLayer.cpp	/^void TiledLayer::saveChank(int index)$/;"	function	line:67	class:TM25Component::TiledLayer	signature:(int index)
-saveAllStagedChank	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledLayer.cpp	/^void TiledLayer::saveAllStagedChank()$/;"	function	line:71	class:TM25Component::TiledLayer	signature:()
+TM25Component	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledLayer.cpp	/^namespace TM25Component {$/;"	namespace	line:8	file:
+createWithParams	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledLayer.cpp	/^TiledLayer* TiledLayer::createWithParams($/;"	function	line:13	class:TM25Component::TiledLayer	signature:( size_t capacity,TilesheetInfo* sheetInfo,TiledLayerInfo* layerInfo)
+loadNewChank	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledLayer.cpp	/^void TiledLayer::loadNewChank(int num,LoadDirection direction)$/;"	function	line:27	class:TM25Component::TiledLayer	signature:(int num,LoadDirection direction)
+TiledLayer	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledLayer.cpp	/^TiledLayer::TiledLayer()$/;"	function	line:34	class:TM25Component::TiledLayer	signature:()
+~TiledLayer	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledLayer.cpp	/^TiledLayer::~TiledLayer()$/;"	function	line:45	class:TM25Component::TiledLayer	signature:()
+initWithParams	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledLayer.cpp	/^bool TiledLayer::initWithParams($/;"	function	line:52	class:TM25Component::TiledLayer	signature:( size_t capacity,TilesheetInfo* sheetInfo,TiledLayerInfo* layerInfo)
+saveChank	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledLayer.cpp	/^void TiledLayer::saveChank(Chank* chank)$/;"	function	line:79	class:TM25Component::TiledLayer	signature:(Chank* chank)
+saveAllStagedChank	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledLayer.cpp	/^void TiledLayer::saveAllStagedChank()$/;"	function	line:83	class:TM25Component::TiledLayer	signature:()
+loadTerrain	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledLayer.cpp	/^void TiledLayer::loadTerrain(TM25Component::Chank *chank)$/;"	function	line:87	class:TM25Component::TiledLayer	signature:(TM25Component::Chank *chank)
+saveTerrain	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledLayer.cpp	/^void TiledLayer::saveTerrain(TM25Component::Chank *chank)$/;"	function	line:92	class:TM25Component::TiledLayer	signature:(TM25Component::Chank *chank)
