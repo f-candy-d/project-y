@@ -133,6 +133,7 @@ set(GAME_SRC
   Classes/TiledMap2P5DFileParser.cpp
   Classes/TiledMap2P5D.cpp
   Classes/Chank.cpp
+  Classes/TiledLayer.cpp
   ${PLATFORM_SPECIFIC_SRC}
 )
 
@@ -142,6 +143,7 @@ set(GAME_HEADERS
   Classes/TiledMap2P5DFileParser.h
   Classes/TiledMap2P5D.h
   Classes/Chank.h
+  Classes/TiledLayer.h
   ${PLATFORM_SPECIFIC_HEADERS}
 )
 

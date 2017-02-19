@@ -22,7 +22,8 @@ Chank* Chank::createWithParam(cocos2d::Size size, int index)
 	return nullptr;
 }
 
-void Chank::makeTiles(cocos2d::SpriteBatchNode *parent,TilesheetInfo *tilesheetInfo,bool storeSprites)
+void Chank::makeTiles(
+	cocos2d::SpriteBatchNode *parent,TilesheetInfo *tilesheetInfo,bool storeSprites)
 {
 	if(_sprites.size() > 0)
 		return;
@@ -62,13 +63,10 @@ void Chank::eraseTiles(cocos2d::SpriteBatchNode *parent)
 	//Get tile sprites of this chank from the parent node
 	// and remove it.
 
-	if(_sprites.size() == 0)
-		return;
-
 	Node* np;
-	for(size_t x = 0; x < GRID_WIDTH; ++x)
+	for(size_t y = 0; y < GRID_HEIGHT; ++y)
 	{
-		for(size_t y = 0; y < GRID_HEIGHT; ++y)
+		for(size_t x = 0; x < GRID_WIDTH; ++x)
 		{
 			np = parent->getChildByTag(makeHashOfCoordinate(x,y));
 			if(np)

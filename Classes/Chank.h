@@ -18,10 +18,10 @@ class Chank :public cocos2d::Ref
 {
 public:
 	/**
-	* The width and height of the grid of the chank.
-	* (= The number of tiles of horizontal and vertical direction.)
-	* These are constant value.
-	*/
+	 * The width and height of the grid of the chank.
+	 * (= The number of tiles of horizontal and vertical direction.)
+	 * These are constant value.
+	 */
 	static const size_t GRID_WIDTH = 16;
 	static const size_t GRID_HEIGHT = 256;
 
