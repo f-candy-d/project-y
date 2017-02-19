@@ -51,6 +51,13 @@ public:
 	 */
 	void eraseTiles(cocos2d::SpriteBatchNode* parent);
 
+	/*
+	 * Use this function when add tile types to the arrary.
+	 * @param [Insert a tile type at this index of the array]
+	 * @param [Tile type]
+	 */
+	void insertTypeAt(int index,int tpye);
+
 protected:
 	Chank();
 	~Chank();

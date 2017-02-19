@@ -82,6 +82,11 @@ void Chank::eraseTiles(cocos2d::SpriteBatchNode *parent)
 	}
 }
 
+void Chank::insertTypeAt(int index,int type)
+{
+	_tiles[index] = type;
+}
+
 /**
  * Protected functions
  */
