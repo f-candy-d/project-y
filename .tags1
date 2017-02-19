@@ -4,13 +4,14 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
-TM25Component	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledLayer.cpp	/^namespace TM25Component {$/;"	namespace	line:8	file:
-createWithParams	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledLayer.cpp	/^TiledLayer* TiledLayer::createWithParams($/;"	function	line:13	class:TM25Component::TiledLayer	signature:( size_t capacity,TilesheetInfo* sheetInfo,TiledLayerInfo* layerInfo)
-loadNewChank	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledLayer.cpp	/^void TiledLayer::loadNewChank(int num,LoadDirection direction)$/;"	function	line:27	class:TM25Component::TiledLayer	signature:(int num,LoadDirection direction)
-TiledLayer	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledLayer.cpp	/^TiledLayer::TiledLayer()$/;"	function	line:34	class:TM25Component::TiledLayer	signature:()
-~TiledLayer	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledLayer.cpp	/^TiledLayer::~TiledLayer()$/;"	function	line:45	class:TM25Component::TiledLayer	signature:()
-initWithParams	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledLayer.cpp	/^bool TiledLayer::initWithParams($/;"	function	line:52	class:TM25Component::TiledLayer	signature:( size_t capacity,TilesheetInfo* sheetInfo,TiledLayerInfo* layerInfo)
-saveChank	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledLayer.cpp	/^void TiledLayer::saveChank(Chank* chank)$/;"	function	line:79	class:TM25Component::TiledLayer	signature:(Chank* chank)
-saveAllStagedChank	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledLayer.cpp	/^void TiledLayer::saveAllStagedChank()$/;"	function	line:83	class:TM25Component::TiledLayer	signature:()
-loadTerrain	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledLayer.cpp	/^void TiledLayer::loadTerrain(TM25Component::Chank *chank)$/;"	function	line:87	class:TM25Component::TiledLayer	signature:(TM25Component::Chank *chank)
-saveTerrain	/home/daichi/dev/cocos-projects/ProjectY/Classes/TiledLayer.cpp	/^void TiledLayer::saveTerrain(TM25Component::Chank *chank)$/;"	function	line:92	class:TM25Component::TiledLayer	signature:(TM25Component::Chank *chank)
+TM25Component	/home/daichi/dev/projects/cocos/ProjectY/Classes/TiledLayer.cpp	/^namespace TM25Component {$/;"	namespace	line:9	file:
+createWithParams	/home/daichi/dev/projects/cocos/ProjectY/Classes/TiledLayer.cpp	/^TiledLayer* TiledLayer::createWithParams($/;"	function	line:14	class:TM25Component::TiledLayer	signature:( size_t capacity,TilesheetInfo* sheetInfo,TiledLayerInfo* layerInfo)
+loadNewChank	/home/daichi/dev/projects/cocos/ProjectY/Classes/TiledLayer.cpp	/^void TiledLayer::loadNewChank(int num,LoadDirection direction)$/;"	function	line:28	class:TM25Component::TiledLayer	signature:(int num,LoadDirection direction)
+setGridSize	/home/daichi/dev/projects/cocos/ProjectY/Classes/TiledLayer.cpp	/^void TiledLayer::setGridSize(size_t w,size_t h)$/;"	function	line:33	class:TM25Component::TiledLayer	signature:(size_t w,size_t h)
+TiledLayer	/home/daichi/dev/projects/cocos/ProjectY/Classes/TiledLayer.cpp	/^TiledLayer::TiledLayer()$/;"	function	line:42	class:TM25Component::TiledLayer	signature:()
+~TiledLayer	/home/daichi/dev/projects/cocos/ProjectY/Classes/TiledLayer.cpp	/^TiledLayer::~TiledLayer()$/;"	function	line:53	class:TM25Component::TiledLayer	signature:()
+initWithParams	/home/daichi/dev/projects/cocos/ProjectY/Classes/TiledLayer.cpp	/^bool TiledLayer::initWithParams($/;"	function	line:60	class:TM25Component::TiledLayer	signature:( size_t capacity,TilesheetInfo* sheetInfo,TiledLayerInfo* layerInfo)
+saveChank	/home/daichi/dev/projects/cocos/ProjectY/Classes/TiledLayer.cpp	/^void TiledLayer::saveChank(Chank* chank)$/;"	function	line:87	class:TM25Component::TiledLayer	signature:(Chank* chank)
+saveAllStagedChank	/home/daichi/dev/projects/cocos/ProjectY/Classes/TiledLayer.cpp	/^void TiledLayer::saveAllStagedChank()$/;"	function	line:91	class:TM25Component::TiledLayer	signature:()
+loadTerrain	/home/daichi/dev/projects/cocos/ProjectY/Classes/TiledLayer.cpp	/^void TiledLayer::loadTerrain(TM25Component::Chank* chank)$/;"	function	line:95	class:TM25Component::TiledLayer	signature:(TM25Component::Chank* chank)
+saveTerrain	/home/daichi/dev/projects/cocos/ProjectY/Classes/TiledLayer.cpp	/^void TiledLayer::saveTerrain(TM25Component::Chank *chank)$/;"	function	line:114	class:TM25Component::TiledLayer	signature:(TM25Component::Chank *chank)
