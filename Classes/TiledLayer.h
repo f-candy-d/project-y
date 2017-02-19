@@ -44,6 +44,14 @@ public:
 	 */
 	void loadNewChank(int num,LoadDirection direction);
 
+	/**
+	 * Set grid size to this layer.
+	 * This function must be called before load new chanks.
+	 * @param w [Width of the grid of a map]
+	 * @param h [Height of that]
+	 */
+	void setGridSize(size_t w,size_t h);
+
 protected:
 	TiledLayer();
 	~TiledLayer();
@@ -74,6 +82,12 @@ private:
 	 */
 	int _iteratorBegin;
 	int _iteratorEnd;
+
+	/**
+	 * The width and height of the grid of a map.
+	 */
+	size_t _grigWidth;
+	size_t _gridHeight;
 
 	/**
 	 * The number of chanks that will be loaded.

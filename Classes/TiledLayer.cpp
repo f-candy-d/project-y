@@ -2,6 +2,7 @@
 #include "TiledMap2P5DFileParser.h"
 #include "TiledLayer.h"
 #include <fstream>
+#include <iostream>
 
 USING_NS_CC;
 
@@ -26,6 +27,13 @@ TiledLayer* TiledLayer::createWithParams(
 
 void TiledLayer::loadNewChank(int num,LoadDirection direction)
 {
+
+}
+
+void TiledLayer::setGridSize(size_t w,size_t h)
+{
+	_grigWidth = w;
+	_gridHeight = h;
 }
 
 /**
@@ -84,9 +92,23 @@ void TiledLayer::saveAllStagedChank()
 {
 }
 
-void TiledLayer::loadTerrain(TM25Component::Chank *chank)
+void TiledLayer::loadTerrain(TM25Component::Chank* chank)
 {
+	std::ifstream i_stream(_layerInfo->getPathTerrainFile().c_str(),std::ios::binary|std::ios::in);
+	int buf;
 
+	if(!i_stream)
+	{
+		std::cout << "ERROR!! >> Cannot open " << _layerInfo->getPathTerrainFile() << '\n';
+		return;
+	}
+
+	i_stream.seekg(chank->getIndex() * Chank::GRID_WIDTH * Chank::GRID_HEIGHT,std::ios::beg);
+	for (size_t i = 0, num = Chank::GRID_WIDTH * Chank::GRID_HEIGHT; i < num; ++i)
+	{
+		i_stream.read((char*)&buf,sizeof(int));
+		chank->insertTypeAt(i,buf);
+	}
 }
 
 void TiledLayer::saveTerrain(TM25Component::Chank *chank)
