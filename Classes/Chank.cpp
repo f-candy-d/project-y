@@ -25,9 +25,6 @@ Chank* Chank::createWithParam(cocos2d::Size size, int index)
 void Chank::makeTiles(
 	cocos2d::SpriteBatchNode *parent,TilesheetInfo *tilesheetInfo,bool storeSprites)
 {
-	if(_sprites.size() > 0)
-		return;
-
 	for(size_t y = 0; y < GRID_HEIGHT; ++y)
 	{
 		for(size_t x = 0; x < GRID_WIDTH; ++x)
@@ -38,7 +35,24 @@ void Chank::makeTiles(
 				//Get a texture rect
 				Rect texture_rect = tilesheetInfo->getTextureRectForType(_tiles[GRID_WIDTH * y + x]);
 				//Make tile sprite
-				auto sprite = Sprite::create(tilesheetInfo->getSheetName(),texture_rect);
+				Sprite* sprite;
+
+				//If sprites is already stored in the vector,reuse those sprites,
+				// otherwise create a new sprites.
+				if(_haveSprites)
+				{
+					sprite = _sprites.at(GRID_WIDTH * y + x);
+					// FIXME: HACK: Needed because if "batch node" is nil,
+					// then the Sprite'squad will be reset
+					sprite->setBatchNode(nullptr);
+					// Re-init the sprite
+					sprite->setTextureRect(texture_rect, false, texture_rect.size);
+				}
+				else
+				{
+					sprite = Sprite::create(tilesheetInfo->getSheetName(),texture_rect);
+				}
+
 				sprite->setPosition(
 					x * tilesheetInfo->getTileSize().width,
 					y * tilesheetInfo->getTileSize().height);
@@ -47,7 +61,7 @@ void Chank::makeTiles(
 
 				parent->addChild(sprite);
 
-				if(storeSprites)
+				if(storeSprites && !_haveSprites)
 				{
 					//Store the sprite
 					_sprites.pushBack(sprite);
@@ -58,38 +72,54 @@ void Chank::makeTiles(
 	}
 }
 
-void Chank::eraseTiles(cocos2d::SpriteBatchNode *parent)
+void Chank::eraseTiles(cocos2d::SpriteBatchNode *parent,bool del_vec)
 {
-	//Get tile sprites of this chank from the parent node
-	// and remove it.
-
-	Node* np;
-	for(size_t y = 0; y < GRID_HEIGHT; ++y)
-	{
-		for(size_t x = 0; x < GRID_WIDTH; ++x)
-		{
-			np = parent->getChildByTag(makeHashOfCoordinate(x,y));
-			if(np)
-				parent->removeFromParentAndCleanup(np);
-		}
-	}
-
+	//Delete all sprites from the vector if de_vec and _haveSprites is true.
 	if(_haveSprites)
 	{
-		//Remove from the vector too
-		_sprites.clear();
-		_haveSprites = false;
+		for(auto itr = _sprites.begin(); itr != _sprites.end(); ++itr)
+		{
+			(*itr)->removeFromParentAndCleanup(true);
+		}
+
+		if(del_vec)
+		{
+			//Remove from the vector too
+			_sprites.clear();
+			_haveSprites = false;
+		}
+	}
+	else
+	{
+		Node* np;
+		for(size_t y = 0; y < GRID_HEIGHT; ++y)
+		{
+			for(size_t x = 0; x < GRID_WIDTH; ++x)
+			{
+				np = parent->getChildByTag(makeHashOfCoordinate(x,y));
+				if(np)
+				np->removeFromParentAndCleanup(true);
+			}
+		}
 	}
 }
 
-void Chank::insertTypeAt(int index,int type)
+void Chank::insertTypeAt(size_t index,int type)
 {
 	_tiles[index] = type;
 }
 
+int Chank::getTypeAt(size_t index)
+{
+	return _tiles[index];
+}
+
 void Chank::recycleChank(int index)
 {
-	
+	//Re-initialize this chank
+	_index = index;
+	_origin.set(_size.width * _index,0);
+	_isModified = false;
 }
 
 /**

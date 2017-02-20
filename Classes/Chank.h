@@ -48,15 +48,23 @@ public:
 	 * Remove all sprites of the tile from parent SpriteBatchNode.
 	 * @method eraseTiles
 	 * @param  parent     [Parent SpriteBatchNode]
+	 * @param  del_vec     [True if you want to remove all sprites from the vector too,false otherwise]
 	 */
-	void eraseTiles(cocos2d::SpriteBatchNode* parent);
+	void eraseTiles(cocos2d::SpriteBatchNode* parent,bool del_vec);
 
 	/*
 	 * Use this function when add tile types to the arrary.
 	 * @param [Insert a tile type at this index of the array]
 	 * @param [Tile type]
 	 */
-	void insertTypeAt(int index,int tpye);
+	void insertTypeAt(size_t index,int tpye);
+
+	/**
+	 * Return a tile type at a certain position.
+	 * @param  index [A position of a certain tile]
+	 * @return       [Tile type at the index]
+	 */
+	int getTypeAt(size_t index);
 
 	/**
 	 * Re-initialize this chank and reuse it.

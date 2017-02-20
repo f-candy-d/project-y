@@ -42,7 +42,7 @@ public:
 	 *                       currently staged chanks, otherwise load it on the
 	 *                       opposit side.]
 	 */
-	void loadNewChank(int num,LoadDirection direction);
+	void loadNewChank(size_t num,LoadDirection direction);
 
 	/**
 	 * Set grid size to this layer.
@@ -103,13 +103,6 @@ private:
 	 * The array contains indexes of staged chanks.
 	 */
 	int* _indexesOfChank;
-
-	/**
-	 * Save chanks to the terrain data file.
-	 * @method saveChank
-	 * @param  chank     [A chank that will be saved]
-	 */
-	void saveChank(Chank* chank);
 
 	/**
 	 * Save all staged chanks to the terrain file.
