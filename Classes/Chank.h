@@ -22,8 +22,10 @@ public:
 	 * (= The number of tiles of horizontal and vertical direction.)
 	 * These are constant value.
 	 */
-	static const size_t GRID_WIDTH = 16;
-	static const size_t GRID_HEIGHT = 256;
+	// static const size_t GRID_WIDTH = 16;
+	// static const size_t GRID_HEIGHT = 256;
+	static const size_t GRID_WIDTH = 4;
+	static const size_t GRID_HEIGHT = 8;
 
 	/**
 	 * Create Chank class object.
@@ -94,7 +96,7 @@ private:
 	CC_SYNTHESIZE(int,_index,Index);
 
 	/**
-	 * The size of the chank.
+	 * The size of the chank (px).
 	 */
 	CC_SYNTHESIZE(cocos2d::Size,_size,Size);
 
@@ -117,7 +119,7 @@ private:
 	 * The array contains tile types.
 	 * Use this array as 2D array.
 	 */
-	int _tiles[GRID_WIDTH * GRID_HEIGHT] = {-1};
+	int _tiles[GRID_WIDTH * GRID_HEIGHT] = {};
 
 	/**
 	 * The array contains sprites of the tile.

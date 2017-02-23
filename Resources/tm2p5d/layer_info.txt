@@ -1,0 +1,6 @@
+##Test layer
+$(TiledLayerInfo
+	(LayerName @(string : test_layer))
+	(SheetName @(string : test_sheet))
+	(Terrain   @(string : Resources/tm2p5d/terrain/terrain_test.bin))
+	(Visible   @(bool   : true)))

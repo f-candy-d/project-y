@@ -1,0 +1,9 @@
+##Test tilesheet
+$(TilesheetInfo
+	(SheetName      @(string : test_sheet))
+	(Resource       @(string : tm2p5d/atlas/test_tile_atlas.png))
+	(TileSize       @(ccSize : 64,64))
+	(NumOfTileTypes @(sizeT  : 3))
+	(TextureRects   @(ccRect : 0,0,64,64)
+					@(ccRect : 64,0,64,64)
+					@(ccRect : 128,0,64,64)))

@@ -1,0 +1,15 @@
+##The file of Tiled Layers information.
+
+##Template
+$(TiledLayerInfo
+	(LayerName @(string : ))
+	(SheetName @(string : ))
+	(Terrain   @(string : ))
+	(Visible   @(bool   : )))
+
+##Demo Layer
+$(TiledLayerInfo
+	(LayerName @(string : demo_layer_2))
+	(SheetName @(string : demo_2_tilesheet))
+	(Terrain   @(string : Resources/tm2p5d/terrain_demo.dat))
+	(Visible   @(bool   : false)))

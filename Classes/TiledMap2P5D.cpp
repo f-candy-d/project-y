@@ -1,5 +1,6 @@
 #include "TiledMap2P5D.h"
 #include "TiledMap2P5DFileParser.h"
+#include "TiledLayer.h"
 #include <iostream>
 
 USING_NS_CC;
@@ -30,6 +31,10 @@ bool TiledMap2P5D::initWithFile(std::string path)
 	if(!TM25Component::TiledMap2P5DFileParser::parseWithArgs(
 		path,_tiledMapInfo,_TiledLayerBundlerInfoMap,_tiledLayerInfoMap,_tilesheetInfoMap))
 		return false;
+
+	//Test
+	auto layer = TM25Component::TiledLayer::createWithParams(2,_tilesheetInfoMap.at("test_sheet"),_tiledLayerInfoMap.at("test_layer"),_tiledMapInfo);
+	this->addChild(layer);
 
 	return true;
 }

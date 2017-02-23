@@ -19,7 +19,7 @@ enum class LoadDirection
 	LEFT,
 };
 
-class TiledLayer :public cocos2d::SpriteBatchNode
+class TiledLayer :public cocos2d::Node
 {
 public:
 	/**
@@ -28,10 +28,11 @@ public:
 	 * @param  capacity         [The number of chanks that will be loaded in the vector]
 	 * @param  sheetInfo        [Tilesheet information]
 	 * @param  layerInfo        [TiledLayer information]
+	 * @param  mapInfo        [TiledMap information]
 	 * @return                  [A pointer of an object]
 	 */
 	static TiledLayer* createWithParams(
-		size_t capacity,TilesheetInfo* sheetInfo,TiledLayerInfo* layerInfo);
+		size_t capacity,TilesheetInfo* sheetInfo,TiledLayerInfo* layerInfo,TiledMapInfo* mapInfo);
 
 	/**
 	 * Load new chank from the terrain file. Before that,save chanks that
@@ -44,14 +45,6 @@ public:
 	 */
 	void loadNewChank(size_t num,LoadDirection direction);
 
-	/**
-	 * Set grid size to this layer.
-	 * This function must be called before load new chanks.
-	 * @param w [Width of the grid of a map]
-	 * @param h [Height of that]
-	 */
-	void setGridSize(size_t w,size_t h);
-
 protected:
 	TiledLayer();
 	~TiledLayer();
@@ -62,10 +55,11 @@ protected:
 	 * @param  capacity         [The number of chanks that will be loaded in the vector]
 	 * @param  sheetInfo        [Tilesheet information]
 	 * @param  layerInfo        [TiledLayer information]
+	 * @param  mapInfo          [TiledMap information]
 	 * @return                  [true/false]
 	 */
 	bool initWithParams(
-		size_t capacity,TilesheetInfo* sheetInfo,TiledLayerInfo* layerInfo);
+		size_t capacity,TilesheetInfo* sheetInfo,TiledLayerInfo* layerInfo,TiledMapInfo* mapInfo);
 
 private:
 	/**
@@ -74,20 +68,26 @@ private:
 	CC_SYNTHESIZE(TilesheetInfo*,_sheetInfo,SheetInfo);
 	CC_SYNTHESIZE(TiledLayerInfo*,_layerInfo,LayerInfo);
 
+	/**
+	 * A Batch Node. Draw tile sprites in this node.
+	 */
+	CC_SYNTHESIZE_RETAIN(cocos2d::SpriteBatchNode*,_batchNode,BatchNode);
+
 	//Z older of this layer in the parent TiledLayerBundler.
 	CC_SYNTHESIZE(int,_zOlder,ZOlder);
+
+	/**
+	 * The number of chanks in a layer.
+	 * Cannot load chanks well without this value.
+	 * So this value must be setup in intialization.
+	 */
+	size_t _numOfChanks;
 
 	/**
 	 * These iterator indicate the indexes of chanks at the left end and right end.
 	 */
 	int _iteratorBegin;
 	int _iteratorEnd;
-
-	/**
-	 * The width and height of the grid of a map.
-	 */
-	size_t _grigWidth;
-	size_t _gridHeight;
 
 	/**
 	 * The number of chanks that will be loaded.

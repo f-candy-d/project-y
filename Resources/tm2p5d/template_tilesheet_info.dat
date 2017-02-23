@@ -1,18 +1,16 @@
 ##The file of tilesheets information.
 
-##Demo tilesheet 1
+##Template
 $(TilesheetInfo
-	(SheetName      @(string : tilesheet_1))
-	(Resource       @(string : tilesheet_1.png))
-	(TileSize       @(ccSize : 64,64))
-	(NumOfTileTypes @(sizeT  : 5))
-	(TextureRects   @(ccRect :   0, 0,64,64)
-					@(ccRect :  64, 0,64,64)
-					@(ccRect : 128, 0,64,64)
-					@(ccRect :   0,64,64,64)
-					@(ccRect :  64,64,64,64)))
+	(SheetName      @(string : ))
+	(Resource       @(string : ))
+	(TileSize       @(ccSize : ,))
+	(NumOfTileTypes @(sizeT  : ))
+	(TextureRects   @(ccRect : ,,,)
+					@(ccRect : ,,,)
+					@(ccRect : ,,,)))
 
-##Demo tilesheet 2
+##Demo tilesheet
 $(TilesheetInfo
 	(SheetName      @(string : tilesheet_2))
 	(Resource       @(string : tilesheet_2.png))
@@ -22,7 +20,7 @@ $(TilesheetInfo
 					@(ccRect :   0,64,64,64)
 					@(ccRect :  64,64,64,64)))
 
-##Demo tilesheet 3
+##Demo tilesheet 2
 $(TilesheetInfo
 	(SheetName      @(string : tilesheet_3))
 	(Resource       @(string : tilesheet_3.png))
@@ -31,7 +29,7 @@ $(TilesheetInfo
 	(TextureRects   @(ccRect :   0, 0,64,64)
 					@(ccRect :  64,64,128,128)))
 
-##Demo tilesheet 4
+##Demo tilesheet 3
 $(TilesheetInfo
 	(SheetName      @(string : tilesheet_4))
 	(Resource       @(string : tilesheet_4.png))

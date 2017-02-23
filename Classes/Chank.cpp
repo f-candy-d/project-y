@@ -25,12 +25,14 @@ Chank* Chank::createWithParam(cocos2d::Size size, int index)
 void Chank::makeTiles(
 	cocos2d::SpriteBatchNode *parent,TilesheetInfo *tilesheetInfo,bool storeSprites)
 {
+	bool flag = false;
+
 	for(size_t y = 0; y < GRID_HEIGHT; ++y)
 	{
 		for(size_t x = 0; x < GRID_WIDTH; ++x)
 		{
-			//_tiles[i] = -1 means that there is no tile on the grid at (x,y).
-			if(_tiles[GRID_WIDTH * y + x] >= 0)
+			//_tiles[i] == -1  means that there is no tile on the grid at (x,y).
+			if(_tiles[GRID_WIDTH * y + x] > -1)
 			{
 				//Get a texture rect
 				Rect texture_rect = tilesheetInfo->getTextureRectForType(_tiles[GRID_WIDTH * y + x]);
@@ -50,11 +52,13 @@ void Chank::makeTiles(
 				}
 				else
 				{
-					sprite = Sprite::create(tilesheetInfo->getSheetName(),texture_rect);
+					sprite = Sprite::create(tilesheetInfo->getFileName(),texture_rect);
+					//Anchorpoint
+					sprite->setAnchorPoint(Vec2::ANCHOR_BOTTOM_LEFT);
 				}
 
 				sprite->setPosition(
-					x * tilesheetInfo->getTileSize().width,
+					x * tilesheetInfo->getTileSize().width + _size.width * _index,
 					y * tilesheetInfo->getTileSize().height);
 				//Set a hash to the tag of a sprite
 				sprite->setTag(makeHashOfCoordinate(x,y));
@@ -65,11 +69,13 @@ void Chank::makeTiles(
 				{
 					//Store the sprite
 					_sprites.pushBack(sprite);
-					_haveSprites = true;
+					flag = true;
 				}
 			}
 		}
 	}
+
+	_haveSprites = flag;
 }
 
 void Chank::eraseTiles(cocos2d::SpriteBatchNode *parent,bool del_vec)

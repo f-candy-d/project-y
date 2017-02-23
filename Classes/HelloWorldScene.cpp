@@ -77,7 +77,7 @@ bool HelloWorld::init()
 
     //TEST
     auto tm = TiledMap2P5D::createWithFile("Resources/tm2p5d/map_info_origin.dat");
-    auto chank = TM25Component::Chank::createWithParam(Size(10,10),0);
+    this->addChild(tm);
 
     return true;
 }

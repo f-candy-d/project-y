@@ -271,6 +271,11 @@ private:
 	CC_SYNTHESIZE(size_t,_mapGridWidth,MapGridWidth);
 	CC_SYNTHESIZE(size_t,_mapGridHeight,MapGridHeight);
 
+	/**
+	 * The number of chanks in a TiledLayer.
+	 */
+	CC_SYNTHESIZE(size_t,_numOfChanks,NumOfChanks);
+
 protected:
 	TiledMapInfo();
 	~TiledMapInfo();

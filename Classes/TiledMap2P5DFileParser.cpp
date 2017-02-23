@@ -38,6 +38,7 @@ namespace TM25Component {
 	static const std::string ELM_RESOURCE("(Resource");
 	static const std::string ELM_TILE_SIZE("(TileSize");
 	static const std::string ELM_NUM_OF_TILE_TYPES("(NumOfTileTypes");
+	static const std::string ELM_NUM_OF_CHANKS("(NumOfChanks");
 	static const std::string ELM_TEXTURE_RECTS("(TextureRects");
 
 	//Value elements
@@ -305,6 +306,8 @@ void TiledMap2P5DFileParser::tokenToTiledMapInfo(
 				info->setMapGridWidth(tokenToSizeT(*itr));
 			else if(current_element == ELM_GRID_HEIGHT)
 				info->setMapGridHeight(tokenToSizeT(*itr));
+			else if(current_element == ELM_NUM_OF_CHANKS)
+				info->setNumOfChanks(tokenToSizeT(*itr));
 		}
 		//Value (std::string) element
 		else if(matchingRegex(*itr,RGX_VAL_STRING))
@@ -330,7 +333,7 @@ void TiledMap2P5DFileParser::tokenToTiledMapInfo(
 	--itr;
 
 	//debug
-	// debugLogForTiledMapInfo(info);
+	debugLogForTiledMapInfo(info);
 
 	//Release
 	info->release();
@@ -386,7 +389,7 @@ TiledLayerInfo* TiledMap2P5DFileParser::tokenToTiledLayerInfo(
 	--itr;
 
 	//debug
-	// debugLogForTiledLayerInfo(info);
+	debugLogForTiledLayerInfo(info);
 	//Release
 	info->release();
 
@@ -434,7 +437,7 @@ TiledLayerBundlerInfo* TiledMap2P5DFileParser::tokenToTiledLayerBundlerInfo(
 	--itr;
 
 	//debug
-	// debugLogForTiledLayerBundlerInfo(info);
+	debugLogForTiledLayerBundlerInfo(info);
 	//Release
 	info->release();
 
@@ -500,7 +503,7 @@ TilesheetInfo* TiledMap2P5DFileParser::tokenToTilesheetInfo(
 	--itr;
 
 	//debug
-	// debugLogForTilesheetInfo(info);
+	debugLogForTilesheetInfo(info);
 	//Release
 	info->release();
 
@@ -513,6 +516,7 @@ void TiledMap2P5DFileParser::debugLogForTiledMapInfo(TiledMapInfo* info)
 	log("\n**\tDEBUG LOG OF TiledMapInfo\t**");
 	log("TiledMapInfo::GridWidth::%zu",info->getMapGridWidth());
 	log("TiledMapInfo::GridHeight::%zu",info->getMapGridHeight());
+	log("TiledMapInfo::NumOfChanks::%zu",info->getNumOfChanks());
 	for(auto str:info->getArchitecture())
 	{
 		log("TiledMapInfo::Architecture::%s",str.c_str());
@@ -631,6 +635,7 @@ void TiledMapInfo::addElementToArchitecture(std::string element)
 TiledMapInfo::TiledMapInfo()
 :_mapGridWidth(0)
 ,_mapGridHeight(0)
+,_numOfChanks(0)
 {}
 
 TiledMapInfo::~TiledMapInfo()
