@@ -2,6 +2,7 @@
 #define TILED_LAYER_H
 
 #include "../cocos2d/cocos/cocos2d.h"
+#include <mutex>
 
 /**
  * TiledLayer class is a member of the namespace 'TM25Component'.
@@ -103,6 +104,8 @@ private:
 	 * The array contains indexes of staged chanks.
 	 */
 	int* _indexesOfChank;
+
+	std::mutex _mtx;
 
 	/**
 	 * Save all staged chanks to the terrain file.

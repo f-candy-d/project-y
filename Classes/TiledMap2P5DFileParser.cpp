@@ -308,6 +308,8 @@ void TiledMap2P5DFileParser::tokenToTiledMapInfo(
 				info->setMapGridHeight(tokenToSizeT(*itr));
 			else if(current_element == ELM_NUM_OF_CHANKS)
 				info->setNumOfChanks(tokenToSizeT(*itr));
+			else if(current_element == ELM_TILE_SIZE)
+				info->setTileOneSide(tokenToSizeT(*itr));
 		}
 		//Value (std::string) element
 		else if(matchingRegex(*itr,RGX_VAL_STRING))
@@ -636,6 +638,7 @@ TiledMapInfo::TiledMapInfo()
 :_mapGridWidth(0)
 ,_mapGridHeight(0)
 ,_numOfChanks(0)
+,_tileOneSide(0)
 {}
 
 TiledMapInfo::~TiledMapInfo()

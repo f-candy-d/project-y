@@ -276,6 +276,11 @@ private:
 	 */
 	CC_SYNTHESIZE(size_t,_numOfChanks,NumOfChanks);
 
+	/**
+	 * The length of a one side of a tile.
+	 */
+	CC_SYNTHESIZE(size_t,_tileOneSide,TileOneSide);
+
 protected:
 	TiledMapInfo();
 	~TiledMapInfo();

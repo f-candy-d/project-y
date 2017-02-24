@@ -144,6 +144,7 @@ set(GAME_HEADERS
   Classes/TiledMap2P5D.h
   Classes/Chank.h
   Classes/TiledLayer.h
+  Classes/TM25CommonProperty.h
   ${PLATFORM_SPECIFIC_HEADERS}
 )
 

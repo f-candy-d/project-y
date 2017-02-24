@@ -2,7 +2,7 @@
 #define TILED_MAP_2P5D_H
 
 #include "../cocos2d/cocos/cocos2d.h"
-#include "TiledMap2P5DFileParser.h"
+// #include "TiledMap2P5DFileParser.h"
 
 namespace TM25Component {
 
@@ -10,6 +10,8 @@ namespace TM25Component {
 	class TiledLayerBundlerInfo;
 	class TiledLayerInfo;
 	class TilesheetInfo;
+	enum class TouchKind;
+	class TiledLayer;
 }
 
 class TiledMap2P5D :public cocos2d::Node
@@ -56,6 +58,20 @@ private:
 	 * A pointer of a TiledMapInfo class object.
 	 */
 	TM25Component::TiledMapInfo* _tiledMapInfo;
+
+	/**
+	 * The delta of x-coordinate of the map from previouos loading of chank to next that.
+	 */
+	float _xDeltaPool;
+
+	TM25Component::TiledLayer* _layer;
+
+	/**
+	 * Pool the delta of x-coordinate of the map from previouos loading of chank to next that.
+	 * If _xDeltaPool is larger than the width of a chank,load a new chank and reset it.
+	 * @param dx [x-delta]
+	 */
+	void poolDeltaX(float dx);
 };
 
 #endif

@@ -4,6 +4,7 @@
 #include <fstream>
 #include <iostream>
 #include <algorithm>
+#include <thread>
 
 USING_NS_CC;
 
@@ -31,8 +32,8 @@ void TiledLayer::loadNewChank(size_t num,LoadDirection direction)
 	for(size_t i = 0; i < num; ++i)
 	{
 		//Cannot load any more!
-		if(0 >= _chanks[_iteratorBegin]->getIndex()
-		|| _chanks[_iteratorEnd]->getIndex() >= _numOfChanks - 1)
+		if((0 >= _chanks[_iteratorBegin]->getIndex() && direction == LoadDirection::LEFT)
+		|| (_chanks[_iteratorEnd]->getIndex() >= _numOfChanks - 1 && direction == LoadDirection::RIGHT))
 			break;
 
 		if(direction == LoadDirection::RIGHT)
@@ -59,6 +60,8 @@ void TiledLayer::loadNewChank(size_t num,LoadDirection direction)
 			_iteratorBegin = _iteratorEnd;
 			_iteratorEnd = (_iteratorEnd - 1 >= 0) ? _iteratorEnd - 1 : _capacity - 1;
 		}
+		log("Loaded new chank :: %s :: b=%d[index=%d] :: e=%d[index=%d]",
+			(direction==LoadDirection::RIGHT?"RIGHT":"LEFT"),_iteratorBegin,_chanks[_iteratorBegin]->getIndex(),_iteratorEnd,_chanks[_iteratorEnd]->getIndex());
 	}
 }
 
@@ -82,6 +85,10 @@ TiledLayer::TiledLayer()
 TiledLayer::~TiledLayer()
 {
 	saveAllStagedChank();
+	for(size_t i = 0; i < _capacity; ++i)
+	{
+		_chanks[i]->release();
+	}
 	delete [] _chanks;
 	delete [] _indexesOfChank;
 }
@@ -111,11 +118,14 @@ bool TiledLayer::initWithParams(
 	for(size_t i = 0; i < _capacity; ++i)
 	{
 		_chanks[i] = Chank::createWithParam(sheetInfo->getTileSize(),i);
+		_chanks[i]->retain();
 		loadTerrain(_chanks[i]);
 		//Do not store tile sprites for now...
 		if(_chanks[i])
 			_chanks[i]->makeTiles(_batchNode,sheetInfo,false);
 	}
+
+	_chanks[0]->getIndex();
 
 	return true;
 }
@@ -132,25 +142,32 @@ void TiledLayer::saveAllStagedChank()
 
 void TiledLayer::loadTerrain(TM25Component::Chank* chank)
 {
-	std::ifstream i_stream(_layerInfo->getPathTerrainFile().c_str(),std::ios::binary|std::ios::in);
+	std::string path = _layerInfo->getPathTerrainFile();
+	size_t numType = _sheetInfo->getNumOfTileType();
+	auto th = std::thread([chank,path,numType]() {
+	std::ifstream i_stream(path.c_str(),std::ios::binary|std::ios::in);
 	int buf;
 
 	if(!i_stream)
 	{
-		std::cout << "IN::ERROR!! >> Cannot open " << _layerInfo->getPathTerrainFile() << '\n';
+		std::cout << "IN::ERROR!! >> Cannot open " << path << '\n';
 		return;
 	}
 
-	i_stream.seekg(
-		chank->getIndex() * Chank::GRID_WIDTH * Chank::GRID_HEIGHT * sizeof(int),
-		std::ios::beg);
+	std::cout << "Load terrain" << '\n';
 
-	for (size_t i = 0, num = Chank::GRID_WIDTH * Chank::GRID_HEIGHT; i < num; ++i)
-	{
-		i_stream.read((char*)&buf,sizeof(int));
-		if(0 < buf && buf < _sheetInfo->getNumOfTileType())
+		i_stream.seekg(
+				chank->getIndex() * Chank::GRID_WIDTH * Chank::GRID_HEIGHT * sizeof(int),
+				std::ios::beg);
+
+		for (size_t i = 0, num = Chank::GRID_WIDTH * Chank::GRID_HEIGHT; i < num; ++i)
+		{
+			i_stream.read((char*)&buf,sizeof(int));
+			if(0 < buf && buf < numType)
 			chank->insertTypeAt(i,buf);
-	}
+		}
+	});
+	th.detach();
 }
 
 void TiledLayer::saveTerrain(TM25Component::Chank *chank)
@@ -166,6 +183,8 @@ void TiledLayer::saveTerrain(TM25Component::Chank *chank)
 			std::cout << "OUT::ERROR!! >> Cannot open " << _layerInfo->getPathTerrainFile() << '\n';
 			return;
 		}
+
+		std::cout << "Save terrain" << '\n';
 
 		o_stream.seekp(
 			chank->getIndex() * Chank::GRID_WIDTH * Chank::GRID_HEIGHT * sizeof(int),
