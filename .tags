@@ -279,27 +279,6 @@ SBN	/home/daichi/dev/projects/cocos/ProjectY/Classes/SBN.cpp	/^SBN::SBN()$/;"	fu
 ~SBN	/home/daichi/dev/projects/cocos/ProjectY/Classes/SBN.cpp	/^SBN::~SBN()$/;"	function	line:22	class:SBN	signature:()
 init	/home/daichi/dev/projects/cocos/ProjectY/Classes/SBN.cpp	/^bool SBN::init()$/;"	function	line:27	class:SBN	signature:()
 SBN	/home/daichi/dev/projects/cocos/ProjectY/Classes/SBN.h	/^class SBN : public cocos2d::SpriteBatchNode$/;"	class	line:3
-designResolutionSize	/home/daichi/dev/projects/cocos/ProjectY/Classes/AppDelegate.cpp	/^static cocos2d::Size designResolutionSize = cocos2d::Size(1024, 768);$/;"	variable	line:6	file:
-smallResolutionSize	/home/daichi/dev/projects/cocos/ProjectY/Classes/AppDelegate.cpp	/^static cocos2d::Size smallResolutionSize = cocos2d::Size(480, 320);$/;"	variable	line:7	file:
-mediumResolutionSize	/home/daichi/dev/projects/cocos/ProjectY/Classes/AppDelegate.cpp	/^static cocos2d::Size mediumResolutionSize = cocos2d::Size(1024, 768);$/;"	variable	line:8	file:
-largeResolutionSize	/home/daichi/dev/projects/cocos/ProjectY/Classes/AppDelegate.cpp	/^static cocos2d::Size largeResolutionSize = cocos2d::Size(2048, 1536);$/;"	variable	line:9	file:
-AppDelegate	/home/daichi/dev/projects/cocos/ProjectY/Classes/AppDelegate.cpp	/^AppDelegate::AppDelegate()$/;"	function	line:11	class:AppDelegate	signature:()
-~AppDelegate	/home/daichi/dev/projects/cocos/ProjectY/Classes/AppDelegate.cpp	/^AppDelegate::~AppDelegate()$/;"	function	line:15	class:AppDelegate	signature:()
-initGLContextAttrs	/home/daichi/dev/projects/cocos/ProjectY/Classes/AppDelegate.cpp	/^void AppDelegate::initGLContextAttrs()$/;"	function	line:21	class:AppDelegate	signature:()
-register_all_packages	/home/daichi/dev/projects/cocos/ProjectY/Classes/AppDelegate.cpp	/^static int register_all_packages()$/;"	function	line:31	file:	signature:()
-applicationDidFinishLaunching	/home/daichi/dev/projects/cocos/ProjectY/Classes/AppDelegate.cpp	/^bool AppDelegate::applicationDidFinishLaunching() {$/;"	function	line:36	class:AppDelegate	signature:()
-applicationDidEnterBackground	/home/daichi/dev/projects/cocos/ProjectY/Classes/AppDelegate.cpp	/^void AppDelegate::applicationDidEnterBackground() {$/;"	function	line:86	class:AppDelegate	signature:()
-applicationWillEnterForeground	/home/daichi/dev/projects/cocos/ProjectY/Classes/AppDelegate.cpp	/^void AppDelegate::applicationWillEnterForeground() {$/;"	function	line:94	class:AppDelegate	signature:()
-CHANK_H	/home/daichi/dev/projects/cocos/ProjectY/Classes/Chank.h	/^#define CHANK_H$/;"	macro	line:2
-u_int	/home/daichi/dev/projects/cocos/ProjectY/Classes/Chank.h	/^typedef unsigned int u_int;$/;"	typedef	line:6
-u_l_int	/home/daichi/dev/projects/cocos/ProjectY/Classes/Chank.h	/^typedef unsigned long int u_l_int;$/;"	typedef	line:7
-TM25Component	/home/daichi/dev/projects/cocos/ProjectY/Classes/Chank.h	/^namespace TM25Component {$/;"	namespace	line:12
-Chank	/home/daichi/dev/projects/cocos/ProjectY/Classes/Chank.h	/^class Chank :public cocos2d::Ref$/;"	class	line:17	namespace:TM25Component
-GRID_WIDTH	/home/daichi/dev/projects/cocos/ProjectY/Classes/Chank.h	/^	static const size_t GRID_WIDTH = 4;$/;"	member	line:27	class:TM25Component::Chank
-GRID_HEIGHT	/home/daichi/dev/projects/cocos/ProjectY/Classes/Chank.h	/^	static const size_t GRID_HEIGHT = 8;$/;"	member	line:28	class:TM25Component::Chank
-_haveSprites	/home/daichi/dev/projects/cocos/ProjectY/Classes/Chank.h	/^	bool _haveSprites;$/;"	member	line:116	class:TM25Component::Chank
-_tiles	/home/daichi/dev/projects/cocos/ProjectY/Classes/Chank.h	/^	int _tiles[GRID_WIDTH * GRID_HEIGHT] = {};$/;"	member	line:122	class:TM25Component::Chank
-_sprites	/home/daichi/dev/projects/cocos/ProjectY/Classes/Chank.h	/^	cocos2d::Vector<cocos2d::Sprite*> _sprites;$/;"	member	line:127	class:TM25Component::Chank
 TM25Component	/home/daichi/dev/projects/cocos/ProjectY/Classes/Chank.cpp	/^namespace TM25Component {$/;"	namespace	line:7	file:
 createWithParam	/home/daichi/dev/projects/cocos/ProjectY/Classes/Chank.cpp	/^Chank* Chank::createWithParam(cocos2d::Size size, int index)$/;"	function	line:12	class:TM25Component::Chank	signature:(cocos2d::Size size, int index)
 makeTiles	/home/daichi/dev/projects/cocos/ProjectY/Classes/Chank.cpp	/^void Chank::makeTiles($/;"	function	line:25	class:TM25Component::Chank	signature:( cocos2d::SpriteBatchNode *parent,TilesheetInfo *tilesheetInfo,bool storeSprites)
@@ -410,3 +389,24 @@ TiledMap2P5D	/home/daichi/dev/projects/cocos/ProjectY/Classes/TiledMap2P5D.cpp	/
 ~TiledMap2P5D	/home/daichi/dev/projects/cocos/ProjectY/Classes/TiledMap2P5D.cpp	/^TiledMap2P5D::~TiledMap2P5D()$/;"	function	line:15	class:TiledMap2P5D	signature:()
 initWithFile	/home/daichi/dev/projects/cocos/ProjectY/Classes/TiledMap2P5D.cpp	/^bool TiledMap2P5D::initWithFile(std::string path)$/;"	function	line:21	class:TiledMap2P5D	signature:(std::string path)
 createWithFile	/home/daichi/dev/projects/cocos/ProjectY/Classes/TiledMap2P5D.cpp	/^TiledMap2P5D* TiledMap2P5D::createWithFile(std::string path)$/;"	function	line:45	class:TiledMap2P5D	signature:(std::string path)
+CHANK_H	/home/daichi/dev/projects/cocos/ProjectY/Classes/Chank.h	/^#define CHANK_H$/;"	macro	line:2
+u_int	/home/daichi/dev/projects/cocos/ProjectY/Classes/Chank.h	/^typedef unsigned int u_int;$/;"	typedef	line:6
+u_l_int	/home/daichi/dev/projects/cocos/ProjectY/Classes/Chank.h	/^typedef unsigned long int u_l_int;$/;"	typedef	line:7
+TM25Component	/home/daichi/dev/projects/cocos/ProjectY/Classes/Chank.h	/^namespace TM25Component {$/;"	namespace	line:12
+Chank	/home/daichi/dev/projects/cocos/ProjectY/Classes/Chank.h	/^class Chank :public cocos2d::Ref$/;"	class	line:17	namespace:TM25Component
+GRID_WIDTH	/home/daichi/dev/projects/cocos/ProjectY/Classes/Chank.h	/^	static const size_t GRID_WIDTH = 16;$/;"	member	line:25	class:TM25Component::Chank
+GRID_HEIGHT	/home/daichi/dev/projects/cocos/ProjectY/Classes/Chank.h	/^	static const size_t GRID_HEIGHT = 256;$/;"	member	line:26	class:TM25Component::Chank
+_haveSprites	/home/daichi/dev/projects/cocos/ProjectY/Classes/Chank.h	/^	bool _haveSprites;$/;"	member	line:114	class:TM25Component::Chank
+_tiles	/home/daichi/dev/projects/cocos/ProjectY/Classes/Chank.h	/^	int _tiles[GRID_WIDTH * GRID_HEIGHT] = {};$/;"	member	line:120	class:TM25Component::Chank
+_sprites	/home/daichi/dev/projects/cocos/ProjectY/Classes/Chank.h	/^	cocos2d::Vector<cocos2d::Sprite*> _sprites;$/;"	member	line:125	class:TM25Component::Chank
+designResolutionSize	/home/daichi/dev/projects/cocos/ProjectY/Classes/AppDelegate.cpp	/^static cocos2d::Size designResolutionSize = cocos2d::Size(1024, 768);$/;"	variable	line:6	file:
+smallResolutionSize	/home/daichi/dev/projects/cocos/ProjectY/Classes/AppDelegate.cpp	/^static cocos2d::Size smallResolutionSize = cocos2d::Size(480, 320);$/;"	variable	line:7	file:
+mediumResolutionSize	/home/daichi/dev/projects/cocos/ProjectY/Classes/AppDelegate.cpp	/^static cocos2d::Size mediumResolutionSize = cocos2d::Size(1024, 768);$/;"	variable	line:8	file:
+largeResolutionSize	/home/daichi/dev/projects/cocos/ProjectY/Classes/AppDelegate.cpp	/^static cocos2d::Size largeResolutionSize = cocos2d::Size(2048, 1536);$/;"	variable	line:9	file:
+AppDelegate	/home/daichi/dev/projects/cocos/ProjectY/Classes/AppDelegate.cpp	/^AppDelegate::AppDelegate()$/;"	function	line:11	class:AppDelegate	signature:()
+~AppDelegate	/home/daichi/dev/projects/cocos/ProjectY/Classes/AppDelegate.cpp	/^AppDelegate::~AppDelegate()$/;"	function	line:15	class:AppDelegate	signature:()
+initGLContextAttrs	/home/daichi/dev/projects/cocos/ProjectY/Classes/AppDelegate.cpp	/^void AppDelegate::initGLContextAttrs()$/;"	function	line:21	class:AppDelegate	signature:()
+register_all_packages	/home/daichi/dev/projects/cocos/ProjectY/Classes/AppDelegate.cpp	/^static int register_all_packages()$/;"	function	line:31	file:	signature:()
+applicationDidFinishLaunching	/home/daichi/dev/projects/cocos/ProjectY/Classes/AppDelegate.cpp	/^bool AppDelegate::applicationDidFinishLaunching() {$/;"	function	line:36	class:AppDelegate	signature:()
+applicationDidEnterBackground	/home/daichi/dev/projects/cocos/ProjectY/Classes/AppDelegate.cpp	/^void AppDelegate::applicationDidEnterBackground() {$/;"	function	line:86	class:AppDelegate	signature:()
+applicationWillEnterForeground	/home/daichi/dev/projects/cocos/ProjectY/Classes/AppDelegate.cpp	/^void AppDelegate::applicationWillEnterForeground() {$/;"	function	line:94	class:AppDelegate	signature:()

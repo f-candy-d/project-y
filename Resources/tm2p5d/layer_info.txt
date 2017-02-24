@@ -2,5 +2,5 @@
 $(TiledLayerInfo
 	(LayerName @(string : test_layer))
 	(SheetName @(string : test_sheet))
-	(Terrain   @(string : Resources/tm2p5d/terrain/terrain_test.bin))
+	(Terrain   @(string : Resources/tm2p5d/terrain/terrain_demo_rb.bin))
 	(Visible   @(bool   : true)))

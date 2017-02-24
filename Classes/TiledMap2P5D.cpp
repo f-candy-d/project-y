@@ -33,7 +33,7 @@ bool TiledMap2P5D::initWithFile(std::string path)
 		return false;
 
 	//Test
-	auto layer = TM25Component::TiledLayer::createWithParams(2,_tilesheetInfoMap.at("test_sheet"),_tiledLayerInfoMap.at("test_layer"),_tiledMapInfo);
+	auto layer = TM25Component::TiledLayer::createWithParams(3,_tilesheetInfoMap.at("test_sheet"),_tiledLayerInfoMap.at("test_layer"),_tiledMapInfo);
 	this->addChild(layer);
 
 	return true;

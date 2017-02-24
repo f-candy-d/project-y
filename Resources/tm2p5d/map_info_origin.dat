@@ -4,7 +4,7 @@
 $(TiledMapInfo
 	(GridWidth   @(sizeT : 1024))
 	(GridHeight  @(sizeT :  256))
-	(NumOfChanks @(sizeT :    2))
+	(NumOfChanks @(sizeT :    20))
 	(Architecture
 		@(string : demo_layer)
 		@(string : layer_bundler1)
